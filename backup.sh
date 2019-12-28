@@ -12,7 +12,7 @@ fi
 cp -r $HOME/.config/i3 .
 cp -r $HOME/.config/polybar .
 cp -r $HOME/.config/termite .
-cp $HOME/{.vimrc,.bash_profile} .
+cp $HOME/{.vimrc,.bash_profile,.Xresources} .
 
 # Check git status
 gs="$(git status | grep -i "modified")"
