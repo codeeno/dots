@@ -6,6 +6,7 @@ set nocompatible          " disable vi compatibility
 syntax on                 " turn on syntax highlighting
 filetype plugin indent on " Load plugins according to detected filetype.
 set nu
+set termguicolors
 
 set autoindent
 set expandtab
