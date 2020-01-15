@@ -35,6 +35,9 @@ Plugin 'tomasiser/vim-code-dark'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 filetype plugin indent on " required
@@ -52,7 +55,14 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 "#######################
 let mapleader=" "
 
+" Exit insert mode more comfortably
 inoremap jk <ESC>:w<CR>
+
+"Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
 " Rebind toggle comments to CTRL-/
 nmap <C-_> <plug>NERDCommenterToggle
@@ -68,3 +78,13 @@ nmap ga <Plug>(EasyAlign)
 "Visuals
 "#######################
 colorscheme codedark
+
+"smart indent when entering insert mode with i on empty lines
+function! IndentWithI()
+    if len(getline('.')) == 0
+        return "\"_cc"
+    else
+        return "i"
+    endif
+endfunction
+nnoremap <expr> i IndentWithI()

@@ -455,9 +455,9 @@ menu-0-1-exec = menu-open-1
 menu-0-2 = Power off
 menu-0-2-foreground = ${colors.accent}
 menu-0-2-exec = menu-open-2
-menu-0-3 = Lock
+menu-0-3 = Logout
 menu-0-3-foreground = ${colors.accent}
-menu-0-3-exec = lockscreen
+menu-0-3-exec = i3-msg exit
 
 menu-1-0 = Cancel
 menu-1-0-foreground = ${colors.accent}

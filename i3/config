@@ -194,6 +194,10 @@ exec_always --no-startup-id xset m 0 1
 # Rebind caps to escape
 exec_always --no-startup-id setxkbmap -option caps:escape
 
+# Disable that goddamn annoying bell
+exec_always --no-startup-id xset -b
+
+
 ####################
 ### Visual Stuff ###
 ####################
