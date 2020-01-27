@@ -15,32 +15,25 @@ set softtabstop=4
 set expandtab
 
 "#######################
-"Vundle
+"Plug
 "#######################
 
-filetype off " required
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'itchyny/lightline.vim'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'moll/vim-node'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'tomasiser/vim-code-dark'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'tpope/vim-surround'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'ycm-core/YouCompleteMe'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+Plug 'scrooloose/nerdtree'
+Plug 'itchyny/lightline.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'moll/vim-node'
+Plug 'junegunn/vim-easy-align'
+Plug 'scrooloose/nerdcommenter'
+Plug 'flazz/vim-colorschemes'
+Plug 'tomasiser/vim-code-dark'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
+Plug 'ycm-core/YouCompleteMe'
 
-call vundle#end()
-filetype plugin indent on " required
+call plug#end()
 
 "#######################
 "Plugins
@@ -88,3 +81,4 @@ function! IndentWithI()
     endif
 endfunction
 nnoremap <expr> i IndentWithI()
+
