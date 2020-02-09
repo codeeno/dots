@@ -18,7 +18,6 @@ font pango:monospace 8
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
-
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -197,6 +196,8 @@ exec_always --no-startup-id setxkbmap -option caps:escape
 # Disable that goddamn annoying bell
 exec_always --no-startup-id xset -b
 
+# Disable that goddamn annoying bell
+exec_always --no-startup-id dunst
 
 ####################
 ### Visual Stuff ###
@@ -226,6 +227,8 @@ bindsym $mod+Tab   exec --no-startup-id "rofi -show combi run,window"
 # Volume controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 10%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 10%-
+bindsym $mod+Insert exec --no-startup-id amixer -q sset Master 5%+
+bindsym $mod+Delete exec --no-startup-id amixer -q sset Master 5%-
 
 # Backlight controls
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10  
