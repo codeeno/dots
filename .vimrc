@@ -64,8 +64,8 @@ vmap <C-_> <plug>NERDCommenterToggle<CR>gv
 nmap <C-n> :NERDTreeToggle<CR>
 
 " Easier tab navigation
-nnoremap <C-S-tab> :tabprevious<CR>
-nnoremap <C-tab>   :tabnext<CR>
+nnoremap <C-Left>  :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
 nnoremap <C-t>     :tabnew<CR>
 inoremap <C-S-tab> <Esc>:tabprevious<CR>i
 inoremap <C-tab>   <Esc>:tabnext<CR>i
