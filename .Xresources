@@ -10,12 +10,25 @@ rofi.color-urgent: #2e3440, #ebcb8b, #2e3440, #2e3440, #ebcb8b
 rofi.modi: run,drun,window
 
 ! ------------------------------------------------------------------------------
+! Xft configs
+! ------------------------------------------------------------------------------
+
+Xft.dpi: 92
+Xft.antialias: 1
+Xft.rgba: rgb
+
+! ------------------------------------------------------------------------------
 ! urxvt configs
 ! ------------------------------------------------------------------------------
 
 URxvt.scrollBar: false
 URxvt.saveLines: 1000
 URxvt.scrollWithBuffer: true
+
+URxvt.font:           xft:DejaVu Sans Mono:style=Book:pixelsize=12
+URxvt.boldFont:       xft:DejaVu Sans Mono:style=Bold:pixelsize=12
+URxvt.italicFont:     xft:DejaVu Sans Mono:style=Oblique:pixelsize=12
+URxvt.boldItalicFont: xft:DejaVu Sans Mono:style=BoldOblique:pixelsize=12
 
 ! Dracula Xresources palette
 *.foreground: #F8F8F2

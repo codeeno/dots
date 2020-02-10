@@ -32,6 +32,8 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
+let &t_ut='' " fix incorrect background rendering in kitty
+
 "#######################
 "NERDTree Stuff
 "#######################
