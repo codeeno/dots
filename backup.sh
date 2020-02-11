@@ -13,7 +13,7 @@ cp -r $HOME/.config/i3 .
 cp -r $HOME/.config/polybar .
 cp -r $HOME/.config/kitty .
 cp -r $HOME/.config/dunst .
-cp $HOME/{.vimrc,.bashrc,.Xresources} .
+cp $HOME/{.vimrc,.zshrc,.Xresources} .
 
 # Check git status
 gs="$(git status | grep -i "modified")"
