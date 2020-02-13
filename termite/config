@@ -11,7 +11,7 @@ cursor_blink = system
 cursor_shape = block
 dynamic_title = true
 filter_unmatched_urls = true
-font = DejaVuSansMono Nerd Font 10
+font = FuraCode Nerd Font 10
 geometry = 480x280
 icon_name = terminal
 modify_other_keys = false
@@ -26,33 +26,34 @@ highlight = #30343e
 
 [colors]
 
-# https://github.com/chriskempson/base16-xresources/blob/master/base16-tomorrow.dark.256.xresources
-# Base16 Tomorrow
-# Scheme: Chris Kempson (http://chriskempson.com)
-foreground=#c5c8c6
-background=#1d1f21
-cursor=#c5c8c6
+# https://draculatheme.com/
+# https://github.com/dracula/xresources/blob/master/Xresources
+# special
+foreground=#f8f8f2
+cursor=#f8f8f2
+background=#282a36
+# black
+color0=#000000
+color8=#4d4d4d
+# red
+color1=#ff5555
+color9=#ff6e67
+# green
+color2=#50fa7b
+color10=#5af78e
+# yellow
+color3=#f1fa8c
+color11=#f4f99d
+# blue
+color4=#caa9fa
+color12=#caa9fa
+# magenta
+color5=#ff79c6
+color13=#ff92d0
+# cyan
+color6=#8be9fd
+color14=#9aedfe
+# white
+color7=#bfbfbf
+color15=#e6e6e6
 
-color0=#1d1f21
-color1=#cc6666
-color2=#b5bd68
-color3=#f0c674
-color4=#81a2be
-color5=#b294bb
-color6=#8abeb7
-color7=#c5c8c6
-color8=#969896
-color9=#cc6666
-color10=#b5bd68
-color11=#f0c674
-color12=#81a2be
-color13=#b294bb
-color14=#8abeb7
-color15=#ffffff
-
-color16=#de935f
-color17=#a3685a
-color18=#282a2e
-color19=#373b41
-color20=#b4b7b4
-color21=#e0e0e0

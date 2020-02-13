@@ -3,8 +3,8 @@
 "#######################
 
 call plug#begin('~/.vim/plugged')
-
 Plug 'scrooloose/nerdtree'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'flazz/vim-colorschemes'
@@ -12,7 +12,15 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
+Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Colorschemes
+Plug 'mhartington/oceanic-next'
+Plug 'kaicataldo/material.vim'
+Plug 'joshdick/onedark.vim'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'KeitaNakamura/neodark.vim'
 
 call plug#end()
 
@@ -24,7 +32,7 @@ set nocompatible          " disable vi compatibility
 syntax on                 " turn on syntax highlighting
 filetype plugin indent on " Load plugins according to detected filetype.
 set nu
-set termguicolors
+set termguicolors         " Required for many colorschemes
 
 set autoindent
 set expandtab
@@ -61,7 +69,7 @@ nmap <C-_> <plug>NERDCommenterToggle
 vmap <C-_> <plug>NERDCommenterToggle<CR>gv
 
 " Toggle NERDTree
-nmap <C-n> :NERDTreeToggle<CR>
+nmap <leader>n :NERDTreeToggle<CR>
 
 " Easier tab navigation
 nnoremap <C-Left>  :tabprevious<CR>
@@ -71,10 +79,19 @@ inoremap <C-S-tab> <Esc>:tabprevious<CR>i
 inoremap <C-tab>   <Esc>:tabnext<CR>i
 inoremap <C-t>     <Esc>:tabnew<CR>
 
+"copying/pasting to/from system clipboard
+noremap <Leader>y "+y
+noremap <Leader>p "+p
+
 "#######################
 "Visuals
 "#######################
-colorscheme codedark
+
+" Colorscheme
+"set background=dark
+let g:lightline = { 'colorscheme': 'palenight' }
+let g:palenight_terminal_italics=1
+colorscheme palenight
 
 "smart indent when entering insert mode with i on empty lines
 function! IndentWithI()
@@ -86,10 +103,16 @@ function! IndentWithI()
 endfunction
 nnoremap <expr> i IndentWithI()
 
+" Change highlight colors
+highlight CocHighlightText  ctermbg=237 guibg=#3E4452
+highlight CocHighlightRead  ctermbg=237 guibg=#3E4452
+highlight CocHighlightWrite ctermbg=237 guibg=#3E4452
+highlight Matchparen        ctermbg=237 guibg=#3E4452
+
 "#######################
 "COC Stuff
 "#######################
-let g:coc_global_extensions = [ 'coc-snippets', 'coc-python', 'coc-rls', 'coc-tsserver', 'coc-json', ]
+let g:coc_global_extensions = [ 'coc-snippets', 'coc-python', 'coc-rls', 'coc-tsserver', 'coc-json', 'coc-eslint']
 
 " if hidden is not set, TextEdit might fail.
 set hidden
@@ -155,3 +178,4 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
+

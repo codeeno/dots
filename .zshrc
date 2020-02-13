@@ -5,6 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+export PATH="$PATH:$HOME/bin"
+
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -115,8 +118,6 @@ source $ZSH/oh-my-zsh.sh
 
 unalias ll
 alias ll='exa --long --all --git --header'
-alias cc='kitty +kitten clipboard'
-alias pp='kitty +kitten clipboard --get-clipboard'
 alias aws='aws2'
 
 # Enable ZSH Vi mode
