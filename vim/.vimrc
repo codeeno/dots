@@ -95,6 +95,18 @@ let g:lightline = { 'colorscheme': 'palenight' }
 let g:palenight_terminal_italics=1
 colorscheme palenight
 
+
+" Change highlight colors
+highlight CocHighlightText  ctermbg=237 guibg=#3E4452
+highlight CocHighlightRead  ctermbg=237 guibg=#3E4452
+highlight CocHighlightWrite ctermbg=237 guibg=#3E4452
+highlight Matchparen        ctermbg=237 guibg=#3E4452
+highlight CocErrorSign                  guifg=#ff5370 
+
+"#######################
+"Misc
+"#######################
+
 "smart indent when entering insert mode with i on empty lines
 function! IndentWithI()
     if len(getline('.')) == 0
@@ -104,13 +116,6 @@ function! IndentWithI()
     endif
 endfunction
 nnoremap <expr> i IndentWithI()
-
-" Change highlight colors
-highlight CocHighlightText  ctermbg=237 guibg=#3E4452
-highlight CocHighlightRead  ctermbg=237 guibg=#3E4452
-highlight CocHighlightWrite ctermbg=237 guibg=#3E4452
-highlight Matchparen        ctermbg=237 guibg=#3E4452
-highlight CocErrorSign                  guifg=#ff5370 
 
 "#######################
 "fzf Configs
