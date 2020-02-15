@@ -90,7 +90,7 @@ nnoremap <leader>gi :GFiles?<CR>
 "#######################
 
 " Colorscheme
-"set background=dark
+set background=dark
 let g:lightline = { 'colorscheme': 'palenight' }
 let g:palenight_terminal_italics=1
 colorscheme palenight
