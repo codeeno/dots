@@ -13,9 +13,10 @@ cp -r $HOME/.config/i3 .
 cp -r $HOME/.config/polybar .
 cp -r $HOME/.config/termite .
 cp -r $HOME/.config/dunst .
-cp $HOME/{.vimrc,.vim/coc-settings.json} ./vim
+cp $HOME/{.Xresources,.vimrc} .
 cp $HOME/{.zshrc,.p10k.zsh} ./zsh
-cp $HOME/.Xresources .
+cp $HOME/.vim/coc-settings.json ./vim
+cp $HOME/.vimrc ./vim
 
 # Check git status
 gs="$(git status | grep -i "modified")"
