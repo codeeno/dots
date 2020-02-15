@@ -15,8 +15,7 @@ cp -r $HOME/.config/termite .
 cp -r $HOME/.config/dunst .
 cp $HOME/{.Xresources,.vimrc} .
 cp $HOME/{.zshrc,.p10k.zsh} ./zsh
-cp $HOME/.vim/coc-settings.json ./vim
-cp $HOME/.vimrc ./vim
+cp $HOME/{.vimrc,.vim/coc-settings.json} ./vim
 
 # Check git status
 gs="$(git status | grep -i "modified")"
