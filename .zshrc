@@ -6,6 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 
 
 # If you come from bash you might have to change your $PATH.

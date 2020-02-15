@@ -188,7 +188,7 @@ exec_always --no-startup-id xrdb ~/.Xresources
 exec_always --no-startup-id feh --bg-fill ~/Pictures/alena-aenami-s1k.jpg
 
 # Disable Mouse Accel
-exec_always --no-startup-id xset m 0 1
+exec_always --no-startup-id xinput --set-prop 21 'libinput Accel Profile Enabled' 0, 1
 
 # Rebind caps to escape
 exec_always --no-startup-id setxkbmap -option caps:escape
