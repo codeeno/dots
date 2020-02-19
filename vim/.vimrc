@@ -55,11 +55,15 @@ nnoremap <leader>s :update<CR>
 " Exit insert mode more comfortably and save
 inoremap jk <ESC>:w<CR>
 
-" Smart way to move between windows
+" Smart way to move between splits
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
+" Vertical resize
+nnoremap <silent> <Leader>, :vertical resize +5<CR>
+nnoremap <silent> <Leader>. :vertical resize -5<CR>
 
 " Rebind toggle comments to CTRL-/
 nmap <C-_> <plug>NERDCommenterToggle

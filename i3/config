@@ -219,10 +219,10 @@ gaps outer 0
 # Navigate workspaces next / previous
 bindsym $mod+Ctrl+l workspace next
 bindsym $mod+Ctrl+h workspace prev
+bindsym $mod+Tab workspace back_and_forth
 
 # Rofi bindings
-bindsym $mod+space exec --no-startup-id "rofi -show run"
-bindsym $mod+Tab   exec --no-startup-id "rofi -show combi run,window"
+bindsym $mod+space exec --no-startup-id rofi -show run -kb-cancel Alt+space
 
 # Volume controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 10%+
