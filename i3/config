@@ -187,8 +187,10 @@ exec_always --no-startup-id xrdb ~/.Xresources
 # Wallpaper
 exec_always --no-startup-id feh --bg-fill ~/Pictures/010.png
 
-# Disable Mouse Accel
-exec_always --no-startup-id xinput --set-prop 21 'libinput Accel Profile Enabled' 0, 1
+# Disable Mouse Acceleration & Set mouse sensitivity
+exec_always --no-startup-id xinput --set-prop 'Logitech Gaming Mouse G502' 'libinput Accel Profile Enabled' 0, 1
+exec_always --no-startup-id xinput --set-prop 'Logitech Gaming Mouse G502' 'Coordinate Transformation Matrix' 0.700000, 0.000000, 0.000000, 0.000000, 0.700000, 0.000000, 0.000000, 0.000000, 1.000000
+
 
 # Rebind caps to escape
 exec_always --no-startup-id setxkbmap -option caps:escape
