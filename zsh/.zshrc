@@ -127,3 +127,6 @@ alias aws='aws2'
 
 ### Init NVM
 source /usr/share/nvm/init-nvm.sh
+
+### Init python venv
+source ~/pyenv/bin/activate
