@@ -80,7 +80,11 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+  zsh-autosuggestions
+  docker
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -119,7 +123,11 @@ source $ZSH/oh-my-zsh.sh
 
 unalias ll
 alias ll='exa --long --all --git --header'
+alias tree='exa --tree --long --git --header'
 alias aws='aws2'
+alias tg='terragrunt'
+alias tg='terraform'
+alias groot='cd $(git rev-parse --show-toplevel)'
 
 # Enable ZSH Vi mode
 #bindkey -v
