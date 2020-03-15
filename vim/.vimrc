@@ -7,7 +7,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'itchyny/lightline.vim'
-Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter' 
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
@@ -15,6 +15,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'hashivim/vim-terraform'
 
 " Colorschemes
 Plug 'mhartington/oceanic-next'
@@ -41,6 +42,9 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+set splitbelow
+set splitright
+set backspace=indent,eol,start
 
 let &t_ut='' " fix incorrect background rendering in kitty
 
@@ -49,13 +53,16 @@ let &t_ut='' " fix incorrect background rendering in kitty
 "#######################
 let mapleader="\<Space>"
 
+" Quick suspend vim
+nnoremap <leader><leader> :stop<CR>
+
 " Quick Save
 nnoremap <leader>s :update<CR>
 
 " Exit insert mode more comfortably and save
 inoremap jk <ESC>:w<CR>
 
-" Smart way to move between splits
+" Smart way to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
@@ -98,6 +105,7 @@ set background=dark
 let g:lightline = { 'colorscheme': 'palenight' }
 let g:palenight_terminal_italics=1
 colorscheme palenight
+"colorscheme codedark
 
 
 " Change highlight colors
@@ -105,7 +113,7 @@ highlight CocHighlightText  ctermbg=237 guibg=#3E4452
 highlight CocHighlightRead  ctermbg=237 guibg=#3E4452
 highlight CocHighlightWrite ctermbg=237 guibg=#3E4452
 highlight Matchparen        ctermbg=237 guibg=#3E4452
-highlight CocErrorSign                  guifg=#ff5370 
+highlight CocErrorSign                  guifg=#ff5370
 
 "#######################
 "Misc
@@ -120,6 +128,17 @@ function! IndentWithI()
     endif
 endfunction
 nnoremap <expr> i IndentWithI()
+
+let g:lightline = {
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename'
+      \ }
+      \ }
+function! LightlineFilename()
+  return expand('%')
+endfunction
+
+let g:terraform_fmt_on_save=1
 
 "#######################
 "fzf Configs
@@ -168,13 +187,13 @@ set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-"inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
-"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-"
-"function! s:check_back_space() abort
-"  let col = col('.') - 1
-"  return !col || getline('.')[col - 1]  =~# '\s'
-"endfunction
+inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
@@ -212,15 +231,3 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-let g:coc_snippet_next = '<tab>'
