@@ -1,3 +1,4 @@
+
 {
   "languageserver": {
     "terraform": {
@@ -10,7 +11,8 @@
     "typescript",
     "javascript",
     "json",
-    "rust"
+    "rust",
+    "python"
   ],
   "eslint.autoFixOnSave": true,
   "eslint.quiet": true,
