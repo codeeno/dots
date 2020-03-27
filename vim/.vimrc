@@ -92,7 +92,7 @@ noremap <Leader>y "+y
 noremap <Leader>p "+p
 
 " Some fzf bindings
-nnoremap <leader>f  :Files<CR>
+nnoremap <leader>f  :GFiles<CR>
 nnoremap <leader>li :Lines<CR>
 nnoremap <leader>gi :GFiles?<CR>
 
