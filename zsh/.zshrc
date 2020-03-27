@@ -128,6 +128,7 @@ alias aws='aws2'
 alias tg='terragrunt'
 alias tg='terraform'
 alias groot='cd $(git rev-parse --show-toplevel)'
+alias vimf='vim -o `fzf`'
 
 # Enable ZSH Vi mode
 #bindkey -v
