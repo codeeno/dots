@@ -257,6 +257,7 @@ workspace_auto_back_and_forth yes
 
 # Floating on certain apps
 for_window [class="dolphin"] floating enable
+for_window [class="scummvm"] floating enable
 
 #######################
 ###      Colors     ###
