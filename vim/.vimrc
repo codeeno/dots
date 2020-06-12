@@ -63,10 +63,14 @@ nnoremap <leader>s :update<CR>
 inoremap jk <ESC>:w<CR>
 
 " Smart way to move between windows
-nnoremap <C-j> <C-W>j
-nnoremap <C-k> <C-W>k
-nnoremap <C-h> <C-W>h
-nnoremap <C-l> <C-W>l
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" More ergonomic way to scroll up/down fast
+nnoremap J 10j 
+nnoremap K 10k 
 
 " Vertical resize
 nnoremap <silent> <Leader>, :vertical resize +5<CR>
@@ -164,7 +168,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 "COC Configs
 "#######################
 
-let g:coc_global_extensions = [ 'coc-snippets', 'coc-python', 'coc-rls', 'coc-tsserver', 'coc-json', 'coc-eslint']
+let g:coc_global_extensions = [ 'coc-snippets', 'coc-python', 'coc-rust-analyzer', 'coc-tsserver', 'coc-json', 'coc-eslint']
 
 " if hidden is not set, TextEdit might fail.
 set hidden
@@ -220,7 +224,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> <C-K> :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
