@@ -168,7 +168,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 "COC Configs
 "#######################
 
-let g:coc_global_extensions = [ 'coc-snippets', 'coc-python', 'coc-rust-analyzer', 'coc-tsserver', 'coc-json', 'coc-eslint']
+let g:coc_global_extensions = [ 'coc-snippets', 'coc-python', 'coc-rust-analyzer', 'coc-tsserver', 'coc-json', 'coc-eslint', 'coc-go']
 
 " if hidden is not set, TextEdit might fail.
 set hidden
