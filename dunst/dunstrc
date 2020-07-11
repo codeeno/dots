@@ -1,6 +1,6 @@
 [global]
-    font = rissole 10
-    
+    font = curie 8
+
     # Allow a small subset of html markup:
     #   bold #   italic
     #   strikethrough
@@ -72,7 +72,7 @@
     #geometry = "0x0-0+17"
     #geometry = "0x5-0+38"
     #geometry = "0x5-0+30"
-    geometry = "300x60-20+48"
+    geometry = "0x60-20+48"
     
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.

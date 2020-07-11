@@ -188,6 +188,7 @@ exec_always --no-startup-id dunst
 
 # Set some custom fonts
 exec_always --no-startup-id xset +fp ~/.fonts/misc
+exec_always --no-startup-id xset +fp ~/.fonts/tamzen
 
 ####################
 ### Visual Stuff ###
@@ -249,6 +250,7 @@ workspace_auto_back_and_forth yes
 for_window [class="dolphin"] floating enable
 for_window [class="scummvm"] floating enable
 for_window [class="Blueman-manager"] floating enable
+for_window [class="Pavucontrol"] floating enable
 
 #######################
 ###      Colors     ###

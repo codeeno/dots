@@ -58,9 +58,12 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 0
 
-font-0 = dina:pixelsize=11;1
-font-1 = siji:pixelsize=10;1
-font-2 = unifont:size=6;1
+#font-0 = Terminus:style=Regular;1
+font-0 = Curie:size=12;1
+font-1 = waffle:size=12;2
+font-2 = dina:pixelsize=11;1
+font-3 = siji:pixelsize=10;1
+font-4 = unifont:size=6;1
 
 modules-left = i3 xwindow 
 modules-center = date 
