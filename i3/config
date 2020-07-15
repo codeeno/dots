@@ -167,7 +167,7 @@ exec_always --no-startup-id xrandr --output HDMI2 --right-of eDP1 --mode 1920x10
 
 # Launch Picom with flashfocus
 exec_always --no-startup-id picom
-exec_always --no-startup-id flashfocus&
+exec_always --no-startup-id flashfocus
 
 # Launch Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
@@ -236,11 +236,11 @@ bindsym --release $mod+plus exec --no-startup-id scrot '%Y-%m-%d-%s_screenshot_$
 ### Assign Workspaces ###
 #########################
 
-workspace $ws1 output HDMI2
-workspace $ws2 output HDMI2
-workspace $ws3 output HDMI2
-workspace $ws4 output HDMI2
-workspace $ws5 output HDMI2
+workspace $ws1 output HDMI-2
+workspace $ws2 output HDMI-2
+workspace $ws3 output HDMI-2
+workspace $ws4 output HDMI-2
+workspace $ws5 output HDMI-2
 workspace $ws9 output eDP1
 workspace $ws0 output eDP1
 

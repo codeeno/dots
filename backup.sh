@@ -13,6 +13,7 @@ cp -r $HOME/.config/i3 .
 cp -r $HOME/.config/polybar .
 cp -r $HOME/.config/termite .
 cp -r $HOME/.config/dunst .
+cp -r $HOME/.config/picom .
 cp $HOME/.Xresources .
 cp $HOME/{.zshrc,.p10k.zsh} ./zsh
 cp $HOME/{.vimrc,.vim/coc-settings.json} ./vim
