@@ -3,6 +3,7 @@
 ! ------------------------------------------------------------------------------
 
 rofi.color-enabled: true
+rofi.show-icons: true
 rofi.color-window: #2e3440, #2e3440, #2e3440
 rofi.color-normal: #2e3440, #d8dee9, #2e3440, #2e3440, #bf616a
 rofi.color-active: #2e3440, #b48ead, #2e3440, #2e3440, #93e5cc

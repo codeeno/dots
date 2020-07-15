@@ -58,7 +58,6 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 0
 
-#font-0 = Terminus:style=Regular;1
 font-0 = Curie:size=12;1
 font-1 = waffle:size=12;2
 font-2 = dina:pixelsize=11;1
@@ -364,6 +363,40 @@ label-volume-foreground = ${root.foreground}
 formate-muted-prefix = "🔇 "
 formate-muted-foreground = ${colors.foreground-alt}
 label-muted = muted
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ADP1
+full-at = 98
+time-format = %H:%M
+
+format-charging = <animation-charging> <label-charging>
+label-charging = %percentage%% 
+
+format-discharging = <ramp-capacity> <label-discharging>
+label-discharging = %percentage%% 
+
+format-full = <label-full>
+format-full-prefix = " "
+format-full-prefix-foreground = #a8c0d8
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = #a8c0d8
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = #a8c0d8
+animation-charging-framerate = 750
+
+;[module/battery-multi]
+;type = custom/script
+;exec = "count=$(acpi -b | wc -l); sum=$(acpi -b | egrep -o '[0-9]{1,3}%' | tr -d '%' | xargs -I% echo -n '+%'); echo $(date +%s) Avg capacity: $(( sum / count ))%"
+;exec-if = pgrep -x watch
+;interval = 3
 
 [module/mpd]
 type = internal/mpd
