@@ -130,6 +130,7 @@ alias tg='terraform'
 alias groot='cd $(git rev-parse --show-toplevel)'
 alias vimf='vim -o `fzf`'
 alias sleep='sudo systemctl suspend'
+alias pretty=''
 
 # Enable ZSH Vi mode
 #bindkey -v
