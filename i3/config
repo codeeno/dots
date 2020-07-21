@@ -162,8 +162,8 @@ bindsym $mod+r mode "resize"
 ###############
 
 # Set secondary monitor as primary
-#exec_always --no-startup-id xrandr --output HDMI2 --right-of eDP1 --mode 2560x1440 --primary 
-exec_always --no-startup-id xrandr --output HDMI2 --right-of eDP1 --mode 1920x1080 --primary 
+exec_always --no-startup-id xrandr --output HDMI-2 --right-of eDP1 --mode 2560x1440 --primary 
+#exec_always --no-startup-id xrandr --output HDMI-2 --right-of eDP1 --mode 1920x1080 --primary 
 
 # Launch Picom with flashfocus
 exec_always --no-startup-id picom
