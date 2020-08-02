@@ -16,6 +16,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'hashivim/vim-terraform'
+Plug 'fatih/vim-go'
 
 " Colorschemes
 Plug 'mhartington/oceanic-next'
@@ -168,7 +169,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 "COC Configs
 "#######################
 
-let g:coc_global_extensions = [ 'coc-snippets', 'coc-python', 'coc-rust-analyzer', 'coc-tsserver', 'coc-json', 'coc-eslint', 'coc-go']
+let g:coc_global_extensions = [ 'coc-snippets', 'coc-python', 'coc-rust-analyzer', 'coc-tsserver', 'coc-json', 'coc-eslint']
 
 " if hidden is not set, TextEdit might fail.
 set hidden
