@@ -8,7 +8,6 @@ fi
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -124,18 +123,29 @@ source $ZSH/oh-my-zsh.sh
 unalias ll
 alias ll='exa --long --all --git --header'
 alias tree='exa --tree --long --git --header'
-alias aws='aws2'
 alias tg='terragrunt'
 alias tg='terraform'
 alias groot='cd $(git rev-parse --show-toplevel)'
 alias vimf='vim -o `fzf`'
+alias sleep='sudo systemctl suspend'
+alias serve='python -m http.server 8080'
 
 # Enable ZSH Vi mode
 #bindkey -v
 #bindkey "^R" history-incremental-search-backward
 
 ### Init NVM
-source /usr/share/nvm/init-nvm.sh
+#source /usr/share/nvm/init-nvm.sh
 
 ### Init python venv
-source ~/pyenv/bin/activate
+#source ~/pyenv/bin/activate
+
+switch() {
+  $HOME/Projects/aws-sso-switcher/aws-sso-switcher.sh "$@" | while read -r line; do 
+    if [[ $line =~ ^export ]]; then
+      eval $line
+    else
+      echo $line
+    fi
+  done
+}
