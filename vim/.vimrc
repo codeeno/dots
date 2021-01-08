@@ -144,6 +144,7 @@ function! LightlineFilename()
 endfunction
 
 let g:terraform_fmt_on_save=1
+let g:go_doc_keywordprg_enabled=0
 
 "#######################
 "fzf Configs
