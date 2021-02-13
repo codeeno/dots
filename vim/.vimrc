@@ -16,6 +16,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'hashivim/vim-terraform'
+Plug 'fatih/vim-go'
 
 " Colorschemes
 Plug 'mhartington/oceanic-next'
@@ -24,6 +25,8 @@ Plug 'joshdick/onedark.vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'tomasiser/vim-code-dark'
+Plug 'fatih/vim-go'
+Plug 'fatih/molokai'
 
 call plug#end()
 
@@ -100,15 +103,25 @@ nnoremap <leader>f  :GFiles<CR>
 nnoremap <leader>li :Lines<CR>
 nnoremap <leader>gi :GFiles?<CR>
 
+" Some fzf bindings
+nnoremap <leader>F :Rg<CR>
+
+" Run go
+autocmd FileType go noremap <C-v> :GoRun<CR>
+
+" Open NERDTree at current buffer
+map <leader>r :NERDTreeFind<cr>
+
 "#######################
 "Visuals
 "#######################
 
 " Colorscheme
 "set background=dark
-"let g:lightline = { 'colorscheme': 'palenight' }
+let g:lightline = { 'colorscheme': 'palenight' }
 "let g:palenight_terminal_italics=1
-colorscheme codedark
+colorscheme palenight
+"colorscheme codedark
 
 
 " Change highlight colors
@@ -121,6 +134,9 @@ highlight CocErrorSign                  guifg=#ff5370
 "#######################
 "Misc
 "#######################
+
+" show hidden files in NERDTRee
+let NERDTreeShowHidden=1
 
 "smart indent when entering insert mode with i on empty lines
 function! IndentWithI()
@@ -143,6 +159,18 @@ endfunction
 
 let g:terraform_fmt_on_save=1
 
+" Some vim-go improvements
+let g:go_doc_keywordprg_enabled=0
+"let g:go_fmt_fail_silently = 1
+let g:go_fmt_command = "goimports"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+" Show tabs as 4 spaces in go
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+
 "#######################
 "fzf Configs
 "#######################
@@ -159,14 +187,15 @@ let g:fzf_action = {
 " Close NERDTree if it is the last remaining buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" auto open NERDTree when vim starts if vim was opened with a directory autocmd StdinReadPre * let s:std_in=1
+" auto open NERDTree when vim starts if vim was opened with a directory
+autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
 "#######################
 "COC Configs
 "#######################
 
-let g:coc_global_extensions = [ 'coc-snippets', 'coc-python', 'coc-rls', 'coc-tsserver', 'coc-json', 'coc-eslint']
+let g:coc_global_extensions = [ 'coc-snippets', 'coc-python', 'coc-rust-analyzer', 'coc-tsserver', 'coc-json', 'coc-eslint']
 
 " if hidden is not set, TextEdit might fail.
 set hidden
@@ -189,13 +218,18 @@ set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+let g:coc_snippet_next = '<tab>'
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
