@@ -82,8 +82,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  zsh-autosuggestions
   docker
+  zsh-autosuggestions
+  kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -113,29 +114,60 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+# Enable FZF Keybindings
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+#### Init AWS Cli autocompletion
+autoload bashcompinit && bashcompinit 
+complete -C '/usr/local/bin/aws_completer' aws
+
+#### Disable colors for tab autocomplete
+zstyle ':completion:*' list-colors
 
 ##############
 # Aliases
 ##############
 
 unalias ll
-alias ll='exa --long --all --git --header'
-alias tree='exa --tree --long --git --header'
-alias aws='aws2'
-alias tg='terragrunt'
-alias tg='terraform'
+alias medis="sh -c 'cd /Users/d434547/Misc/medis && npm start'"
+alias ll="exa --long --header --git --all"
+alias tree="exa --tree --long --git --header"
+alias tf="terraform"
+alias tg="terragrunt"
 alias groot='cd $(git rev-parse --show-toplevel)'
-alias vimf='vim -o `fzf`'
+alias kc="kubectl"
+alias unsetaws="unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN AWS_PROFILE"
+alias weather="curl wttr.in"
+alias fcd='cd $(fd --type d --hidden --follow --exclude .git ${1:-.} | fzf)'
 
-# Enable ZSH Vi mode
-#bindkey -v
-#bindkey "^R" history-incremental-search-backward
+fh() {
+  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
+}
 
-### Init NVM
-source /usr/share/nvm/init-nvm.sh
+sso() {
+  aws-sso-cli "$@" | while read -r line; do
+    if [[ $line =~ ^export ]]; then
+      eval $line
+    fi
+  done
+}
 
-### Init python venv
-source ~/pyenv/bin/activate
+unalias gl
+gl() {
+  git log --oneline | fzf --preview 'git show --color=always $(echo {} | cut -d" " -f1) | delta'
+}
+
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+param() {
+  aws ssm get-parameter --name $(aws ssm describe-parameters --output text --query 'Parameters[].[Name]' | fzf) --output text --with-decryption --query 'Parameter.Value'
+}
+
+secret() {
+  aws secretsmanager get-secret-value --secret-id $(aws secretsmanager list-secrets --output text --query 'SecretList[].[Name]' | fzf) --query 'SecretString'
+}
+
