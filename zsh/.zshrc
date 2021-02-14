@@ -149,7 +149,7 @@ fh() {
 }
 
 sso() {
-  node $HOME/Projects/aws-sso-cli/index.mjs "$@" | tee /dev/tty | while read -r line; do 
+  aws-sso-cli "$@" | while read -r line; do 
     if [[ $line =~ ^export ]]; then
       eval $line
     fi
