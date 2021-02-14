@@ -18,5 +18,6 @@
   "eslint.quiet": true,
   "eslint.options": {
     "useEslintrc": true
-  }
+  },
+  "prettier.printWidth": 100
 }

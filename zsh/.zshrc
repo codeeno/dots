@@ -124,13 +124,15 @@ source $ZSH/oh-my-zsh.sh
 unalias ll
 alias ll='exa --long --all --git --header'
 alias tree='exa --tree --long --git --header'
-alias aws='aws2'
 alias tg='terragrunt'
 alias tg='terraform'
 alias groot='cd $(git rev-parse --show-toplevel)'
-alias vimf='vim -o `fzf`'
 alias sleep='sudo systemctl suspend'
 alias serve='python -m http.server 8080'
+alias kc="kubectl"
+alias unsetaws="unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN AWS_PROFILE"
+alias weather="curl wttr.in"
+alias fcd='cd $(fd --type d --hidden --follow --exclude .git ${1:-.} | fzf)'
 
 # Enable ZSH Vi mode
 #bindkey -v
@@ -142,12 +144,27 @@ source /usr/share/nvm/init-nvm.sh
 ### Init python venv
 source ~/pyenv/bin/activate
 
-aws-sso-switcher() {
-  $HOME/Projects/aws-sso-switcher/aws-sso-switcher.sh "$@" | while read -r line; do 
+fh() {
+  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
+}
+
+sso() {
+  node $HOME/Projects/aws-sso-cli/index.mjs "$@" | tee /dev/tty | while read -r line; do 
     if [[ $line =~ ^export ]]; then
       eval $line
-    else
-      echo $line
     fi
   done
+}
+
+unalias gl
+gl() {
+  git log --oneline | fzf --preview 'git show --color=always $(echo {} | cut -d" " -f1) | delta'
+}
+
+param() {
+  aws ssm get-parameter --name $(aws ssm describe-parameters --output text --query 'Parameters[].[Name]' | fzf) --output text --with-decryption --query 'Parameter.Value'
+}
+
+secret() {
+  aws secretsmanager get-secret-value --secret-id $(aws secretsmanager list-secrets --output text --query 'SecretList[].[Name]' | fzf) --query 'SecretString'
 }

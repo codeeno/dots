@@ -160,7 +160,8 @@ bindsym $mod+r mode "resize"
 
 #exec_always --no-startup-id xrandr --output HDMI-2 --right-of eDP-1 --mode 1920x1080 --primary 
 #exec_always --no-startup-id xrandr --output HDMI-2 --right-of eDP-1 --mode 2560x1440 --primary 
-exec_always --no-startup-id xrandr -output DP-1 --right-of eDP-1 --mode 3840x2160 --primary --output eDP-1
+#exec_always --no-startup-id xrandr --output DP-1 --right-of eDP-1 --mode 3840x2160 --primary --output eDP-1
+#exec_always --no-startup-id xrandr --output DP-1 --left-of eDP-1 --mode 3840x2160 --primary --output eDP-1
 
 # Launch Picom with flashfocus
 exec_always --no-startup-id picom
