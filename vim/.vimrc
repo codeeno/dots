@@ -25,6 +25,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'tomasiser/vim-code-dark'
+Plug 'fatih/vim-go'
 Plug 'fatih/molokai'
 
 call plug#end()
@@ -43,6 +44,7 @@ set autoindent
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+set expandtab
 set splitbelow
 set splitright
 set backspace=indent,eol,start
@@ -101,8 +103,14 @@ nnoremap <leader>f  :GFiles<CR>
 nnoremap <leader>li :Lines<CR>
 nnoremap <leader>gi :GFiles?<CR>
 
+" Some fzf bindings
+nnoremap <leader>F :Rg<CR>
+
 " Run go
 autocmd FileType go noremap <C-v> :GoRun<CR>
+
+" Open NERDTree at current buffer
+map <leader>r :NERDTreeFind<cr>
 
 "#######################
 "Visuals
@@ -126,6 +134,9 @@ highlight CocErrorSign                  guifg=#ff5370
 "#######################
 "Misc
 "#######################
+
+" show hidden files in NERDTRee
+let NERDTreeShowHidden=1
 
 "smart indent when entering insert mode with i on empty lines
 function! IndentWithI()
@@ -158,7 +169,7 @@ let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
 " Show tabs as 4 spaces in go
-autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 
 "#######################
 "fzf Configs
@@ -255,4 +266,5 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
+
 
