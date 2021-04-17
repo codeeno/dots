@@ -131,12 +131,13 @@ alias sleep='sudo systemctl suspend'
 alias serve='python -m http.server 8080'
 alias kc="kubectl"
 alias unsetaws="unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN AWS_PROFILE"
+
 alias weather="curl wttr.in"
 alias fcd='cd $(fd --type d --hidden --follow --exclude .git ${1:-.} | fzf)'
 
-# Enable ZSH Vi mode
-#bindkey -v
-#bindkey "^R" history-incremental-search-backward
+#Init FZF keybindings
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
 ### Init NVM
 source /usr/share/nvm/init-nvm.sh
@@ -168,3 +169,4 @@ param() {
 secret() {
   aws secretsmanager get-secret-value --secret-id $(aws secretsmanager list-secrets --output text --query 'SecretList[].[Name]' | fzf) --query 'SecretString'
 }
+
