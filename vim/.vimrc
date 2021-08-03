@@ -17,6 +17,8 @@ Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'fatih/vim-go'
+Plug 'easymotion/vim-easymotion'
+Plug 'honza/vim-snippets'
 
 " Colorschemes
 Plug 'mhartington/oceanic-next'
@@ -49,7 +51,7 @@ set splitbelow
 set splitright
 set backspace=indent,eol,start
 
-let &t_ut='' " fix incorrect background rendering in kitty
+"let &t_ut='' " fix incorrect background rendering in kitty
 
 "#######################
 "Keybinds
@@ -57,7 +59,7 @@ let &t_ut='' " fix incorrect background rendering in kitty
 let mapleader="\<Space>"
 
 " Quick suspend vim
-nnoremap <leader><leader> :stop<CR>
+nnoremap <leader>e :stop<CR>
 
 " Quick Save
 nnoremap <leader>s :update<CR>
@@ -90,9 +92,8 @@ nmap <leader>n :NERDTreeToggle<CR>
 nnoremap <C-Left>  :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 nnoremap <C-t>     :tabnew<CR>
-inoremap <C-S-tab> <Esc>:tabprevious<CR>i
-inoremap <C-tab>   <Esc>:tabnext<CR>i
-inoremap <C-t>     <Esc>:tabnew<CR>
+nnoremap <Tab>     :tabnext<CR>
+nnoremap <S-Tab>   :tabprevious<CR>
 
 " copying/pasting to/from system clipboard
 noremap <Leader>y "+y
@@ -111,6 +112,8 @@ autocmd FileType go noremap <C-v> :GoRun<CR>
 
 " Open NERDTree at current buffer
 map <leader>r :NERDTreeFind<cr>
+
+nmap s <Plug>(easymotion-bd-f)
 
 "#######################
 "Visuals
@@ -195,7 +198,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 "COC Configs
 "#######################
 
-let g:coc_global_extensions = [ 'coc-snippets', 'coc-python', 'coc-rust-analyzer', 'coc-tsserver', 'coc-json', 'coc-eslint']
+let g:coc_global_extensions = [ 'coc-snippets', 'coc-python', 'coc-rust-analyzer', 'coc-tsserver', 'coc-json', 'coc-eslint', 'coc-prettier']
 
 " if hidden is not set, TextEdit might fail.
 set hidden
@@ -251,7 +254,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
-nnoremap <silent> <C-K> :call <SID>show_documentation()<CR>
+" nnoremap <silent> <C-K> :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
