@@ -1,0 +1,27 @@
+font:
+  # Normal font face - Also used to draw glyphs on tmux & VIM
+  # NOTE: You may use any font you'd like but make sure the normal fonts
+  # support ligatures/glyphs. That's used by tmux & VIM to provide a better
+  # UI for powerline & tmux bottom bar.
+  normal:
+    family: "MesloLGS NF"
+  bold:
+    family: "MesloLGS NF"
+    style: Bold
+  italic:
+    family: "MesloLGS NF"
+    style: Italic
+  bold_italic:
+    family: "MesloLGS NF"
+    style: Bold Italic
+  size: 13
+  use_thin_strokes: true
+
+window:
+  # Spread additional padding evenly around the terminal content.
+  dynamic_padding: true
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  # When set to `true`, selected text will be copied to the primary clipboard.
+  save_to_clipboard: true
