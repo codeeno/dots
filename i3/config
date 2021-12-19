@@ -29,7 +29,7 @@ font pango:DejaVu Sans Mono 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite -d $(xcwd) -c zsh
+bindsym $mod+Return exec kitty --working-directory $(xcwd)
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -163,9 +163,10 @@ bindsym $mod+r mode "resize"
 #exec_always --no-startup-id xrandr --output DP-1 --right-of eDP-1 --mode 3840x2160 --primary --output eDP-1
 #exec_always --no-startup-id xrandr --output DP-1 --left-of eDP-1 --mode 3840x2160 --primary --output eDP-1
 
+exec_always --no-startup-id xrandr --output DP-0 --off --output DP-1 --off --output HDMI-0 --off --output DP-2 --off --output DP-3 --off --output HDMI-1 --mode 1680x1050 --pos 6400x1262 --rotate normal --output DP-4 --primary --mode 2560x1440 --rate 165 --pos 3840x720 --rotate normal --output DP-5 --off
+
 # Launch Picom with flashfocus
-exec_always --no-startup-id picom
-exec_always --no-startup-id flashfocus
+#exec_always --no-startup-id flashfocus
 
 # Launch Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
@@ -174,7 +175,8 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh &
 exec_always --no-startup-id xrdb ~/.Xresources
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-fill ~/Pictures/pape.jpg
+#exec_always --no-startup-id feh --bg-fill ~/Pictures/pape.jpg
+#
 # Disable Mouse Acceleration & Set mouse sensitivity
 exec_always --no-startup-id xinput --set-prop 'Logitech Gaming Mouse G502' 'libinput Accel Profile Enabled' 0, 1
 exec_always --no-startup-id xinput --set-prop 'Logitech Gaming Mouse G502' 'Coordinate Transformation Matrix' 0.700000, 0.000000, 0.000000, 0.000000, 0.700000, 0.000000, 0.000000, 0.000000, 1.000000
@@ -186,7 +188,7 @@ exec_always --no-startup-id setxkbmap -option caps:escape
 exec_always --no-startup-id xset -b
 
 # Startup dunst
-exec_always --no-startup-id dunst
+#exec_always --no-startup-id dunst
 
 # Set some custom fonts
 exec_always --no-startup-id xset +fp ~/.fonts/misc
@@ -196,6 +198,19 @@ exec_always --no-startup-id xset +fp ~/.fonts/tamzen
 exec_always --no-startup-id xmodmap -e 'keycode 133 = Mode_switch NoSymbol Mode_switch'
 exec_always --no-startup-id xmodmap -e 'keycode  30 = u U dead_diaeresis U'
 exec_always --no-startup-id xmodmap -e 'keycode  39 = s S ssharp S'
+
+# Stuff from Manjaro i3
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+#exec --no-startup-id nitrogen --restore; sleep 1; picom -c -b
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id nm-applet
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id pamac-tray
+exec --no-startup-id clipit
+exec --no-startup-id blueman-applet
+exec_always --no-startup-id ff-theme-util
+exec_always --no-startup-id fix_xcursor
+
 
 ####################
 ### Visual Stuff ###
@@ -225,8 +240,10 @@ bindsym $mod+space exec --no-startup-id rofi -show run -kb-cancel Alt+space
 # Volume controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 10%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 10%-
-bindsym $mod+Insert exec --no-startup-id amixer -q sset Master 5%+
-bindsym $mod+Delete exec --no-startup-id amixer -q sset Master 5%-
+#bindsym $mod+Insert exec --no-startup-id amixer -q sset Master 5%+
+#bindsym $mod+Delete exec --no-startup-id amixer -q sset Master 5%-
+bindsym $mod+Insert exec --no-startup-id pactl -- set-sink-volume 0 +5% #increase sound volume
+bindsym $mod+Delete exec --no-startup-id pactl -- set-sink-volume 0 -5% #decrease sound volume
 
 # Backlight controls
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10  
@@ -239,25 +256,19 @@ bindsym --release $mod+plus exec --no-startup-id scrot '%Y-%m-%d-%s_screenshot_$
 ### Assign Workspaces ###
 #########################
 
-workspace $ws1 output HDMI-2
-workspace $ws2 output HDMI-2
-workspace $ws3 output HDMI-2
-workspace $ws4 output HDMI-2
-workspace $ws5 output HDMI-2
-workspace $ws9 output eDP1
-workspace $ws0 output eDP1
+workspace $ws1 output DP-4
+workspace $ws2 output DP-4
+workspace $ws3 output DP-4
+workspace $ws4 output DP-4
+workspace $ws5 output DP-4
+workspace $ws9 output HDMI-1
+workspace $ws0 output HDMI-1
 
 #######################
 ###       Misc      ###
 #######################
 
 workspace_auto_back_and_forth yes
-
-# Floating on certain apps
-for_window [class="dolphin"] floating enable
-for_window [class="scummvm"] floating enable
-for_window [class="Blueman-manager"] floating enable
-for_window [class="Pavucontrol"] floating enable
 
 #######################
 ###      Colors     ###
@@ -270,3 +281,40 @@ client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
 client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
 client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 client.background       #F8F8F2
+
+##############################
+###      Floating Mode     ###
+##############################
+
+# Open specific applications in floating mode
+for_window [title="alsamixer"] floating enable border pixel 1
+for_window [class="calamares"] floating enable border normal
+for_window [class="Clipgrab"] floating enable
+for_window [title="File Transfer*"] floating enable
+for_window [class="fpakman"] floating enable
+for_window [class="Galculator"] floating enable border pixel 1
+for_window [class="GParted"] floating enable border normal
+for_window [title="i3_help"] floating enable sticky enable border normal
+for_window [class="Lightdm-settings"] floating enable
+for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Manjaro-hello"] floating enable
+for_window [class="Manjaro Settings Manager"] floating enable border normal
+for_window [title="MuseScore: Play Panel"] floating enable
+for_window [class="Nitrogen"] floating enable sticky enable border normal
+for_window [class="Oblogout"] fullscreen enable
+for_window [class="octopi"] floating enable
+for_window [title="About Pale Moon"] floating enable
+for_window [class="Pamac-manager"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="qt5ct"] floating enable sticky enable border normal
+for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
+for_window [class="Simple-scan"] floating enable border normal
+for_window [class="(?i)System-config-printer.py"] floating enable border normal
+for_window [class="Skype"] floating enable border normal
+for_window [class="Timeset-gui"] floating enable border normal
+for_window [class="(?i)virtualbox"] floating enable border normal
+for_window [class="Xfburn"] floating enable
+for_window [class="dolphin"] floating enable
+for_window [class="scummvm"] floating enable
+for_window [class="Blueman-manager"] floating enable
+
