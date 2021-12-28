@@ -156,7 +156,6 @@ ramp-capacity-4 = 
 ramp-capacity-foreground = ${colors.notify}
 
 label-full = 
-label-full-foreground = ${colors.success}
 label-full-underline = ${colors.success}
 
 [module/keyboard]
@@ -194,15 +193,10 @@ label-muted-foreground = ${colors.urgent}
 label-muted-underline = ${colors.urgent}
 
 ramp-volume-0 = 
-ramp-volume-0-foreground = ${colors.success}
 ramp-volume-1 = 
-ramp-volume-1-foreground = ${colors.notify}
 ramp-volume-2 = 
-ramp-volume-2-foreground = ${colors.urgent}
 
 ramp-headphones-0 = 
-
-ramp-volume-foreground = ${colors.nord7}
 
 [module/backlight]
 type = internal/xbacklight
@@ -281,8 +275,8 @@ interval = 1
 
 format-connected = %{A1:networkmanager_dmenu:}<ramp-signal> <label-connected>%{A}
 format-disconnected = %{A1:networkmanager_dmenu:}<label-disconnected>%{A}
-format-connected-underline = ${colors.nord9}
-format-disconnected-underline = ${colors.nord9}
+format-connected-underline = ${colors.warning}
+format-disconnected-underline = ${colors.warning}
 
 label-connected = %essid%
 ;label-connected-underline = ${colors.notify}
@@ -294,11 +288,6 @@ ramp-signal-0 = 
 ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
-
-ramp-signal-0-foreground = ${colors.urgent}
-ramp-signal-1-foreground = ${colors.notify}
-ramp-signal-2-foreground = ${colors.nord7}
-ramp-signal-3-foreground = ${colors.success}
 
 [module/clash-widget]
 type = custom/script
@@ -449,12 +438,6 @@ ramp-1 = 
 ramp-2 = 
 ramp-3 = 
 ramp-4 = 
-
-ramp-0-foreground = ${colors.nord8}
-ramp-1-foreground = ${colors.nord8}
-ramp-2-foreground = ${colors.success}
-ramp-3-foreground = ${colors.success}
-ramp-4-foreground = ${colors.warning}
 
 interval = 10
 

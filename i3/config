@@ -29,7 +29,7 @@ font pango:DejaVu Sans Mono 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty --working-directory $(xcwd)
+bindsym $mod+Return exec alacritty --working-directory $(xcwd)
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -158,12 +158,8 @@ bindsym $mod+r mode "resize"
 
 # Set secondary monitor as primary
 
-#exec_always --no-startup-id xrandr --output HDMI-2 --right-of eDP-1 --mode 1920x1080 --primary 
-#exec_always --no-startup-id xrandr --output HDMI-2 --right-of eDP-1 --mode 2560x1440 --primary 
-#exec_always --no-startup-id xrandr --output DP-1 --right-of eDP-1 --mode 3840x2160 --primary --output eDP-1
-#exec_always --no-startup-id xrandr --output DP-1 --left-of eDP-1 --mode 3840x2160 --primary --output eDP-1
-
-exec_always --no-startup-id xrandr --output DP-0 --off --output DP-1 --off --output HDMI-0 --off --output DP-2 --off --output DP-3 --off --output HDMI-1 --mode 1680x1050 --pos 6400x1262 --rotate normal --output DP-4 --primary --mode 2560x1440 --rate 165 --pos 3840x720 --rotate normal --output DP-5 --off
+#exec_always --no-startup-id xrandr --output DP-0 --off --output DP-1 --off --output HDMI-0 --off --output DP-2 --off --output DP-3 --off --output HDMI-1 --mode 1680x1050 --pos 6400x1262 --rotate normal --output DP-4 --primary --mode 2560x1440 --rate 165 --pos 3840x720 --rotate normal --output DP-5 --off
+exec_always --no-startup-id xrandr --output DP-1 --left-of eDP-1 --mode 3840x2160 --primary --output eDP-1
 
 # Launch Picom with flashfocus
 #exec_always --no-startup-id flashfocus
@@ -201,8 +197,7 @@ exec_always --no-startup-id xmodmap -e 'keycode  39 = s S ssharp S'
 
 # Stuff from Manjaro i3
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-#exec --no-startup-id nitrogen --restore; sleep 1; picom -c -b
-exec --no-startup-id nitrogen --restore
+exec --no-startup-id nitrogen --restore; sleep 1; picom -c -b
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
@@ -235,7 +230,7 @@ bindsym $mod+Ctrl+h workspace prev
 bindsym $mod+Tab workspace back_and_forth
 
 # Rofi bindings
-bindsym $mod+space exec --no-startup-id rofi -show run -kb-cancel Alt+space
+bindsym $mod+space exec --no-startup-id rofi -show run -kb-cancel Alt+space -show-icons
 
 # Volume controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 10%+
@@ -249,6 +244,20 @@ bindsym $mod+Delete exec --no-startup-id pactl -- set-sink-volume 0 -5% #decreas
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10  
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 
+# Switch between Mobile and Desktop screen configurations
+bindsym $mod+F2 mode "$mode_displays"
+set $mode_displays (m)obile, (d)esktop
+
+mode "$mode_displays" {
+  bindsym d exec --no-startup-id xrdb -merge <(echo "Xft.dpi: 120") && xrandr --dpi 120 --output DP-1 --left-of eDP-1 --mode 3840x2160 --primary --output eDP-1 && ~/.config/polybar/launch.sh
+  bindsym m exec --no-startup-id xrdb -merge <(echo "Xft.dpi: 96") && xrandr --dpi 96 --output DP-1 --left-of eDP-1 --mode 3840x2160 --output eDP-1 --primary && ~/.config/polybar/launch.sh
+
+  bindsym Escape mode "default"
+}
+
+# For when Workspaces are "lost" after disconnecting a monitor
+bindsym $mod+m move workspace to output right
+
 # Screenshot
 bindsym --release $mod+plus exec --no-startup-id scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -se 'mv $f ~/Pictures/'
 
@@ -256,13 +265,13 @@ bindsym --release $mod+plus exec --no-startup-id scrot '%Y-%m-%d-%s_screenshot_$
 ### Assign Workspaces ###
 #########################
 
-workspace $ws1 output DP-4
-workspace $ws2 output DP-4
-workspace $ws3 output DP-4
-workspace $ws4 output DP-4
-workspace $ws5 output DP-4
-workspace $ws9 output HDMI-1
-workspace $ws0 output HDMI-1
+workspace $ws1 output DP-1
+workspace $ws2 output DP-1
+workspace $ws3 output DP-1
+workspace $ws4 output DP-1
+workspace $ws5 output DP-1
+workspace $ws9 output eDP-1
+workspace $ws0 output eDP-1
 
 #######################
 ###       Misc      ###
@@ -317,4 +326,5 @@ for_window [class="Xfburn"] floating enable
 for_window [class="dolphin"] floating enable
 for_window [class="scummvm"] floating enable
 for_window [class="Blueman-manager"] floating enable
+for_window [class="Pcmanfm"] floating enable
 
