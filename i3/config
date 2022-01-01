@@ -159,7 +159,8 @@ bindsym $mod+r mode "resize"
 # Set secondary monitor as primary
 
 #exec_always --no-startup-id xrandr --output DP-0 --off --output DP-1 --off --output HDMI-0 --off --output DP-2 --off --output DP-3 --off --output HDMI-1 --mode 1680x1050 --pos 6400x1262 --rotate normal --output DP-4 --primary --mode 2560x1440 --rate 165 --pos 3840x720 --rotate normal --output DP-5 --off
-exec_always --no-startup-id xrandr --output DP-1 --left-of eDP-1 --mode 3840x2160 --primary --output eDP-1
+#exec_always --no-startup-id xrandr --output DP-1 --left-of eDP-1 --mode 3840x2160 --primary --output eDP-1
+exec_always --no-startup-id xrandr --output eDP-1 --primary --dpi 96
 
 # Launch Picom with flashfocus
 #exec_always --no-startup-id flashfocus
@@ -176,6 +177,9 @@ exec_always --no-startup-id xrdb ~/.Xresources
 # Disable Mouse Acceleration & Set mouse sensitivity
 exec_always --no-startup-id xinput --set-prop 'Logitech Gaming Mouse G502' 'libinput Accel Profile Enabled' 0, 1
 exec_always --no-startup-id xinput --set-prop 'Logitech Gaming Mouse G502' 'Coordinate Transformation Matrix' 0.700000, 0.000000, 0.000000, 0.000000, 0.700000, 0.000000, 0.000000, 0.000000, 1.000000
+
+# Key rate
+exec --no-startup-id xset r rate 200 35
 
 # Rebind caps to escape
 exec_always --no-startup-id setxkbmap -option caps:escape
@@ -235,10 +239,10 @@ bindsym $mod+space exec --no-startup-id rofi -show run -kb-cancel Alt+space -sho
 # Volume controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 10%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 10%-
-#bindsym $mod+Insert exec --no-startup-id amixer -q sset Master 5%+
-#bindsym $mod+Delete exec --no-startup-id amixer -q sset Master 5%-
-bindsym $mod+Insert exec --no-startup-id pactl -- set-sink-volume 0 +5% #increase sound volume
-bindsym $mod+Delete exec --no-startup-id pactl -- set-sink-volume 0 -5% #decrease sound volume
+bindsym $mod+Insert exec --no-startup-id amixer -q sset Master 5%+
+bindsym $mod+Delete exec --no-startup-id amixer -q sset Master 5%-
+#bindsym $mod+Insert exec --no-startup-id pactl -- set-sink-volume 0 +5% #increase sound volume
+#bindsym $mod+Delete exec --no-startup-id pactl -- set-sink-volume 0 -5% #decrease sound volume
 
 # Backlight controls
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10  
@@ -249,8 +253,8 @@ bindsym $mod+F2 mode "$mode_displays"
 set $mode_displays (m)obile, (d)esktop
 
 mode "$mode_displays" {
-  bindsym d exec --no-startup-id xrdb -merge <(echo "Xft.dpi: 120") && xrandr --dpi 120 --output DP-1 --left-of eDP-1 --mode 3840x2160 --primary --output eDP-1 && ~/.config/polybar/launch.sh
-  bindsym m exec --no-startup-id xrdb -merge <(echo "Xft.dpi: 96") && xrandr --dpi 96 --output DP-1 --left-of eDP-1 --mode 3840x2160 --output eDP-1 --primary && ~/.config/polybar/launch.sh
+  bindsym d exec --no-startup-id xrdb -merge <(echo "Xft.dpi: 120") && xrandr --output DP-1 --left-of eDP-1 --mode 3840x2160 --primary --dpi 120 --output eDP-1 && ~/.config/polybar/launch.sh
+  bindsym m exec --no-startup-id xrdb -merge <(echo "Xft.dpi: 96") && xrandr --output eDP-1 --primary --dpi 96 && ~/.config/polybar/launch.sh
 
   bindsym Escape mode "default"
 }
@@ -265,13 +269,13 @@ bindsym --release $mod+plus exec --no-startup-id scrot '%Y-%m-%d-%s_screenshot_$
 ### Assign Workspaces ###
 #########################
 
-workspace $ws1 output DP-1
-workspace $ws2 output DP-1
-workspace $ws3 output DP-1
-workspace $ws4 output DP-1
-workspace $ws5 output DP-1
-workspace $ws9 output eDP-1
-workspace $ws0 output eDP-1
+#workspace $ws1 output DP-1
+#workspace $ws2 output DP-1
+#workspace $ws3 output DP-1
+#workspace $ws4 output DP-1
+#workspace $ws5 output DP-1
+#workspace $ws9 output eDP-1
+#workspace $ws0 output eDP-1
 
 #######################
 ###       Misc      ###
