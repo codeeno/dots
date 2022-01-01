@@ -44,14 +44,14 @@ wm-restack = bspwm
 
 # Top modules
 top-left = i3 
-top-center =
+top-center = 
 top-right = temperature alsa network-short battery date powermenu
 
 systray-top = right
 systray-bottom = right
 
 # global style
-line-size = 4
+line-size = 2
 
 # Modules configure option
 # the default value in this section should work in most cases,
