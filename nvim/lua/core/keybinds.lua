@@ -43,6 +43,9 @@ map("v", ">", ">gv", opts)
 -- When pasting to replace something, retain what's in the current register
 map("v", "p", '"_dP', opts)
 
+-- Close current buffer
+map ("n", "qq", ":bp|bd #<CR>", opts)
+
 -- #########################
 -- Plugin specific keybinds
 -- #########################

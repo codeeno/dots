@@ -15,9 +15,11 @@ packer.init {
 }
 
 return require('packer').startup(function()
+    -- Plugin Management
     use { 'wbthomason/packer.nvim' }
 
     -- LSP
+    use { 'jose-elias-alvarez/null-ls.nvim', requires = {{'nvim-lua/plenary.nvim'}} }
     use { 
       'neovim/nvim-lspconfig',
       'williamboman/nvim-lsp-installer'
@@ -42,13 +44,14 @@ return require('packer').startup(function()
 
     -- Syntax highlighting
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+    use { "p00f/nvim-ts-rainbow" }
 
     -- File navigation
     use { 'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/plenary.nvim'}} }
     use {'kyazdani42/nvim-tree.lua', requires = {{'kyazdani42/nvim-web-devicons'}} }
     
     -- Editing related plugins
-    use { "windwp/nvim-autopairs"}
+    use { "windwp/nvim-autopairs" }
     use { "terrortylor/nvim-comment" }
 
     -- Bufferline, Lualine
