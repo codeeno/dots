@@ -63,6 +63,13 @@ return require('packer').startup(function()
     use { "catppuccin/nvim", as = "catppuccin"}
     use { 'bluz71/vim-nightfly-guicolors' }
 
+    -- Misc
+    use { "akinsho/toggleterm.nvim" }
+    use { "ahmedkhalf/project.nvim" }
+    use { "goolord/alpha-nvim" }
+    use { "lukas-reineke/indent-blankline.nvim" }
+    use { 'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

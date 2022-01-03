@@ -3,7 +3,7 @@ local options = {
   mouse = "a",
   swapfile = true,                         -- creates a swapfile
   fileencoding = "utf-8",                  -- the encoding written to a file
-  updatetime = 300,                         -- faster completion
+  hidden = true,                           -- needed for toggleterm plugin to work correctly
 
   shiftwidth = 2,                          -- the number of spaces inserted for each indentation
   tabstop = 2,                             -- insert 2 spaces for a tab
@@ -24,6 +24,9 @@ local options = {
 
   ignorecase = true,                       -- ignore case in search patterns
   smartcase = true,                        -- override ignorecase if the search pattern contains upper case chars
+
+  updatetime = 300,                        -- faster completion
+  timeoutlen = 500
 
   }
 

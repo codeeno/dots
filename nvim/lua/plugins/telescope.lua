@@ -1,5 +1,12 @@
-require('telescope').setup {
+local telescope = require('telescope')
+
+telescope.setup {
   defaults = {
+
+    prompt_prefix = " ",
+    selection_caret = " ",
+    path_display = { "smart" },
+
     -- Default configuration for telescope goes here:
     -- config_key = value,
     mappings = {

@@ -18,10 +18,6 @@ map('n', '<C-k>', '<C-w>k', opts)
 -- Exit insert mode with 'jk'
 map('i', 'jk', '<ESC>', opts)
 
--- More ergonomic way to scroll up/down fast 
-map('n', 'J', '10j', opts)
-map('n', 'K', '10k', opts)
-
 -- Resize with arrows
 map("n", "<C-Up>", ":resize -2<CR>", opts)
 map("n", "<C-Down>", ":resize +2<CR>", opts)
@@ -33,8 +29,8 @@ map('', '<Leader>y', '"+y', opts)
 map('', '<Leader>p', '"+p', opts)
 
 -- Navigate buffers
-map('n', '<S-l>', ':bnext<CR>', opts)
-map('n', '<S-h>', ':bprevious<CR>', opts)
+map('n', '<S-k>', ':bnext<CR>', opts)
+map('n', '<S-j>', ':bprevious<CR>', opts)
 
 -- Stay in visual mode when indenting lines
 map("v", "<", "<gv", opts)
