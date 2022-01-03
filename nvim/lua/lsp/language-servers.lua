@@ -55,7 +55,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- ##################################################################
--- LSP Installer - registers on_attach & capabilities function with eaach language server
+-- LSP Installer - registers on_attach & capabilities function with each language server
 -- ##################################################################
 --
 lsp_installer.on_server_ready(function(server)
