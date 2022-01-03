@@ -20,7 +20,7 @@ return require('packer').startup(function()
 
     -- LSP
     use { 'jose-elias-alvarez/null-ls.nvim', requires = {{'nvim-lua/plenary.nvim'}} }
-    use { 
+    use {
       'neovim/nvim-lspconfig',
       'williamboman/nvim-lsp-installer'
     }
@@ -33,7 +33,7 @@ return require('packer').startup(function()
       'hrsh7th/cmp-buffer',        -- buffer completions
       'hrsh7th/cmp-path',          -- path completions
       'hrsh7th/cmp-cmdline',       -- cmdline completions
-      'onsails/lspkind-nvim'      -- devicons for completion window 
+      'onsails/lspkind-nvim'       -- devicons for completion window
     }
 
     -- Snippets
@@ -50,7 +50,7 @@ return require('packer').startup(function()
     -- File navigation
     use { 'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/plenary.nvim'}} }
     use {'kyazdani42/nvim-tree.lua', requires = {{'kyazdani42/nvim-web-devicons'}} }
-    
+
     -- Editing related plugins
     use { "windwp/nvim-autopairs" }
     use { "blackCauldron7/surround.nvim" }
@@ -59,7 +59,7 @@ return require('packer').startup(function()
     -- Bufferline, Lualine
     use { 'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
     use { 'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons' }
-   
+
     -- Colorschemes
     use { 'folke/tokyonight.nvim' }
     use { "catppuccin/nvim", as = "catppuccin"}
