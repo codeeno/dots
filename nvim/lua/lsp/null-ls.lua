@@ -5,8 +5,11 @@ local code_acionts = null_ls.builtins.code_actions
 local diagnostics = null_ls.builtins.diagnostics
 
 local sources = {
-  formatting.prettier,
-  diagnostics.eslint,
+  formatting.terraform_fmt,
+  formatting.prettierd,
+  diagnostics.eslint.with({
+    prefer_local = "node_modules/.bin",
+  }),
 }
 
 null_ls.setup({

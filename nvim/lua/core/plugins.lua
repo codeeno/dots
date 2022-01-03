@@ -45,6 +45,7 @@ return require('packer').startup(function()
     -- Syntax highlighting
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
     use { "p00f/nvim-ts-rainbow" }
+    use { "lukas-reineke/indent-blankline.nvim" }
 
     -- File navigation
     use { 'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/plenary.nvim'}} }
@@ -52,6 +53,7 @@ return require('packer').startup(function()
     
     -- Editing related plugins
     use { "windwp/nvim-autopairs" }
+    use { "blackCauldron7/surround.nvim" }
     use { "terrortylor/nvim-comment" }
 
     -- Bufferline, Lualine
@@ -63,11 +65,13 @@ return require('packer').startup(function()
     use { "catppuccin/nvim", as = "catppuccin"}
     use { 'bluz71/vim-nightfly-guicolors' }
 
+    -- Motion
+    use { 'ggandor/lightspeed.nvim' }
+
     -- Misc
     use { "akinsho/toggleterm.nvim" }
     use { "ahmedkhalf/project.nvim" }
     use { "goolord/alpha-nvim" }
-    use { "lukas-reineke/indent-blankline.nvim" }
     use { 'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
 
   -- Automatically set up your configuration after cloning packer.nvim
