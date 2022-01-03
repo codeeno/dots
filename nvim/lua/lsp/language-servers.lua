@@ -50,8 +50,6 @@ local on_attach = function(client, bufnr)
   -- We want to use null-ls for formatting so we disable the language server's
   client.resolved_capabilities.document_formatting = false
   client.resolved_capabilities.document_range_formatting = false
-
-
 end
 
 -- ##################################################################
