@@ -50,12 +50,13 @@ local on_attach = function(client, bufnr)
   -- We want to use null-ls for formatting so we disable the language server's
   client.resolved_capabilities.document_formatting = false
   client.resolved_capabilities.document_range_formatting = false
+
 end
 
 -- ##################################################################
 -- LSP Installer - registers on_attach & capabilities function with each language server
 -- ##################################################################
-
+--
 lsp_installer.on_server_ready(function(server)
 	local opts = {
 		on_attach = on_attach,
