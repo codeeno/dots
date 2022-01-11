@@ -49,7 +49,8 @@ return require('packer').startup(function()
 
     -- File navigation
     use { 'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/plenary.nvim'}} }
-    use {'kyazdani42/nvim-tree.lua', requires = {{'kyazdani42/nvim-web-devicons'}} }
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use { 'kyazdani42/nvim-tree.lua', requires = {{'kyazdani42/nvim-web-devicons'}} }
     
     -- Editing related plugins
     use { "windwp/nvim-autopairs" }

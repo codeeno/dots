@@ -26,7 +26,7 @@ local options = {
   smartcase = true,                        -- override ignorecase if the search pattern contains upper case chars
 
   updatetime = 300,                        -- faster completion
-  timeoutlen = 500
+  timeoutlen = 1000
 
   }
 
