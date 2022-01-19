@@ -75,6 +75,7 @@ return require('packer').startup(function()
     use { "ahmedkhalf/project.nvim" }
     use { "goolord/alpha-nvim" }
     use { 'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
+    use { 'andweeb/presence.nvim' }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
