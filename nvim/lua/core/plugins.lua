@@ -65,6 +65,7 @@ return require('packer').startup(function()
     use { 'folke/tokyonight.nvim' }
     use { "catppuccin/nvim", as = "catppuccin"}
     use { 'bluz71/vim-nightfly-guicolors' }
+    use { 'projekt0n/github-nvim-theme' }
 
     -- Motion
     use { 'ggandor/lightspeed.nvim' }
