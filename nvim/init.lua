@@ -21,6 +21,7 @@ require('plugins.alpha')
 require('plugins.indent-blankline')
 require('plugins.gitsigns')
 require('plugins.lightspeed')
+require('plugins.presence')
 
 require('plugins.catppuccin')
 require('plugins.tokyonight')
