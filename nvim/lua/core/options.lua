@@ -4,6 +4,7 @@ local options = {
   swapfile = true,                         -- creates a swapfile
   fileencoding = "utf-8",                  -- the encoding written to a file
   hidden = true,                           -- needed for toggleterm plugin to work correctly
+  selection = "exclusive",
 
   shiftwidth = 2,                          -- the number of spaces inserted for each indentation
   tabstop = 2,                             -- insert 2 spaces for a tab
