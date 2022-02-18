@@ -33,7 +33,7 @@ return require('packer').startup(function()
       'hrsh7th/cmp-buffer',        -- buffer completions
       'hrsh7th/cmp-path',          -- path completions
       'hrsh7th/cmp-cmdline',       -- cmdline completions
-      'onsails/lspkind-nvim'      -- devicons for completion window 
+      'onsails/lspkind-nvim'       -- devicons for completion window 
     }
 
     -- Snippets
@@ -76,6 +76,7 @@ return require('packer').startup(function()
     use { "goolord/alpha-nvim" }
     use { 'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
     use { 'andweeb/presence.nvim' }
+    use { 'mg979/vim-visual-multi' }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

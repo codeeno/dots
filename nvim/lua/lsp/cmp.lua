@@ -5,6 +5,7 @@ local lspkind = require('lspkind')
 local luasnip = require('luasnip')
 luasnip.filetype_extend("javascript", {"javascriptreact"})
 luasnip.filetype_extend("javascript", {"html"})
+luasnip.filetype_extend("javascript", {"typescript"})
 
 -- Load cmp (code completion engine itself)
 local cmp = require('cmp')

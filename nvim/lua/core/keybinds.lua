@@ -54,8 +54,11 @@ map('n', '<Leader>fp', ':Telescope projects<CR>', opts)
 map('n', '<Leader>fc', ':Telescope git_branches<CR>', opts)
 
 -- nvim-tree
-map('n', '<C-n>', ':NvimTreeToggle<CR>', opts)
+map('n', '<Leader>n', ':NvimTreeToggle<CR>', opts)
 
 -- nvim-comment
 map('n', '<C-_>', ':CommentToggle<CR>', opts)
 map('v', '<C-_>', ':CommentToggle<CR>gv', opts)
+
+-- goto-preview
+map('n', 'gp',  "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", opts)
