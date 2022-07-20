@@ -27,8 +27,10 @@ require('nvim-tree').setup {
     update_cwd  = true,
     ignore_list = {}
   },
-  open_file = {
-    resize_window = true
+  actions = {
+    open_file = {
+      resize_window = true
+    }
   },
   system_open = {
     cmd  = nil,

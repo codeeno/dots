@@ -54,8 +54,8 @@ return require('packer').startup(function()
     
     -- Editing related plugins
     use { "windwp/nvim-autopairs" }
-    use { "blackCauldron7/surround.nvim" }
     use { "terrortylor/nvim-comment" }
+    use { "kylechui/nvim-surround" }
 
     -- Bufferline, Lualine
     use { 'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }

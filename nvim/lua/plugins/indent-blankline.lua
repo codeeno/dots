@@ -3,5 +3,6 @@ vim.opt.list = true
 
 require("indent_blankline").setup {
     space_char_blankline = " ",
-    filetype_exclude = {"alpha", "toggleterm"}
+    filetype_exclude = {"alpha", "toggleterm"},
+    separator_style = "slant"
 }
