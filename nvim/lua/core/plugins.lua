@@ -24,6 +24,7 @@ return require('packer').startup(function()
       'neovim/nvim-lspconfig',
       'williamboman/nvim-lsp-installer'
     }
+    use { "zbirenbaum/copilot.lua" }
 
     -- Code completion (cmp)
     use {
