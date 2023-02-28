@@ -9,5 +9,8 @@ return {
         prev = "<C-[>",
       },
     },
+    filetypes = {
+      yaml = true,
+    },
   },
 }
