@@ -13,7 +13,8 @@ return {
   opts = {
     window = {
       mappings = {
-        ["o"] = "open",
+        ["o"] = "open_with_window_picker",
+        ["s"] = "vsplit_with_window_picker",
       },
     },
   },
