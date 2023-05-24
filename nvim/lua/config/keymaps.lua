@@ -24,7 +24,7 @@ vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
 
 -- Close current buffer
-vim.keymap.set("n", "<C-w>", ":bp|bd #<CR>", opts)
+vim.keymap.set("n", "<C-q>", ":bp|bd #<CR>", opts)
 
 -- When pasting to replace something, retain what's in the current register
 vim.keymap.set("v", "p", '"_dP', opts)
