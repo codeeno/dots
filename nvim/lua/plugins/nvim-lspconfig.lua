@@ -9,9 +9,9 @@ return {
         settings = {
           diagnostics = {
             enable = true,
-            -- disable some diagnostics that are already handled by eslint_d
+            -- disable some diagnostics
             ignoredCodes = {
-              6133, -- XXX is declared but its value is never read.
+              6133, -- XXX is declared but its value is never read (duplicate with eslint)
               7016, -- Could not find declaration file
             },
           },
