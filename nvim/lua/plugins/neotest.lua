@@ -30,7 +30,7 @@ return {
       table.insert(
         opts.adapters,
         require("neotest-jest")({
-          jestCommand = "npm test --",
+          jestCommand = "npm test -- --color",
           jestConfigFile = "custom.jest.config.ts",
           env = { CI = true },
           cwd = function()
