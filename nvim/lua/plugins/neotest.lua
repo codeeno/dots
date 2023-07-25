@@ -27,6 +27,7 @@ return {
       },
     },
     opts = function(_, opts)
+      -- Adapters
       table.insert(
         opts.adapters,
         require("neotest-jest")({
@@ -39,6 +40,11 @@ return {
         })
       )
       table.insert(opts.adapters, require("neotest-vitest"))
+
+      -- General Config
+      opts.output_panel = {
+        open = "vsplit | vertical resize 80",
+      }
     end,
   },
 }
