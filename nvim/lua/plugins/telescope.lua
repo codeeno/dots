@@ -2,6 +2,7 @@ return {
   "nvim-telescope/telescope.nvim",
   keys = {
     { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Grep (root dir)" },
+    { "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Branches" },
     -- { "<leader>fG", require("telescope")("live_grep", { cwd = false }), desc = "Grep (cwd)" },
   },
   opts = function(_, opts)
