@@ -2,8 +2,8 @@
 # Includes
 ###########################
 
-if [[ -f "$HOME/zshrc_local" ]]; then
-    source "$HOME/zshrc_local"
+if [[ -f "$HOME/.zshrc_local" ]]; then
+    source "$HOME/.zshrc_local"
 fi
 
 ###########################
@@ -45,7 +45,7 @@ export AWS_PAGER=""
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #### Init AWS Cli autocompletion
-autoload bashcompinit && bashcompinit 
+autoload bashcompinit && bashcompinit
 complete -C '/usr/local/bin/aws_completer' aws
 
 #### Disable colors for tab autocomplete
@@ -77,28 +77,38 @@ source $ZSH/oh-my-zsh.sh
 ###########################
 
 unalias ll
-alias ll="eza --long --header --git --all"
-alias tree="eza --tree --long --git --header --git-ignore"
-alias tf="terraform"
-alias tg="terragrunt"
-alias groot='cd $(git rev-parse --show-toplevel)'
-alias weather="curl wttr.in"
-alias diff='delta --side-by-side'
-alias docker='nerdctl'
-alias vim='nvim'
-alias ssh="kitty +kitten ssh"
+
+# Shortcuts
 alias lg="lazygit"
 alias ldocker="lazydocker"
+alias tg="terragrunt"
+alias tf="terraform"
+
+# Replacements
+alias vim='nvim'
+alias ssh="kitty +kitten ssh" # Continue SSH session when opnening a new tab/split
+alias diff='delta --side-by-side'
+
+# Eza
+alias ll="eza --long --header --git --all"
+alias tree="eza --tree --long --git --header --git-ignore"
+
+# Git related
 alias ci="NO_PROMPT=1 glab ci status | grep '^https' | xargs open"
+alias groot='cd $(git rev-parse --show-toplevel)'
+
+# Podman aliases
+alias docker='nerdctl'
+alias docker-compose='podman-compose'
+
+# Misc
+alias weather="curl wttr.in"
 
 ###########################
 # Scripts/Functions
 ###########################
 
-logs() {
-  aws logs tail $(aws logs describe-log-groups --output text --query 'logGroups[*].[logGroupName]' | fzf) --follow --since 3h
-}
-
+# Get AWS credentials for a given profile using aws-sso-cli
 sso() {
    command aws-sso-cli "$@" | while read -r line; do
     if [[ $line =~ ^export ]]; then
@@ -107,14 +117,35 @@ sso() {
   done
 }
 
+# Get a parameter from AWS SSM
 param() {
   aws ssm get-parameter --name $(aws ssm describe-parameters --output text --query 'Parameters[].[Name]' | fzf) --output text --with-decryption --query 'Parameter.Value'
 }
 
+# Get a secret from AWS Secrets Manager
 secret() {
   aws secretsmanager get-secret-value --secret-id $(aws secretsmanager list-secrets --output text --query 'SecretList[].[Name]' | fzf) --query 'SecretString'
 }
 
+# Tail logs from a give CloudWatch log group
+logs() {
+  aws logs tail $(aws logs describe-log-groups --output text --query 'logGroups[*].[logGroupName]' | fzf) --follow --since 3h
+}
+
+# Kill a process running on a given port
 killport() {
   lsof -i tcp:$@ | xargs kill
 }
+
+# Open the current git repo in the browser
+gopen ()
+{
+    ( set -e;
+    git remote -v | grep push;
+    remote=${1:-origin};
+    echo "Using remote $remote";
+    URL=$(git config remote.$remote.url | sed "s/git@\(.*\):\(.*\).git/https:\/\/\1\/\2/");
+    echo "Opening $URL...";
+    LIBVA_DRIVER_NAME=radeonsi xdg-open $URL )
+}
+
