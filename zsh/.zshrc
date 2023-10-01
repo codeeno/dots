@@ -1,4 +1,12 @@
 ###########################
+# Includes
+###########################
+
+if [[ -f "$HOME/zshrc_local" ]]; then
+    source "$HOME/zshrc_local"
+fi
+
+###########################
 # Paths
 ###########################
 
@@ -61,7 +69,7 @@ plugins=(
   kubectl
 )
 
-export ZSH="/home/eeno/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
 ###########################
@@ -69,7 +77,6 @@ source $ZSH/oh-my-zsh.sh
 ###########################
 
 unalias ll
-unalias gl
 alias ll="eza --long --header --git --all"
 alias tree="eza --tree --long --git --header --git-ignore"
 alias tf="terraform"
@@ -79,6 +86,10 @@ alias weather="curl wttr.in"
 alias diff='delta --side-by-side'
 alias docker='nerdctl'
 alias vim='nvim'
+alias ssh="kitty +kitten ssh"
+alias lg="lazygit"
+alias ldocker="lazydocker"
+alias ci="NO_PROMPT=1 glab ci status | grep '^https' | xargs open"
 
 ###########################
 # Scripts/Functions
@@ -94,10 +105,6 @@ sso() {
       eval $line
     fi
   done
-}
-
-gl() {
-  git log --oneline | fzf --preview 'git show --color=always $(echo {} | cut -d" " -f1) | delta'
 }
 
 param() {
