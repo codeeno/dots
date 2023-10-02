@@ -19,6 +19,9 @@ export PATH="$HOME/bin:$PATH"
 ##### Scripts folder
 export PATH=$PATH:"$HOME/scripts"
 
+##### Podman Compose
+export PATH=$PATH:"$HOME/.local/share/containers/podman-desktop/extensions-storage/podman-desktop.compose/bin"
+
 ###########################
 # Env Vars
 ##########################
@@ -36,20 +39,6 @@ export PGHOST=localhost
 
 #### AWS
 export AWS_PAGER=""
-
-###########################
-# Initialisations
-##########################
-
-# Enable FZF Keybindings
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-#### Init AWS Cli autocompletion
-autoload bashcompinit && bashcompinit
-complete -C '/usr/local/bin/aws_completer' aws
-
-#### Disable colors for tab autocomplete
-zstyle ':completion:*' list-colors
 
 ###########################
 # Prompt engine
@@ -149,3 +138,16 @@ gopen ()
     LIBVA_DRIVER_NAME=radeonsi xdg-open $URL )
 }
 
+###########################
+# Initialisations
+##########################
+
+# Enable FZF Keybindings
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#### Init AWS Cli autocompletion
+# autoload bashcompinit && bashcompinit
+# complete -C '/usr/local/bin/aws_completer' aws
+
+#### Disable colors for tab autocomplete
+zstyle ':completion:*' list-colors
