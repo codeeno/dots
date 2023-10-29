@@ -39,6 +39,7 @@ export PGHOST=localhost
 
 #### AWS
 export AWS_PAGER=""
+export AWS_REGION="eu-central-1"
 
 ###########################
 # Prompt engine
@@ -87,8 +88,7 @@ alias ci="NO_PROMPT=1 glab ci status | grep '^https' | xargs open"
 alias groot='cd $(git rev-parse --show-toplevel)'
 
 # Podman aliases
-alias docker='nerdctl'
-alias docker-compose='podman-compose'
+# alias docker='podman'
 
 # Misc
 alias weather="curl wttr.in"
@@ -151,3 +151,12 @@ gopen ()
 
 #### Disable colors for tab autocomplete
 zstyle ':completion:*' list-colors
+
+###########################
+# History settings
+##########################
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt INC_APPEND_HISTORY_TIME
