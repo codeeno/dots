@@ -3,6 +3,7 @@ return {
   opts = {
     format = { timeout_ms = 2000 },
     servers = {
+      tailwindcss = {},
       terraformls = {},
       pyright = {},
       tsserver = {

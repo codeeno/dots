@@ -118,7 +118,7 @@ secret() {
 
 # Tail logs from a give CloudWatch log group
 logs() {
-  aws logs tail $(aws logs describe-log-groups --output text --query 'logGroups[*].[logGroupName]' | fzf) --follow --since 3h
+  aws logs tail $(aws logs describe-log-groups --output text --query 'logGroups[*].[logGroupName]' | fzf) --follow --since 30m
 }
 
 # Kill a process running on a given port
@@ -155,7 +155,7 @@ fgc() {
 
     local branch
 
-    branch=$(fzf-git-branch)
+    branch=$(fgb)
     if [[ "$branch" = "" ]]; then
         echo "No branch selected."
         return
