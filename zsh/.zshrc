@@ -135,7 +135,12 @@ gopen ()
     echo "Using remote $remote";
     URL=$(git config remote.$remote.url | sed "s/git@\(.*\):\(.*\).git/https:\/\/\1\/\2/");
     echo "Opening $URL...";
-    LIBVA_DRIVER_NAME=radeonsi xdg-open $URL )
+    if command -v xdg-open >/dev/null 2>&1; then
+        LIBVA_DRIVER_NAME=radeonsi xdg-open $URL
+    else
+        open $URL
+    fi
+  )
 }
 
 # Git branch using fzf

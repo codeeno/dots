@@ -32,4 +32,3 @@ vim.keymap.set("v", "p", '"_dP', opts)
 -- Set these two using vim.api because the plugin's keys function doesn't properly override lazyvim's defaults
 vim.api.nvim_set_keymap("n", "<C-/>", "<cmd>ChatGPT<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<C-/>", "<cmd>ChatGPTEditWithInstruction<CR>", { noremap = true, silent = true })
-
