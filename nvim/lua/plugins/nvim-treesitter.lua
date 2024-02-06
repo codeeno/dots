@@ -4,12 +4,12 @@ return {
     opts = {
       ensure_installed = {
         "bash",
+        "c",
         "dockerfile",
         "go",
         "gomod",
-        "gowork",
         "gosum",
-        "hcl",
+        "gowork",
         "hcl",
         "html",
         "javascript",
@@ -26,6 +26,8 @@ return {
         "toml",
         "tsx",
         "typescript",
+        "vim",
+        "vimdoc",
         "yaml",
       },
     },
