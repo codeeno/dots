@@ -2,35 +2,23 @@ return {
   {
     "nvim-neotest/neotest",
     dependencies = {
+      "nvim-treesitter/nvim-treesitter",
       "haydenmeade/neotest-jest",
-      "marilari88/neotest-vitest",
     },
-    keys = {
-      {
-        "<leader>tw",
-        "<cmd>lua require('neotest').run.run({ jestCommand = 'jest --watch ' })<cr>",
-        desc = "Run Watch",
-      },
-    },
-    opts = function(_, opts)
-      -- Adapters
-      table.insert(
-        opts.adapters,
-        require("neotest-jest")({
+    opts = {
+      adapters = {
+        ["neotest-jest"] = {
           jestCommand = "npm test -- --color",
-          jestConfigFile = "custom.jest.config.ts",
+          jestConfigFile = "jest.config.js",
           env = { CI = true },
           cwd = function()
             return vim.fn.getcwd()
           end,
-        })
-      )
-      table.insert(opts.adapters, require("neotest-vitest"))
-
-      -- General Config
-      opts.output_panel = {
+        },
+      },
+      output_panel = {
         open = "vsplit | vertical resize 80",
-      }
-    end,
+      },
+    },
   },
 }
