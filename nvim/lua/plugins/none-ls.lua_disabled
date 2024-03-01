@@ -12,6 +12,7 @@ return {
           nls.builtins.formatting.eslint_d,
           -- Terrraform & HCL
           nls.builtins.formatting.terraform_fmt,
+          nls.builtins.diagnostics.terraform_validate,
           -- Misc
           nls.builtins.diagnostics.hadolint,
           nls.builtins.diagnostics.markdownlint,

@@ -3,7 +3,6 @@ return {
   keys = {
     { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Grep (root dir)" },
     { "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "branches" },
-    -- { "<leader>fG", require("telescope")("live_grep", { cwd = false }), desc = "Grep (cwd)" },
   },
   opts = function(_, opts)
     opts.extensions = {

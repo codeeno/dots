@@ -2,7 +2,12 @@ return {
   "jackMort/ChatGPT.nvim",
   event = "VeryLazy",
   config = function()
-    require("chatgpt").setup()
+    require("chatgpt").setup({
+      open_ai_params = {
+        model = "gpt-3.5-turbo-16k",
+        max_tokens = 3000,
+      },
+    })
   end,
   keys = {
     { "<leader>ac", "<cmd>ChatGPT<CR>", "ChatGPT" },
