@@ -17,10 +17,13 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
 ##### Scripts folder
-export PATH=$PATH:"$HOME/scripts"
+export PATH="$HOME/scripts:$PATH"
 
 ##### Podman Compose
-export PATH=$PATH:"$HOME/.local/share/containers/podman-desktop/extensions-storage/podman-desktop.compose/bin"
+export PATH="$HOME/.local/share/containers/podman-desktop/extensions-storage/podman-desktop.compose/bin:$PATH"
+
+#####Pipx
+export PATH="$HOME/.local/bin:$PATH"
 
 ###########################
 # Env Vars
@@ -35,7 +38,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 #### I dont really know why I need to set this for postgres to work in docker...
-export PGHOST=localhost 
+export PGHOST=localhost
 
 #### AWS
 export AWS_PAGER=""
@@ -46,6 +49,7 @@ export AWS_REGION="eu-central-1"
 ###########################
 
 eval "$(starship init zsh)"
+
 
 ###########################
 # Oh My Zsh
@@ -76,7 +80,7 @@ alias tf="terraform"
 
 # Replacements
 alias vim='nvim'
-alias ssh="kitty +kitten ssh" # Continue SSH session when opnening a new tab/split
+#alias ssh="kitty +kitten ssh" # Continue SSH session when opnening a new tab/split
 alias diff='delta --side-by-side'
 
 # Eza
@@ -183,6 +187,9 @@ fgc() {
 # Enable FZF Keybindings
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Enable Zoxide
+eval "$(zoxide init zsh)"
+
 #### Init AWS Cli autocompletion
 # autoload bashcompinit && bashcompinit
 # complete -C '/usr/local/bin/aws_completer' aws
@@ -199,3 +206,6 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt INC_APPEND_HISTORY_TIME
 
+
+# Created by `pipx` on 2024-02-20 21:56:48
+export PATH="$PATH:/Users/d434547/.local/bin"
