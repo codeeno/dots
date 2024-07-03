@@ -32,3 +32,11 @@ vim.keymap.set("v", "p", '"_dP', opts)
 -- Set these two using vim.api because the plugin's keys function doesn't properly override lazyvim's defaults
 vim.api.nvim_set_keymap("n", "<C-/>", "<cmd>ChatGPT<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<C-/>", "<cmd>ChatGPTEditWithInstruction<CR>", { noremap = true, silent = true })
+
+-- Keybinds for nvim-tmux-navigation
+vim.keymap.set("n", "<C-h>", "<Cmd>NvimTmuxNavigateLeft<CR>")
+vim.keymap.set("n", "<C-j>", "<Cmd>NvimTmuxNavigateDown<CR>")
+vim.keymap.set("n", "<C-k>", "<Cmd>NvimTmuxNavigateUp<CR>")
+vim.keymap.set("n", "<C-l>", "<Cmd>NvimTmuxNavigateRight<CR>")
+vim.keymap.set("n", "<C-\\>", "<Cmd>NvimTmuxNavigateLastActive<CR>")
+vim.keymap.set("n", "<C-Space>", "<Cmd>NvimTmuxNavigateNext<CR>")
