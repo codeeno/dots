@@ -19,19 +19,21 @@ export PATH="$HOME/bin:$PATH"
 ##### Scripts folder
 export PATH="$HOME/scripts:$PATH"
 
-##### Podman Compose
-export PATH="$HOME/.local/share/containers/podman-desktop/extensions-storage/podman-desktop.compose/bin:$PATH"
-
-#####Pipx
+##### Pipx
 export PATH="$HOME/.local/bin:$PATH"
+
+##### Go binaries
+export PATH="$HOME/go/bin:$PATH"
+
+##### Aws Completer
+export PATH="/usr/local/bin:$PATH"
 
 ###########################
 # Env Vars
 ##########################
 
-##### NVM
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+#### Use vim as 'fc' editor
+export FCEDIT=vim
 
 ##### Locale settings
 export LC_ALL=en_US.UTF-8
@@ -44,12 +46,20 @@ export PGHOST=localhost
 export AWS_PAGER=""
 export AWS_REGION="eu-central-1"
 
-###########################
-# Prompt engine
-###########################
+#### pipx
+export PATH="$PATH:/Users/d434547/.local/bin"
 
-eval "$(starship init zsh)"
+#### Disable annoying homebrew upgrade
+export HOMEBREW_NO_AUTO_UPDATE=1
 
+###########################
+# History settings
+##########################
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt INC_APPEND_HISTORY_TIME
 
 ###########################
 # Oh My Zsh
@@ -61,16 +71,22 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   kubectl
+  nvm
 )
 
+# Enable lazy loading on the built-in NVM plugin
+zstyle ':omz:plugins:nvm' lazy yes
+
+# Disable colors for tab autocomplete
+zstyle ':completion:*' list-colors
+
+# Source Oh My Zsh
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
 ###########################
 # Aliases
 ###########################
-
-unalias ll
 
 # Shortcuts
 alias lg="lazygit"
@@ -84,6 +100,7 @@ alias vim='nvim'
 alias diff='delta --side-by-side'
 
 # Eza
+unalias ll
 alias ll="eza --long --header --git --all"
 alias tree="eza --tree --long --git --header --git-ignore"
 
@@ -91,11 +108,35 @@ alias tree="eza --tree --long --git --header --git-ignore"
 alias ci="NO_PROMPT=1 glab ci status | grep '^https' | xargs open"
 alias groot='cd $(git rev-parse --show-toplevel)'
 
-# Podman aliases
-# alias docker='podman'
-
 # Misc
 alias weather="curl wttr.in"
+
+###########################
+# Initialisations
+##########################
+
+# Starship prompt
+eval "$(starship init zsh)"
+
+# Enable FZF Keybindings
+source <(fzf --zsh)
+
+# Enable Zoxide
+eval "$(zoxide init zsh)"
+
+#### Github Copilot CLI
+# eval "$(gh copilot alias -- zsh)"
+
+###########################
+# Command Completions
+###########################
+
+# Initialize completions
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+
+# AWS CLI
+complete -C '/opt/homebrew/bin/aws_completer' aws
 
 ###########################
 # Scripts/Functions
@@ -179,33 +220,3 @@ fgc() {
         git checkout $branch;
     fi
 }
-
-###########################
-# Initialisations
-##########################
-
-# Enable FZF Keybindings
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Enable Zoxide
-eval "$(zoxide init zsh)"
-
-#### Init AWS Cli autocompletion
-# autoload bashcompinit && bashcompinit
-# complete -C '/usr/local/bin/aws_completer' aws
-
-#### Disable colors for tab autocomplete
-zstyle ':completion:*' list-colors
-
-###########################
-# History settings
-##########################
-
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-setopt INC_APPEND_HISTORY_TIME
-
-
-# Created by `pipx` on 2024-02-20 21:56:48
-export PATH="$PATH:/Users/d434547/.local/bin"
