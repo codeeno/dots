@@ -32,6 +32,9 @@ export PATH="/usr/local/bin:$PATH"
 # Env Vars
 ##########################
 
+#### Use neovim as default editor
+export EDITOR=nvim
+
 #### Use vim as 'fc' editor
 export FCEDIT=vim
 
