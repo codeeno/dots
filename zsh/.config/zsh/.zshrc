@@ -2,8 +2,8 @@
 # Includes
 ###########################
 
-if [[ -f "$HOME/.zshrc_local" ]]; then
-    source "$HOME/.zshrc_local"
+if [[ -f "$ZDOTDIR/.zshrc_local" ]]; then
+    source "$ZDOTDIR/.zshrc_local"
 fi
 
 ###########################
@@ -51,9 +51,6 @@ export PGHOST=localhost
 #### AWS
 export AWS_PAGER=""
 export AWS_REGION="eu-central-1"
-
-#### pipx
-export PATH="$PATH:/Users/d434547/.local/bin"
 
 #### Disable annoying homebrew upgrade
 export HOMEBREW_NO_AUTO_UPDATE=1
