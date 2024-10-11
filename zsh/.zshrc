@@ -35,6 +35,9 @@ export PATH="/usr/local/bin:$PATH"
 #### Use neovim as default editor
 export EDITOR=nvim
 
+#### Set XDG_CONFI_HOME
+export XDG_CONFIG_HOME="$HOME/.config"
+
 #### Use vim as 'fc' editor
 export FCEDIT=vim
 
