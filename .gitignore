@@ -1,2 +1,3 @@
-zsh_local
+.zshrc_local
+.zcompdump*
 tmux/.config/tmux/plugins/*
