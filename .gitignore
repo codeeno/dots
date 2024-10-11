@@ -1,2 +1,2 @@
 zsh_local
-.config/tmux/plugins/*
+tmux/.config/tmux/plugins/*
