@@ -1,4 +1,4 @@
 .zshrc_local
 .zcompdump*
-.oh-my-zsh/*
+oh-my-zsh/*
 tmux/.config/tmux/plugins/*
