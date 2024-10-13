@@ -84,8 +84,7 @@ zstyle ':omz:plugins:nvm' lazy yes
 zstyle ':completion:*' list-colors
 
 # Source Oh My Zsh
-export ZSH="$HOME/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
+source $ZDOTDIR/.oh-my-zsh/oh-my-zsh.sh
 
 ###########################
 # Aliases
