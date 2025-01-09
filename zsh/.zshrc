@@ -30,7 +30,7 @@ export PATH="/usr/local/bin:$PATH"
 
 ###########################
 # Env Vars
-##########################
+###########################
 
 #### Use vim as 'fc' editor
 export FCEDIT=vim
@@ -52,9 +52,12 @@ export PATH="$PATH:/Users/d434547/.local/bin"
 #### Disable annoying homebrew upgrade
 export HOMEBREW_NO_AUTO_UPDATE=1
 
+#### Set XDG home to ~/.config
+export XDG_CONFIG_HOME="$HOME/.config"
+
 ###########################
 # History settings
-##########################
+###########################
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -63,7 +66,7 @@ setopt INC_APPEND_HISTORY_TIME
 
 ###########################
 # Oh My Zsh
-##########################
+###########################
 
 plugins=(
   git
@@ -113,7 +116,7 @@ alias weather="curl wttr.in"
 
 ###########################
 # Initialisations
-##########################
+###########################
 
 # Starship prompt
 eval "$(starship init zsh)"
