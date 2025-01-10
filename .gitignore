@@ -1,5 +1,6 @@
 .zshrc_local
 .zsh_sessions
+.zsh_history
 .zcompdump*
 .gitconfig_local
 ohmyzsh
