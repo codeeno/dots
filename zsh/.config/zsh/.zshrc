@@ -79,6 +79,7 @@ plugins=(
 
 # Enable lazy loading on the built-in NVM plugin
 zstyle ':omz:plugins:nvm' lazy yes
+zstyle ':omz:plugins:nvm' lazy-cmd aws-sso-cli
 
 # Disable colors for tab autocomplete
 zstyle ':completion:*' list-colors
