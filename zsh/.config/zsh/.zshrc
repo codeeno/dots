@@ -2,9 +2,15 @@
 # Includes
 ###########################
 
+# Include local-only zshrc
 if [[ -f "$ZDOTDIR/.zshrc_local" ]]; then
     source "$ZDOTDIR/.zshrc_local"
 fi
+
+# Source startup-scripts
+for script in "$ZDOTDIR/startup_scripts"/*.sh; do
+  [ -r "$script" ] && source "$script"
+done
 
 ###########################
 # Paths
