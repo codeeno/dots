@@ -1,6 +1,7 @@
 .zshrc_local
 .zsh_sessions
 .zcompdump*
+.gitconfig_local
 ohmyzsh
 tmux/.config/tmux/plugins/*
 lazygit/.config/lazygit/state.yml
