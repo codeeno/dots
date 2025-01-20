@@ -3,5 +3,5 @@ k9s:
     skin: catppuccin-macchiato
   logger:
     tail: 500
-    buffer: 5000
+    buffer: 50000
     sinceSeconds: -1
