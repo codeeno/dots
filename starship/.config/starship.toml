@@ -2,6 +2,7 @@ format = """
 [╭](fg:current_line)\
 $directory\
 $git_branch\
+$git_status\
 $fill\
 $nodejs\
 $python\
@@ -44,11 +45,11 @@ format = '[─](fg:current_line)[](fg:cyan)[$symbol](fg:primary bg:cyan)[]
 symbol = ' '
 
 [git_status]
-format = '[$all_status](fg:green bg:box)[](fg:box)'
+format = '[$all_status](fg:orange bg:box)[](fg:box)'
 conflicted = ' ='
 up_to_date = ''
 untracked = ' ?${count}'
-stashed = ' $'
+stashed = ' \$'
 modified = ' !${count}'
 staged = ' +'
 renamed = ' »'
