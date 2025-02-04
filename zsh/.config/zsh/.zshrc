@@ -63,6 +63,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 #### Set config directory for eza
 export EZA_CONFIG_DIR="$XDG_CONFIG_HOME/eza"
+
 ###########################
 # History settings
 ###########################
