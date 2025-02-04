@@ -61,6 +61,8 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 #### Set XDG home to ~/.config
 export XDG_CONFIG_HOME="$HOME/.config"
 
+#### Set config directory for eza
+export EZA_CONFIG_DIR="$XDG_CONFIG_HOME/eza"
 ###########################
 # History settings
 ###########################
@@ -102,6 +104,7 @@ alias lg="lazygit"
 alias ldocker="lazydocker"
 alias tg="terragrunt"
 alias tf="terraform"
+alias k="kubecolor"
 alias kc="kubectx"
 
 # Replacements
