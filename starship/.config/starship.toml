@@ -96,7 +96,7 @@ context_alias = "dev"
 [time]
 format = '[─](fg:current_line)[](fg:blue)[󰦖 ](fg:primary bg:blue)[](fg:blue bg:box)[ $time](fg:foreground bg:box)[](fg:box)'
 time_format = '%H:%M'
-disabled = false
+disabled = true
 
 [character]
 format = """
