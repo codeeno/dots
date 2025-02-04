@@ -102,6 +102,7 @@ alias lg="lazygit"
 alias ldocker="lazydocker"
 alias tg="terragrunt"
 alias tf="terraform"
+alias kc="kubectx"
 
 # Replacements
 alias vim='nvim'
