@@ -19,9 +19,9 @@ add_newline = true
 [palettes.tokyo_night]
 foreground = '#D8D8D8'
 background = '#1A1B26'
-current_line = '#2A2C37'
+current_line = '#333544'
 primary = '#292E42'
-box = '#2A2C37'
+box = '#363948'
 black = '#1d202f'
 blue = '#7aa2f7'
 cyan = '#7dcfff'
@@ -41,7 +41,7 @@ read_only = '󱧵 '
 read_only_style = ''
 
 [git_branch]
-format = '[─](fg:current_line)[](fg:cyan)[$symbol](fg:primary bg:cyan)[](fg:cyan bg:box)[ $branch](fg:foreground bg:box)[](fg:box)'
+format = '[─](fg:current_line)[](fg:cyan)[$symbol](fg:primary bg:cyan)[](fg:cyan bg:box)[ $branch](fg:foreground bg:box)'
 symbol = ' '
 
 [git_status]
