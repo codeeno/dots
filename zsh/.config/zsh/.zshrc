@@ -100,13 +100,14 @@ source $ZDOTDIR/ohmyzsh/oh-my-zsh.sh
 # Aliases
 ###########################
 
-# Shortcuts
+# Aliases
 alias lg="lazygit"
 alias ldocker="lazydocker"
 alias tg="terragrunt"
 alias tf="terraform"
 alias k="kubecolor"
 alias kc="kubectx"
+alias assume=". assume"
 
 # Replacements
 alias vim='nvim'
@@ -151,6 +152,9 @@ autoload -Uz compinit && compinit
 
 # AWS CLI
 complete -C '/opt/homebrew/bin/aws_completer' aws
+
+# Kubectl
+source <(kubectl completion zsh)
 
 ###########################
 # Scripts/Functions
