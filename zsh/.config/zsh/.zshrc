@@ -64,6 +64,9 @@ export XDG_CONFIG_HOME="$HOME/.config"
 #### Set config directory for eza
 export EZA_CONFIG_DIR="$XDG_CONFIG_HOME/eza"
 
+#### Ensure terragrunt uses opentofu
+export TERRAGRUNT_TFPATH=$(which tofu)
+
 ###########################
 # History settings
 ###########################
@@ -105,7 +108,6 @@ alias lg="lazygit"
 alias ldocker="lazydocker"
 alias tg="terragrunt"
 alias tf="tofu"
-alias terraform="tofu"
 alias k="kubecolor"
 alias kc="kubectx"
 alias assume=". assume"
