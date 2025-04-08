@@ -20,6 +20,7 @@ set incsearch
 set nu
 set ignorecase
 set smartcase
+set clipboard+=unnamed
 
 """ Idea specific settings ------------------
 set ideajoin

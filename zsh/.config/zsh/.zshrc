@@ -91,7 +91,6 @@ plugins=(
 
 # Enable lazy loading on the built-in NVM plugin
 zstyle ':omz:plugins:nvm' lazy yes
-zstyle ':omz:plugins:nvm' lazy-cmd aws-sso-cli sso
 
 # Disable colors for tab autocomplete
 zstyle ':completion:*' list-colors
@@ -111,6 +110,7 @@ alias tf="tofu"
 alias k="kubecolor"
 alias kc="kubectx"
 alias assume=". assume"
+alias sso=". assume"
 
 # Replacements
 alias vim='nvim'
@@ -162,15 +162,6 @@ source <(kubectl completion zsh)
 ###########################
 # Scripts/Functions
 ###########################
-
-# Get AWS credentials for a given profile using aws-sso-cli
-sso() {
-   command aws-sso-cli "$@" | while read -r line; do
-    if [[ $line =~ ^export ]]; then
-      eval $line
-    fi
-  done
-}
 
 # Get a parameter from AWS SSM
 param() {
