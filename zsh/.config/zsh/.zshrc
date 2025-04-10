@@ -149,15 +149,18 @@ eval "$(zoxide init zsh)"
 # Command Completions
 ###########################
 
-# Initialize completions
-autoload bashcompinit && bashcompinit
-autoload -Uz compinit && compinit
-
 # AWS CLI
 complete -C '/opt/homebrew/bin/aws_completer' aws
 
 # Kubectl
 source <(kubectl completion zsh)
+
+# Docker for Desktop
+fpath=($HOME.docker/completions $fpath)
+
+# Initialize completions
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
 
 ###########################
 # Scripts/Functions
