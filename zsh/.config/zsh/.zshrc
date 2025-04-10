@@ -149,6 +149,9 @@ eval "$(zoxide init zsh)"
 # Command Completions
 ###########################
 
+# Enable bash-style completion (needed for aws and some others)
+autoload bashcompinit && bashcompinit
+
 # AWS CLI
 complete -C '/opt/homebrew/bin/aws_completer' aws
 
@@ -156,10 +159,9 @@ complete -C '/opt/homebrew/bin/aws_completer' aws
 source <(kubectl completion zsh)
 
 # Docker for Desktop
-fpath=($HOME.docker/completions $fpath)
+fpath=($HOME/.docker/completions $fpath)
 
 # Initialize completions
-autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 
 ###########################
