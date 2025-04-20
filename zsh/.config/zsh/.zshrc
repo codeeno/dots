@@ -67,6 +67,9 @@ export EZA_CONFIG_DIR="$XDG_CONFIG_HOME/eza"
 #### Ensure terragrunt uses opentofu
 export TERRAGRUNT_TFPATH=$(which tofu)
 
+#### Load all kubeconfig files which start with 'config'
+export KUBECONFIG=$(echo ~/.kube/config* | tr ' ' ':')
+
 ###########################
 # History settings
 ###########################
