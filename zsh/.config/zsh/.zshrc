@@ -91,6 +91,7 @@ plugins=(
 
 # Enable lazy loading on the built-in NVM plugin
 zstyle ':omz:plugins:nvm' lazy yes
+zstyle ':omz:plugins:nvm' lazy-cmd nvim
 
 # Disable colors for tab autocomplete
 zstyle ':completion:*' list-colors
