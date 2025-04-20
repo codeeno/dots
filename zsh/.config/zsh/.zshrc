@@ -91,6 +91,7 @@ plugins=(
 
 # Enable lazy loading on the built-in NVM plugin
 zstyle ':omz:plugins:nvm' lazy yes
+# Load NVM with nvim due to a number of plugins requiring node to be present in PATH
 zstyle ':omz:plugins:nvm' lazy-cmd nvim
 
 # Disable colors for tab autocomplete
