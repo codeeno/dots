@@ -65,7 +65,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export EZA_CONFIG_DIR="$XDG_CONFIG_HOME/eza"
 
 #### Ensure terragrunt uses opentofu
-export TERRAGRUNT_TFPATH=$(which tofu)
+export TG_TF_PATH=$(which tofu)
 
 #### Load all kubeconfig files which start with 'config'
 export KUBECONFIG=$(echo ~/.kube/config* | tr ' ' ':')
