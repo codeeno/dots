@@ -89,7 +89,6 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   kubectl
-  nvm
 )
 
 # Enable lazy loading on the built-in NVM plugin
@@ -149,6 +148,9 @@ eval "$(zoxide init zsh)"
 
 #### Github Copilot CLI
 # eval "$(gh copilot alias -- zsh)"
+
+# Activate Mise
+eval "$(~/.local/bin/mise activate zsh)"
 
 ###########################
 # Command Completions
