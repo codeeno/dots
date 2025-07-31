@@ -115,6 +115,7 @@ alias k="kubecolor"
 alias kc="kubectx"
 alias assume=". assume"
 alias sso=". assume"
+alias yz="yazi"
 
 # Replacements
 alias vim='nvim'
