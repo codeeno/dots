@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   lazyvim,
   ...
@@ -29,11 +28,40 @@
     };
 
     extraPackages = with pkgs; [
+      # Treesitter
       tree-sitter
-      statix
-      nixfmt
-      luarocks
-      stylua
+
+      # Formatters
+      gofumpt # Go
+      nixfmt # Nix
+      prettier # JS/TS/CSS/HTML/JSON/Markdown
+      shfmt # Shell
+      stylua # Lua
+
+      # Linters
+      markdownlint-cli2 # Markdown
+      ruff # Python (linter + formatter)
+      statix # Nix
+
+      # Language servers
+      dockerfile-language-server-nodejs
+      docker-compose-language-service
+      gopls # Go
+      helm-ls
+      lua-language-server
+      marksman # Markdown
+      pyright # Python
+      tailwindcss-language-server
+      taplo # TOML
+      terraform-ls
+      vtsls # TypeScript/JavaScript
+      yaml-language-server
+
+      # Build tools / misc
+      fish # includes fish_indent formatter
+      gotools # includes goimports
+      luarocks # Lua package manager
+      packer # HashiCorp Packer (packer_fmt)
     ];
   };
 }
