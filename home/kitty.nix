@@ -6,34 +6,6 @@
     themeFile = "tokyo_night_moon";
     shellIntegration.enableZshIntegration = true;
 
-    keybindings = {
-      ######################################
-      # Keybindings for multiplexing (tmux)- Unbind the default keybindings
-      ######################################
-
-      "kitty_mod+c" = "copy_to_clipboard";
-      "kitty_mod+v" = "paste_from_clipboard";
-
-      "kitty_mod+d" = "no_op";
-      "kitty_mod+shift+d" = "no_op";
-      "kitty_mod+w" = "no_op";
-
-      "kitty_mod+up" = "no_op";
-      "kitty_mod+left" = "no_op";
-      "kitty_mod+right" = "no_op";
-      "kitty_mod+down" = "no_op";
-
-      "kitty_mod+k" = "no_op";
-      "kitty_mod+h" = "no_op";
-      "kitty_mod+l" = "no_op";
-      "kitty_mod+j" = "no_op";
-
-      "kitty_mod+t" = "no_op";
-      "kitty_mod+shift" = "no_op";
-      "kitty_mod+f" = "no_op";
-
-    };
-
     settings = {
       ######################################
       # Fonts
@@ -73,7 +45,7 @@
       # OS Specific
       ######################################
 
-      shell = "${pkgs.zsh}/bin/zsh";
+      shell = "${pkgs.zsh}/bin/zsh --login";
 
       # Linux specific
       kitty_mod = "alt";
@@ -83,6 +55,33 @@
       # MacOS specific
       # kitty_mod cmd
       # macos_option_as_alt yes
+    };
+
+    keybindings = {
+      ######################################
+      # Keybindings for multiplexing (tmux)- Unbind the default keybindings
+      ######################################
+
+      "kitty_mod+c" = "copy_to_clipboard";
+      "kitty_mod+v" = "paste_from_clipboard";
+
+      "kitty_mod+d" = "no_op";
+      "kitty_mod+shift+d" = "no_op";
+      "kitty_mod+w" = "no_op";
+
+      "kitty_mod+up" = "no_op";
+      "kitty_mod+left" = "no_op";
+      "kitty_mod+right" = "no_op";
+      "kitty_mod+down" = "no_op";
+
+      "kitty_mod+k" = "no_op";
+      "kitty_mod+h" = "no_op";
+      "kitty_mod+l" = "no_op";
+      "kitty_mod+j" = "no_op";
+
+      "kitty_mod+t" = "no_op";
+      "kitty_mod+shift" = "no_op";
+      "kitty_mod+f" = "no_op";
     };
   };
 }
