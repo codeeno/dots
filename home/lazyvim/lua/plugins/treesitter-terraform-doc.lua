@@ -2,6 +2,7 @@ return {
   "Afourcat/treesitter-terraform-doc.nvim",
   opts = {
     command_name = "OpenDoc",
+    --TODO: Make this platform agnostic
     url_opener_command = "!open", --MacOS specific opener command. On linux it would be something like !firefox
   },
   keys = {

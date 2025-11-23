@@ -1,3 +1,4 @@
+--TODO: Make this work again with new snacks explorer
 return {
   "s1n7ax/nvim-window-picker",
   opts = {
