@@ -1,9 +1,24 @@
-.zshrc_local
-.zsh_sessions
-.zsh_history
-.zcompdump*
-.gitconfig_local
-ohmyzsh
-tmux/.config/tmux/plugins/*
-lazygit/.config/lazygit/state.yml
+# Nix
+result
+result-*
+.direnv/
 
+# Editor/IDE
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Local overrides (not to be shared)
+*.local.md
+*.local.nix
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets (just in case)
+*.secret
+secrets/
