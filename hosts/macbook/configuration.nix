@@ -26,6 +26,7 @@
       "notunes"
       "drawio"
       "claude"
+      "zed"
     ];
   };
 

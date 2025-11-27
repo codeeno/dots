@@ -27,9 +27,7 @@
       navi
       ncdu
       nerd-fonts.caskaydia-cove
-      nil
       nix-index
-      nixd
       opentofu
       postgresql
       redis
@@ -70,18 +68,16 @@
   };
 
   imports = [
-    ./emulators/ghostty.nix
-    ./emulators/kitty.nix
-    ./programs/btop.nix
-    ./programs/delta.nix
-    ./programs/eza
-    ./programs/fzf.nix
-    ./programs/git.nix
-    ./programs/k9s
-    ./programs/lazygit.nix
-    ./programs/mise.nix
-    ./shell/starship.nix
-    ./shell/tmux.nix
-    ./shell/zsh.nix
+    ./btop.nix
+    ./delta.nix
+    ./eza/eza.nix
+    ./fzf.nix
+    ./git.nix
+    ./k9s/k9s.nix
+    ./lazygit.nix
+    ./mise.nix
+    ./starship.nix
+    ./tmux.nix
+    ./zsh/zsh.nix
   ];
 }

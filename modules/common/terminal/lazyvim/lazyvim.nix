@@ -81,20 +81,22 @@
       statix # Nix
 
       # Language servers
-      dockerfile-language-server
+      bash-language-server
       docker-compose-language-service
+      dockerfile-language-server
       gopls # Go
       helm-ls
       lua-language-server
       marksman # Markdown
+      nil
+      nixd
       pyright # Python
       tailwindcss-language-server
       taplo # TOML
       terraform-ls
+      vscode-langservers-extracted
       vtsls # TypeScript/JavaScript
       yaml-language-server
-      bash-language-server
-      vscode-langservers-extracted
 
       # Build tools / misc
       fish # includes fish_indent formatter

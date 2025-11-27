@@ -6,7 +6,7 @@ in
 {
   imports = [
     ../../modules/common/terminal
-    ../../modules/common/editors/lazyvim
+    ../../modules/common/programs/kitty.nix
   ];
 
   fonts.fontconfig.enable = true;
@@ -26,8 +26,6 @@ in
   programs = {
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
-
-    ghostty.enable = false;
 
     kitty.settings = {
       kitty_mod = "cmd";
