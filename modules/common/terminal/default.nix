@@ -50,9 +50,6 @@
     ];
 
     sessionVariables = {
-      EDITOR = "nvim";
-      FCEDIT = "nvim";
-      VISUAL = "nvim";
       AWS_PAGER = "";
       AWS_REGION = "eu-central-1";
       TG_TF_PATH = "${pkgs.opentofu}/bin/tofu";
@@ -64,6 +61,28 @@
 
     shell = {
       enableShellIntegration = true;
+    };
+
+    shellAliases = {
+      # Utility
+      ".." = "cd ..";
+
+      # Shorthands for specific apps
+      k = "kubecolor";
+      kc = "kubectx";
+      ldo = "lazydocker";
+      tf = "tofu";
+      tg = "terragrunt";
+      yz = "yazi";
+
+      # Replacements
+      diff = "delta --side-by-side";
+
+      # Misc
+      ci = "NO_PROMPT=1 glab ci status | grep '^https' | xargs open";
+      weather = "curl wttr.in";
+      assume = ". assume";
+      sso = ". assume";
     };
   };
 

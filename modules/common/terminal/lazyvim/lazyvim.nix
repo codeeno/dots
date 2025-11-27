@@ -105,4 +105,14 @@
       packer # HashiCorp Packer (packer_fmt)
     ];
   };
+
+  home.shellAliases = {
+    vim = "nvim";
+  };
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    FCEDIT = "nvim";
+    VISUAL = "nvim";
+  };
 }

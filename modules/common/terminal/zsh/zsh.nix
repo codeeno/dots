@@ -27,35 +27,6 @@
       EZA_CONFIG_DIR = "${config.xdg.configHome}/eza";
     };
 
-    shellAliases = {
-      # Shorthands
-      k = "kubecolor";
-      kc = "kubectx";
-      ldo = "lazydocker";
-      tf = "tofu";
-      tg = "terragrunt";
-      yz = "yazi";
-      ".." = "cd ..";
-
-      # Replacements
-      vim = "nvim";
-      diff = "delta --side-by-side";
-
-      # Eza
-      ll = "eza --long --header --git --all";
-      tree = "eza --tree --icons";
-
-      # Git related
-      ci = "NO_PROMPT=1 glab ci status | grep '^https' | xargs open";
-      groot = "cd $(git rev-parse --show-toplevel)";
-
-      # Misc
-      weather = "curl wttr.in";
-      sz = "source $ZDOTDIR/.zshrc && echo 'Sourced!'";
-      assume = ". assume";
-      sso = ". assume";
-    };
-
     plugins = [
       {
         name = "vi-mode";
@@ -90,6 +61,10 @@
       source ${./functions/aws.zsh}
       source ${./functions/fzf.zsh}
     '';
+
+    shellAliases = {
+      sz = "source $ZDOTDIR/.zshrc && echo 'Sourced!'";
+    };
   };
 
   programs.zoxide.enable = true;

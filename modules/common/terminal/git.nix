@@ -25,4 +25,9 @@
       };
     };
   };
+
+  home.shellAliases = {
+    gp = "git pull";
+    groot = "cd $(git rev-parse --show-toplevel)";
+  };
 }
