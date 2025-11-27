@@ -75,6 +75,7 @@
     ./git.nix
     ./k9s/k9s.nix
     ./lazygit.nix
+    ./lazyvim/lazyvim.nix
     ./mise.nix
     ./starship.nix
     ./tmux.nix
