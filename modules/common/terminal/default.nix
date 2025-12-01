@@ -28,6 +28,7 @@
       ncdu
       nerd-fonts.caskaydia-cove
       nix-index
+      opencode
       opentofu
       postgresql
       redis
