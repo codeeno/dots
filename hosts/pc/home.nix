@@ -34,5 +34,4 @@ in
       hmd = "home-manager switch --flake ${flakePath}#${flakeConfig} --dry-run";
     };
   };
-
 }
