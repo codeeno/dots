@@ -10,7 +10,7 @@
     # Include the results of the hardware scan
     # Generate this on the target machine with:
     # sudo nixos-generate-config --show-hardware-config > ~/dots/hosts/mini-pc/hardware-configuration.nix
-    ./hardware-configuration.nix
+    # ./hardware-configuration.nix
   ];
 
   # Bootloader
@@ -67,6 +67,13 @@
 
   # Enable SSH
   services.openssh.enable = true;
+
+  # Default filesystem
+  fileSystems."/" = lib.mkDefault {
+    device = "/dev/disk/by-label/nixos-minimal-25.11-x86_64";
+    autoResize = true;
+    fsType = "ext4";
+  };
 
   # Allow unfree packages
   # nixpkgs.config.allowUnfree = true;
