@@ -40,7 +40,7 @@
       };
 
       nixosConfigurations = {
-        "eeno@mini-pc" = nixpkgs.lib.nixosSystem {
+        "mini-pc" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
