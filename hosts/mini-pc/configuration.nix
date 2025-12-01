@@ -5,7 +5,7 @@
     # Include the results of the hardware scan
     # You'll need to generate this on the target machine with:
     # sudo nixos-generate-config --show-hardware-config > hardware-configuration.nix
-    ./hardware-configuration.nix
+    # ./hardware-configuration.nix
   ];
 
   # # Bootloader
