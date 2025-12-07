@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 let
   flakePath = "~/projects/dots";
   flakeConfig = "eeno@pc";
@@ -15,6 +15,7 @@ in
     username = "eeno";
     homeDirectory = "/home/eeno";
     stateVersion = "25.05";
+    packages = with pkgs; [ traceroute ];
   };
 
   # See: https://nix-community.github.io/home-manager/index.xhtml#sec-usage-gpu-sudo

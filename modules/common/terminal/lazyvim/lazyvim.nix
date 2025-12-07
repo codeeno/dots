@@ -71,6 +71,7 @@
       # Formatters
       gofumpt # Go
       nixfmt # Nix
+      prettier
       prettierd # JS/TS/CSS/HTML/JSON/Markdown
       shfmt # Shell
       stylua # Lua
