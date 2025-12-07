@@ -70,7 +70,7 @@
 
   # Default filesystem
   fileSystems."/" = lib.mkDefault {
-    device = "/dev/disk/by-label/nixos-minimal-25.11-x86_64";
+    device = "/dev/disk/by-label/nixos";
     autoResize = true;
     fsType = "ext4";
   };
