@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 let
   flakePath = "~/projects/dots";
   flakeConfig = "eeno@pc";
@@ -18,6 +18,7 @@ in
   };
 
   # See: https://nix-community.github.io/home-manager/index.xhtml#sec-usage-gpu-sudo
+  # Run the fetch_nvidia_hash.sh script from the scripts directory, then run sudo /nix/store/<some-path>/bin/non-nixos-gpu-setup
   targets.genericLinux.gpu.enable = true;
   targets.genericLinux.gpu.nvidia = {
     enable = true;
