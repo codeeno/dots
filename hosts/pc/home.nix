@@ -21,8 +21,8 @@ in
   targets.genericLinux.gpu.enable = true;
   targets.genericLinux.gpu.nvidia = {
     enable = true;
-    version = "580.95.05";
-    sha256 = "sha256-hJ7w746EK5gGss3p8RwTA9VPGpp2lGfk5dlhsv4Rgqc=";
+    version = "580.105.08";
+    sha256 = "sha256-2cboGIZy8+t03QTPpp3VhHn6HQFiyMKMjRdiV2MpNHU=";
   };
 
   programs = {
