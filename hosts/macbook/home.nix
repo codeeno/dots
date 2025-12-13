@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 let
   flakePath = "~/projects/personal/dots";
   flakeConfig = "d434547@macbook";
@@ -21,6 +21,11 @@ in
       "/opt/homebrew/sbin"
       "$HOME/scripts"
     ];
+
+    packages = with pkgs; [
+      crossplane-cli
+    ];
+
   };
 
   programs = {

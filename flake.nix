@@ -39,6 +39,24 @@
         };
       };
 
+      nixosConfigurations = {
+        "proxmox" = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/proxmox/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              nixpkgs.config.allowUnfree = true;
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.eeno = import ./hosts/proxmox/home.nix;
+            }
+          ];
+        };
+      };
+
       homeConfigurations = {
         "d434547@macbook" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-darwin;

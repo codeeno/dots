@@ -31,15 +31,10 @@
     };
 
     hotKeys = {
-      "shift-0" = {
-        shortCut = "Shift-0";
-        description = "View pods";
-        command = "po";
-      };
       "shift-1" = {
         shortCut = "Shift-1";
-        description = "View deployments";
-        command = "dp";
+        description = "View pods";
+        command = "po";
       };
       "shift-2" = {
         shortCut = "Shift-2";

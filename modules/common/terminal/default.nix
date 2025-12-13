@@ -40,6 +40,7 @@
       tldr
       uv
       wget
+      yamllint
       yazi
       yq
       yt-dlp
