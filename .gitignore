@@ -22,3 +22,6 @@ Thumbs.db
 # Secrets (just in case)
 *.secret
 secrets/
+
+# Output directory from nixos-generate command
+output/

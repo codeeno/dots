@@ -40,18 +40,18 @@
       };
 
       nixosConfigurations = {
-        "mini-pc" = nixpkgs.lib.nixosSystem {
+        "proxmox" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-            ./hosts/mini-pc/configuration.nix
+            ./hosts/proxmox/configuration.nix
             home-manager.nixosModules.home-manager
             {
               nixpkgs.config.allowUnfree = true;
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.eeno = import ./hosts/mini-pc/home.nix;
+              home-manager.users.eeno = import ./hosts/proxmox/home.nix;
             }
           ];
         };
