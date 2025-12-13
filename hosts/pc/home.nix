@@ -15,6 +15,10 @@ in
     username = "eeno";
     homeDirectory = "/home/eeno";
     stateVersion = "25.05";
+
+    packages = with pkgs; [
+      xsel
+    ];
   };
 
   # See: https://nix-community.github.io/home-manager/index.xhtml#sec-usage-gpu-sudo
@@ -33,6 +37,9 @@ in
     zsh.shellAliases = {
       hm = "home-manager switch --flake ${flakePath}#${flakeConfig}";
       hmd = "home-manager switch --flake ${flakePath}#${flakeConfig} --dry-run";
+
+      pbcopy = "xsel --clipboard --input";
+      pbpaste = "xsel --clipboard --output";
     };
   };
 }
