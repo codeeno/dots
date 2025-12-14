@@ -35,6 +35,7 @@
       s5cmd
       stu
       tflint
+      terraform-docs
       tldr
       uv
       wget
