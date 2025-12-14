@@ -28,19 +28,16 @@
       ncdu
       nerd-fonts.caskaydia-cove
       nix-index
-      opencode
       opentofu
       postgresql
       redis
       ripgrep
       s5cmd
       stu
-      terraform
-      terragrunt
+      tflint
       tldr
       uv
       wget
-      yamllint
       yazi
       yq
       yt-dlp

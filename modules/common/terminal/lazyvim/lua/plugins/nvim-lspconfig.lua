@@ -4,7 +4,8 @@ return {
     format = { timeout_ms = 2000 },
     servers = {
       tailwindcss = {},
-      terraformls = {},
+      terraformls = { enabled = false },
+      tofu_ls = { enabled = true },
       pyright = {},
       tsserver = {
         settings = {

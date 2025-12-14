@@ -95,6 +95,8 @@
       tailwindcss-language-server
       taplo # TOML
       terraform-ls
+      tofu-ls
+      tflint
       vscode-langservers-extracted
       vtsls # TypeScript/JavaScript
       yaml-language-server
