@@ -40,7 +40,6 @@
       tldr
       uv
       wget
-      yazi
       yq
       yt-dlp
       (wrapHelm kubernetes-helm {
@@ -99,6 +98,7 @@
     ./mise.nix
     ./starship.nix
     ./tmux.nix
+    ./yazi.nix
     ./zsh/zsh.nix
   ];
 }
