@@ -43,10 +43,10 @@
       sync_to_monitor = "no";
     };
 
+    ######################################
+    # Keybindings
+    ######################################
     keybindings = {
-      ######################################
-      # Keybindings for multiplexing (tmux)- Unbind the default keybindings
-      ######################################
 
       "kitty_mod+c" = "copy_to_clipboard";
       "kitty_mod+v" = "paste_from_clipboard";
@@ -68,6 +68,9 @@
       "kitty_mod+t" = "no_op";
       "kitty_mod+shift" = "no_op";
       "kitty_mod+f" = "no_op";
+
+      # Unbind default binding to free it up for use in tmux
+      "kitty_mod+o" = "";
     };
   };
 }
