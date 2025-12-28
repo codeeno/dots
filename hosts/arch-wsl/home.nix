@@ -6,7 +6,6 @@ in
 {
   imports = [
     ../../modules/common/terminal
-    ../../modules/common/programs/kitty.nix
   ];
 
   home = {
