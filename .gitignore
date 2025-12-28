@@ -25,3 +25,5 @@ secrets/
 
 # Output directory from nixos-generate command
 output/
+
+CLAUDE.md
