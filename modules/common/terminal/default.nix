@@ -15,6 +15,7 @@
       gh
       glab
       go
+      opencode
       granted
       helmfile
       htop
