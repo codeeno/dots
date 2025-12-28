@@ -93,7 +93,6 @@
       unbind-key -T copy-mode-vi v # Default rectangle selection key. Unbind to avoid conflict
       bind-key -T copy-mode-vi 'v' send -X begin-selection
       bind-key -T copy-mode-vi 'C-v' send -X rectangle-toggle
-      bind-key -T copy-mode-vi 'y' send -X copy-selection
 
       # Swap current tab with next/previous
       bind-key -n C-M-S-l swap-window -t +1 \; next-window
@@ -131,6 +130,7 @@
 
     plugins = with pkgs.tmuxPlugins; [
       { plugin = yank; }
+      { plugin = continuum; }
       {
         plugin = tokyo-night-tmux;
         extraConfig = ''
@@ -150,9 +150,6 @@
           set -g @resurrect-strategy-nvim 'session'
           set -g @resurrect-capture-pane-contents 'on'
         '';
-      }
-      {
-        plugin = continuum;
       }
     ];
   };
