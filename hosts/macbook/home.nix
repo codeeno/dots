@@ -61,5 +61,18 @@ in
       bind -n M-S-d split-window -v -c "#{pane_current_path}"
 
     '';
+
+    ssh.matchBlocks = {
+      "*" = {
+        extraOptions = {
+          UseKeychain = "yes";
+        };
+      };
+
+      "gitlab.valiton.com" = {
+        port = 22022;
+      };
+    };
+
   };
 }
