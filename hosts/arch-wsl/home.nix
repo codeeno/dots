@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
-  flakePath = "~/projects/dots";
-  flakeConfig = "eeno@pc";
+  flakePath = "~/dots";
+  flakeConfig = "eeno@arch-wsl";
 in
 {
   imports = [
@@ -13,7 +13,10 @@ in
     homeDirectory = "/home/eeno";
     stateVersion = "25.11";
 
-    packages = with pkgs; [ ];
+    packages = with pkgs; [
+      openssh
+      xsel
+    ];
   };
 
   programs = {
