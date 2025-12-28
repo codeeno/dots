@@ -3,6 +3,8 @@
     enable = true;
     enableDefaultConfig = false;
 
+    # Default Config
+    # See: https://mynixos.com/home-manager/option/programs.ssh.enableDefaultConfig
     matchBlocks."*" = {
       forwardAgent = false;
       addKeysToAgent = "no";
