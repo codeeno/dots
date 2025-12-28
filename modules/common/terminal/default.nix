@@ -92,6 +92,7 @@
     ./lazygit.nix
     ./lazyvim/lazyvim.nix
     ./mise.nix
+    ./ssh.nix
     ./starship.nix
     ./tmux.nix
     ./yazi.nix
