@@ -20,7 +20,6 @@
         helm.enable = true;
         json.enable = true;
         lua.enable = true;
-        markdown.enable = true;
         nix.enable = true;
         python.enable = true;
         scala.enable = true;
@@ -71,6 +70,7 @@
       # Formatters
       gofumpt # Go
       nixfmt # Nix
+      prettier
       prettierd # JS/TS/CSS/HTML/JSON/Markdown
       shfmt # Shell
       stylua # Lua
@@ -94,6 +94,8 @@
       tailwindcss-language-server
       taplo # TOML
       terraform-ls
+      tofu-ls
+      tflint
       vscode-langservers-extracted
       vtsls # TypeScript/JavaScript
       yaml-language-server

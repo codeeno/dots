@@ -15,7 +15,6 @@
       gh
       glab
       go
-      granted
       helmfile
       htop
       jq
@@ -26,22 +25,17 @@
       lazygit
       navi
       ncdu
-      nerd-fonts.caskaydia-cove
       nix-index
-      opencode
       opentofu
       postgresql
       redis
       ripgrep
-      s5cmd
       stu
-      terraform
-      terragrunt
+      tflint
+      terraform-docs
       tldr
       uv
       wget
-      yamllint
-      yazi
       yq
       yt-dlp
       (wrapHelm kubernetes-helm {
@@ -100,6 +94,7 @@
     ./mise.nix
     ./starship.nix
     ./tmux.nix
+    ./yazi.nix
     ./zsh/zsh.nix
   ];
 }

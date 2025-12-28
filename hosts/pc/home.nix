@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 let
   flakePath = "~/projects/dots";
   flakeConfig = "eeno@pc";
@@ -15,14 +15,22 @@ in
     username = "eeno";
     homeDirectory = "/home/eeno";
     stateVersion = "25.05";
+
+    packages = with pkgs; [
+      nerd-fonts.caskaydia-cove
+      talosctl
+      traceroute
+      xsel
+    ];
   };
 
   # See: https://nix-community.github.io/home-manager/index.xhtml#sec-usage-gpu-sudo
+  # Run the fetch_nvidia_hash.sh script from the scripts directory, then run sudo /nix/store/<some-path>/bin/non-nixos-gpu-setup
   targets.genericLinux.gpu.enable = true;
   targets.genericLinux.gpu.nvidia = {
     enable = true;
-    version = "580.95.05";
-    sha256 = "sha256-hJ7w746EK5gGss3p8RwTA9VPGpp2lGfk5dlhsv4Rgqc=";
+    version = "580.105.08";
+    sha256 = "sha256-2cboGIZy8+t03QTPpp3VhHn6HQFiyMKMjRdiV2MpNHU=";
   };
 
   programs = {
@@ -32,6 +40,9 @@ in
     zsh.shellAliases = {
       hm = "home-manager switch --flake ${flakePath}#${flakeConfig}";
       hmd = "home-manager switch --flake ${flakePath}#${flakeConfig} --dry-run";
+
+      pbcopy = "xsel --clipboard --input";
+      pbpaste = "xsel --clipboard --output";
     };
   };
 }
