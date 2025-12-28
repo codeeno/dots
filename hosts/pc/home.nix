@@ -17,9 +17,10 @@ in
     stateVersion = "25.05";
 
     packages = with pkgs; [
-      xsel
+      nerd-fonts.caskaydia-cove
       talosctl
       traceroute
+      xsel
     ];
   };
 

@@ -24,6 +24,10 @@ in
 
     packages = with pkgs; [
       crossplane-cli
+      granted
+      nerd-fonts.caskaydia-cove
+      opencode
+      s5cmd
     ];
 
   };

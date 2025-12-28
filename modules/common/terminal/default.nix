@@ -15,8 +15,6 @@
       gh
       glab
       go
-      opencode
-      granted
       helmfile
       htop
       jq
@@ -27,13 +25,11 @@
       lazygit
       navi
       ncdu
-      nerd-fonts.caskaydia-cove
       nix-index
       opentofu
       postgresql
       redis
       ripgrep
-      s5cmd
       stu
       tflint
       terraform-docs
