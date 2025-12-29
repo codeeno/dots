@@ -18,6 +18,7 @@
       helmfile
       htop
       jq
+      just
       kubecolor
       kubectl
       kubectx
