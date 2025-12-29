@@ -30,10 +30,10 @@
       postgresql
       redis
       ripgrep
-      stu
-      tflint
       terraform-docs
+      tflint
       tldr
+      traceroute
       uv
       wget
       yq

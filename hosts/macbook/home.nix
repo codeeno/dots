@@ -28,6 +28,7 @@ in
       nerd-fonts.caskaydia-cove
       opencode
       s5cmd
+      stu
     ];
 
   };
