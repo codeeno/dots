@@ -6,6 +6,7 @@ in
 {
   imports = [
     ../../modules/common/terminal
+    ../../modules/common/terminal/claude-code.nix
   ];
 
   home = {

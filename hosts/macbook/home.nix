@@ -7,6 +7,7 @@ in
   imports = [
     ../../modules/common/terminal
     ../../modules/common/programs/kitty.nix
+    ../../modules/common/terminal/claude-code.nix
   ];
 
   fonts.fontconfig.enable = true;

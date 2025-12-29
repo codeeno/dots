@@ -25,6 +25,7 @@
       lazygit
       navi
       ncdu
+      net-tools
       nix-index
       opentofu
       postgresql
