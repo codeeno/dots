@@ -70,9 +70,11 @@ in
           UseKeychain = "yes";
         };
       };
-
       "gitlab.valiton.com" = {
         port = 22022;
+      };
+      "10.0.*.*" = {
+        identityFile = [ "~/.ssh/id_rsa_home" ];
       };
     };
 
