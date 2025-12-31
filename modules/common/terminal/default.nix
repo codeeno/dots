@@ -35,7 +35,6 @@
       terraform-docs
       tflint
       tldr
-      traceroute
       uv
       wget
       yq
