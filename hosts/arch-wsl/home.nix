@@ -32,4 +32,6 @@ in
       pbpaste = "xsel --clipboard --output";
     };
   };
+
+  services.ssh-agent.enable = true;
 }
