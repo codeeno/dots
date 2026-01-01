@@ -10,6 +10,7 @@
       bat
       broot
       claude-code
+      dnsutils
       dust
       fd
       gh
