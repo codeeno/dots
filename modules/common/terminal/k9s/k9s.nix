@@ -34,10 +34,15 @@
       "shift-1" = {
         shortCut = "Shift-1";
         description = "View pods";
-        command = "po";
+        command = "pods";
       };
       "shift-2" = {
         shortCut = "Shift-2";
+        description = "View services";
+        command = "services";
+      };
+      "shift-3" = {
+        shortCut = "Shift-3";
         description = "View nodes";
         command = "nodes";
       };
