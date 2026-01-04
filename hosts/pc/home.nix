@@ -20,6 +20,9 @@ in
       xsel
       talosctl
       traceroute
+      rpi-imager
+      zstd
+      nmap
     ];
   };
 
