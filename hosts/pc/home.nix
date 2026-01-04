@@ -24,6 +24,7 @@ in
       rpi-imager
       zstd
       nmap
+      discord
     ];
   };
 
