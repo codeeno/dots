@@ -7,6 +7,7 @@ in
   imports = [
     ../../modules/common/terminal
     ../../modules/common/programs/kitty.nix
+    ../../modules/common/terminal/claude-code.nix
   ];
 
   fonts.fontconfig.enable = true;
@@ -17,7 +18,7 @@ in
     stateVersion = "25.05";
 
     packages = with pkgs; [
-      xsel
+      nerd-fonts.caskaydia-cove
       talosctl
       traceroute
       rpi-imager

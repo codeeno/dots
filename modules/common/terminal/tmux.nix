@@ -42,19 +42,19 @@
       ######################################
 
       # Splitting panes
-      bind -n M-d split-window -h -c "#{pane_current_path}"
-      bind -n M-D split-window -v -c "#{pane_current_path}"
+      bind-key -n M-d split-window -h -c "#{pane_current_path}"
+      bind-key -n M-D split-window -v -c "#{pane_current_path}"
 
       # Open window with currrent path
-      bind -n M-t new-window -c "#{pane_current_path}"
-      bind -n M-w kill-pane
+      bind-key -n M-t new-window -c "#{pane_current_path}"
+      bind-key -n M-w kill-pane
 
       # Use Shift-Alt-vim keys without prefix to switch windows
-      bind -n M-H previous-window
-      bind -n M-L next-window
+      bind-key -n M-H previous-window
+      bind-key -n M-L next-window
 
       # Toggle fullscreen/zoom of current pane
-      bind -n M-z resize-pane -Z
+      bind-key -n M-z resize-pane -Z
 
       # Select windows directly
       bind-key -n M-1 select-window -t 1
@@ -93,19 +93,18 @@
       unbind-key -T copy-mode-vi v # Default rectangle selection key. Unbind to avoid conflict
       bind-key -T copy-mode-vi 'v' send -X begin-selection
       bind-key -T copy-mode-vi 'C-v' send -X rectangle-toggle
-      bind-key -T copy-mode-vi 'y' send -X copy-selection
 
       # Swap current tab with next/previous
       bind-key -n C-M-S-l swap-window -t +1 \; next-window
       bind-key -n C-M-S-h swap-window -t -1 \; previous-window
 
       # Open a menu for opening some utilities in a popup
-      bind -n M-o display-menu -T "#[align=centre fg=green]Launch Utility" -x C -y C \
-          "btop"         b "display-popup -E -w 80% -h 80% 'btop'" \
-          "lazygit"      g "display-popup -E -w 80% -h 80% 'lazygit'" \
-          "lazydocker"   d "display-popup -E -w 80% -h 80% 'lazydocker'" \
-          "k9s"          k "display-popup -E -w 80% -h 80% 'k9s'" \
-          "home-manager" h "display-popup -E -w 80% -h 80% 'home-manager switch --flake ~/projects/dots#eeno@linux; read -n 1'"
+      bind-key -n M-u display-menu -T "#[align=centre fg=green]Launch Utility" -x C -y C \
+          "btop"         1 "display-popup -E -w 80% -h 80% 'btop'" \
+          "lazygit"      2 "display-popup -E -w 80% -h 80% 'lazygit'" \
+          "lazydocker"   3 "display-popup -E -w 80% -h 80% 'lazydocker'" \
+          "k9s"          4 "display-popup -E -w 80% -h 80% 'k9s'" \
+          "home-manager" 5 "display-popup -E -w 80% -h 80% 'home-manager switch --flake ~/projects/dots#eeno@linux; read -n 1'"
 
       ######################################
       # Toggleable panes
@@ -121,10 +120,17 @@
           resize-pane -Z -t1
         }
       }
+
+      bind-key -n M-o if-shell -F '#{==:#{session_name},popup}' {
+          detach-client
+      } {
+          display-popup -E -w 90% -h 90% 'tmux attach -t popup || tmux new -s popup'
+      }
     '';
 
     plugins = with pkgs.tmuxPlugins; [
       { plugin = yank; }
+      { plugin = continuum; }
       {
         plugin = tokyo-night-tmux;
         extraConfig = ''
@@ -144,9 +150,6 @@
           set -g @resurrect-strategy-nvim 'session'
           set -g @resurrect-capture-pane-contents 'on'
         '';
-      }
-      {
-        plugin = continuum;
       }
     ];
   };

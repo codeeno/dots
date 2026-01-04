@@ -7,6 +7,7 @@ in
   imports = [
     ../../modules/common/terminal
     ../../modules/common/programs/kitty.nix
+    ../../modules/common/terminal/claude-code.nix
   ];
 
   fonts.fontconfig.enable = true;
@@ -24,6 +25,11 @@ in
 
     packages = with pkgs; [
       crossplane-cli
+      granted
+      nerd-fonts.caskaydia-cove
+      opencode
+      s5cmd
+      stu
     ];
 
   };
@@ -57,5 +63,20 @@ in
       bind -n M-S-d split-window -v -c "#{pane_current_path}"
 
     '';
+
+    ssh.matchBlocks = {
+      "*" = {
+        extraOptions = {
+          UseKeychain = "yes";
+        };
+      };
+      "gitlab.valiton.com" = {
+        port = 22022;
+      };
+      "10.0.*.*" = {
+        identityFile = [ "~/.ssh/id_rsa_home" ];
+      };
+    };
+
   };
 }

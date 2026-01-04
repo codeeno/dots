@@ -80,6 +80,18 @@
             ./hosts/pc/home.nix
           ];
         };
+        "eeno@arch-wsl" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = { inherit inputs; };
+          modules = [
+            {
+              nixpkgs.config.allowUnfree = true;
+              nixpkgs.config.nvidia.acceptLicense = true;
+            }
+            ./hosts/arch-wsl/home.nix
+          ];
+        };
+
       };
     };
 }

@@ -10,15 +10,16 @@
       bat
       broot
       claude-code
+      dnsutils
       dust
       fd
       gh
       glab
       go
-      granted
       helmfile
       htop
       jq
+      just
       kubecolor
       kubectl
       kubectx
@@ -26,20 +27,17 @@
       lazygit
       navi
       ncdu
-      nerd-fonts.caskaydia-cove
+      net-tools
       nix-index
       opentofu
       postgresql
       redis
       ripgrep
-      s5cmd
-      stu
-      tflint
       terraform-docs
+      tflint
       tldr
       uv
       wget
-      yazi
       yq
       yt-dlp
       (wrapHelm kubernetes-helm {
@@ -96,8 +94,10 @@
     ./lazygit.nix
     ./lazyvim/lazyvim.nix
     ./mise.nix
+    ./ssh.nix
     ./starship.nix
     ./tmux.nix
+    ./yazi.nix
     ./zsh/zsh.nix
   ];
 }
