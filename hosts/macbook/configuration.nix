@@ -1,6 +1,6 @@
-{ ... }:
+{ user, ... }:
 {
-  system.primaryUser = "d434547";
+  system.primaryUser = user;
 
   # Enable touch ID for sudo
   security.pam.services.sudo_local.reattach = true;

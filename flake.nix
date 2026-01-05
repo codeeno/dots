@@ -29,6 +29,10 @@
       darwinConfigurations = {
         "d434547@macbook" = darwin.lib.darwinSystem {
           system = "aarch64-darwin";
+          specialArgs = {
+            user = "d434547";
+            host = "macbook";
+          };
           modules = [
             ./hosts/macbook/configuration.nix
             {
@@ -60,7 +64,12 @@
       homeConfigurations = {
         "d434547@macbook" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-          extraSpecialArgs = { inherit inputs; };
+          extraSpecialArgs = {
+            inherit inputs;
+            user = "d434547";
+            host = "macbook";
+            nixPath = "~/.dots";
+          };
           modules = [
             {
               nixpkgs.config.allowUnfree = true;
@@ -71,7 +80,12 @@
 
         "eeno@pc" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs; };
+          extraSpecialArgs = {
+            inherit inputs;
+            user = "eeno";
+            host = "pc";
+            nixPath = "~/.dots";
+          };
           modules = [
             {
               nixpkgs.config.allowUnfree = true;
@@ -82,7 +96,12 @@
         };
         "eeno@arch-wsl" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs; };
+          extraSpecialArgs = {
+            inherit inputs;
+            user = "eeno";
+            host = "arch-wsl";
+            nixPath = "~/.dots";
+          };
           modules = [
             {
               nixpkgs.config.allowUnfree = true;

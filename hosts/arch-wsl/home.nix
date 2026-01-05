@@ -1,7 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, user, host, nixPath, ... }:
 let
-  flakePath = "~/dots";
-  flakeConfig = "eeno@arch-wsl";
+  flakeConfig = "${user}@${host}";
 in
 {
   imports = [
@@ -10,8 +9,8 @@ in
   ];
 
   home = {
-    username = "eeno";
-    homeDirectory = "/home/eeno";
+    username = user;
+    homeDirectory = "/home/${user}";
     stateVersion = "25.11";
 
     packages = with pkgs; [
@@ -26,8 +25,8 @@ in
     home-manager.enable = true;
 
     zsh.shellAliases = {
-      hm = "home-manager switch --flake ${flakePath}#${flakeConfig}";
-      hmd = "home-manager switch --flake ${flakePath}#${flakeConfig} --dry-run";
+      hm = "home-manager switch --flake ${nixPath}#${flakeConfig}";
+      hmd = "home-manager switch --flake ${nixPath}#${flakeConfig} --dry-run";
 
       pbcopy = "xsel --clipboard --input";
       pbpaste = "xsel --clipboard --output";

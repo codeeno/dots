@@ -1,7 +1,6 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, user, host, nixPath, ... }:
 let
-  flakePath = "~/projects/personal/dots";
-  flakeConfig = "d434547@macbook";
+  flakeConfig = "${user}@${host}";
 in
 {
   imports = [
@@ -11,11 +10,23 @@ in
     ../../modules/common/terminal/llm.nix
   ];
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      python313 = prev.python313.override {
+        packageOverrides = pyfinal: pyprev: {
+          llm = pyprev.llm.overridePythonAttrs (old: {
+            doCheck = false;
+          });
+        };
+      };
+    })
+  ];
+
   fonts.fontconfig.enable = true;
 
   home = {
-    username = "d434547";
-    homeDirectory = "/Users/d434547";
+    username = user;
+    homeDirectory = "/Users/${user}";
     stateVersion = "25.05";
 
     sessionPath = [
@@ -48,10 +59,10 @@ in
     git.settings.user.email = "sebastian.kleboth@valiton.com";
 
     zsh.shellAliases = {
-      dr = "sudo darwin-rebuild switch --flake ${flakePath}#${flakeConfig}";
-      drd = "sudo darwin-rebuild switch --flake ${flakePath}#${flakeConfig} --dry-run";
-      hm = "home-manager switch --flake ${flakePath}#${flakeConfig}";
-      hmd = "home-manager switch --flake ${flakePath}#${flakeConfig} --dry-run";
+      dr = "sudo darwin-rebuild switch --flake ${nixPath}#${flakeConfig}";
+      drd = "sudo darwin-rebuild switch --flake ${nixPath}#${flakeConfig} --dry-run";
+      hm = "home-manager switch --flake ${nixPath}#${flakeConfig}";
+      hmd = "home-manager switch --flake ${nixPath}#${flakeConfig} --dry-run";
     };
 
     # macOS needs explicit shift modifier (M-S-h) instead of uppercase (M-H)
