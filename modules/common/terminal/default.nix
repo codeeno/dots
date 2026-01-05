@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   ...
 }:
@@ -14,6 +15,7 @@
       fd
       gh
       glab
+      glow
       go
       helmfile
       htop
@@ -49,6 +51,10 @@
     sessionVariables = {
       AWS_PAGER = "";
       AWS_REGION = "eu-central-1";
+      EZA_CONFIG_DIR = "${config.xdg.configHome}/eza";
+      LANG = "en_US.UTF-8";
+      LC_ALL = "en_US.UTF-8";
+      PGHOST = "localhost"; # I dont really know why I need to set this for postgres to work in docker...
       TG_TF_PATH = "${pkgs.opentofu}/bin/tofu";
     };
 

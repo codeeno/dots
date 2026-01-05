@@ -23,11 +23,20 @@ in
       "$HOME/scripts"
     ];
 
+    sessionVariables = {
+      LLM_MODEL = "github_copilot/gpt-4o-mini";
+    };
+
     packages = with pkgs; [
       crossplane-cli
+      github-copilot-cli
       granted
       nerd-fonts.caskaydia-cove
       opencode
+      (python313.withPackages (ps: [
+        ps.llm
+        ps.llm-github-copilot
+      ]))
       s5cmd
       stu
     ];
