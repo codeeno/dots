@@ -8,6 +8,7 @@ in
     ../../modules/common/terminal
     ../../modules/common/programs/kitty.nix
     ../../modules/common/terminal/claude-code.nix
+    ../../modules/common/terminal/llm.nix
   ];
 
   fonts.fontconfig.enable = true;
@@ -18,14 +19,8 @@ in
     stateVersion = "25.05";
 
     sessionPath = [
-      "/opt/homebrew/bin"
-      "/opt/homebrew/sbin"
       "$HOME/scripts"
     ];
-
-    sessionVariables = {
-      LLM_MODEL = "github_copilot/gpt-4o-mini";
-    };
 
     packages = with pkgs; [
       crossplane-cli
@@ -33,10 +28,6 @@ in
       granted
       nerd-fonts.caskaydia-cove
       opencode
-      (python313.withPackages (ps: [
-        ps.llm
-        ps.llm-github-copilot
-      ]))
       s5cmd
       stu
     ];
