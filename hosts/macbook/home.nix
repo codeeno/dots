@@ -10,18 +10,6 @@ in
     ../../modules/common/terminal/llm.nix
   ];
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      python313 = prev.python313.override {
-        packageOverrides = pyfinal: pyprev: {
-          llm = pyprev.llm.overridePythonAttrs (old: {
-            doCheck = false;
-          });
-        };
-      };
-    })
-  ];
-
   fonts.fontconfig.enable = true;
 
   home = {
