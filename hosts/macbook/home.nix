@@ -39,6 +39,9 @@ in
       stu
     ];
 
+    shellAliases = {
+      oc = "opencode";
+    };
   };
 
   programs = {

@@ -12,20 +12,12 @@
 
           # Read
           "Read"
-
-          # System
-          "Lsof"
-
-          # For network debugging
-          "Route"
-          "Netstat"
-          "Ping"
-          "Dig"
-          "Nslookup"
-          "Ifconfig"
-          "Traceroute"
         ];
       };
     };
+  };
+
+  programs.zsh.shellAliases = {
+    cc = "claude";
   };
 }
