@@ -104,4 +104,9 @@
     ./yazi.nix
     ./zsh/zsh.nix
   ];
+
+  # Disable manual generation to avoid builtins.toFile warning
+  # See: https://github.com/nix-community/home-manager/issues/7935
+  # TODO: Remove this once issue is reslved
+  manual.manpages.enable = false;
 }
