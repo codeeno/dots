@@ -1,4 +1,10 @@
-{ pkgs, user, host, nixPath, ... }:
+{
+  pkgs,
+  user,
+  host,
+  nixPath,
+  ...
+}:
 let
   flakeConfig = "${user}@${host}";
 in

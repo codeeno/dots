@@ -1,4 +1,11 @@
-{ pkgs, lib, user, host, nixPath, ... }:
+{
+  pkgs,
+  lib,
+  user,
+  host,
+  nixPath,
+  ...
+}:
 let
   flakeConfig = "${user}@${host}";
 in
@@ -7,7 +14,8 @@ in
     ../../modules/common/terminal
     ../../modules/common/programs/kitty.nix
     ../../modules/common/terminal/claude-code.nix
-    ../../modules/common/terminal/llm.nix
+    #TODO: Re-enable this once llm has been fixed in upstream nixpgks
+    # ../../modules/common/terminal/llm.nix
   ];
 
   fonts.fontconfig.enable = true;
