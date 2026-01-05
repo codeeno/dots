@@ -14,6 +14,7 @@ in
     ../../modules/common/terminal
     ../../modules/common/programs/kitty.nix
     ../../modules/common/terminal/claude-code.nix
+    ../../modules/common/terminal/ghostty.nix
     #TODO: Re-enable this once llm has been fixed in upstream nixpgks
     # ../../modules/common/terminal/llm.nix
   ];

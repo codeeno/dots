@@ -25,7 +25,6 @@
     casks = [
       "notunes"
       "drawio"
-      "claude"
       "zed"
     ];
   };
