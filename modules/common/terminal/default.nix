@@ -27,7 +27,6 @@
       kubectx
       lazydocker
       lazygit
-      navi
       ncdu
       net-tools
       nix-index
