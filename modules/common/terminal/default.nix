@@ -76,7 +76,6 @@
       ldo = "lazydocker";
       tf = "tofu";
       tg = "terragrunt";
-      yz = "yazi";
 
       # Replacements
       diff = "delta --side-by-side";
