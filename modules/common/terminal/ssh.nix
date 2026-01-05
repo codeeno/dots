@@ -6,7 +6,7 @@
     # Default Config
     # See: https://mynixos.com/home-manager/option/programs.ssh.enableDefaultConfig
     matchBlocks."*" = {
-      forwardAgent = false;
+      forwardAgent = true;
       addKeysToAgent = "yes";
       compression = false;
       serverAliveInterval = 0;

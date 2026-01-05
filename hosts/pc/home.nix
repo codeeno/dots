@@ -21,7 +21,10 @@ in
       nerd-fonts.caskaydia-cove
       talosctl
       traceroute
-      xsel
+      rpi-imager
+      zstd
+      nmap
+      discord
     ];
   };
 
