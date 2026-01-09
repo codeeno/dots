@@ -1,20 +1,14 @@
 {
   pkgs,
   user,
-  host,
-  nixPath,
   ...
 }:
-let
-  flakeConfig = "${user}@${host}";
-in
 {
   imports = [
     ../../modules/common/terminal
     ../../modules/common/programs/kitty.nix
     ../../modules/common/terminal/claude-code.nix
-    #TODO: Re-enable this once llm has been fixed in upstream nixpgks
-    # ../../modules/common/terminal/llm.nix
+    ../../modules/common/terminal/llm.nix
 
   ];
 

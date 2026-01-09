@@ -31,7 +31,6 @@
           system = "aarch64-darwin";
           specialArgs = {
             user = "d434547";
-            host = "macbook";
           };
           modules = [
             ./hosts/macbook/configuration.nix
@@ -67,8 +66,6 @@
           extraSpecialArgs = {
             inherit inputs;
             user = "d434547";
-            host = "macbook";
-            nixPath = "~/.dots";
           };
           modules = [
             {
@@ -83,8 +80,6 @@
           extraSpecialArgs = {
             inherit inputs;
             user = "eeno";
-            host = "pc";
-            nixPath = "~/.dots";
           };
           modules = [
             {
@@ -99,8 +94,6 @@
           extraSpecialArgs = {
             inherit inputs;
             user = "eeno";
-            host = "arch-wsl";
-            nixPath = "~/.dots";
           };
           modules = [
             {

@@ -1,17 +1,13 @@
 {
   pkgs,
   user,
-  host,
-  nixPath,
   ...
 }:
-let
-  flakeConfig = "${user}@${host}";
-in
 {
   imports = [
     ../../modules/common/terminal
     ../../modules/common/terminal/claude-code.nix
+    ../../modules/common/terminal/llm.nix
   ];
 
   home = {
