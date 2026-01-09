@@ -53,7 +53,7 @@
     '';
 
     shellAliases = {
-      sz = "source $ZDOTDIR/.zshrc && echo 'Sourced!'";
+      zs = "source $ZDOTDIR/.zshrc && echo 'Sourced!'";
     };
   };
 
