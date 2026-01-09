@@ -32,6 +32,7 @@ in
 
     packages = with pkgs; [
       crossplane-cli
+      clickhouse
       github-copilot-cli
       granted
       nerd-fonts.caskaydia-cove
@@ -57,13 +58,6 @@ in
 
     # Override default email for work machine
     git.settings.user.email = "sebastian.kleboth@valiton.com";
-
-    zsh.shellAliases = {
-      dr = "sudo darwin-rebuild switch --flake ${nixPath}#${flakeConfig}";
-      drd = "sudo darwin-rebuild switch --flake ${nixPath}#${flakeConfig} --dry-run";
-      hm = "home-manager switch --flake ${nixPath}#${flakeConfig}";
-      hmd = "home-manager switch --flake ${nixPath}#${flakeConfig} --dry-run";
-    };
 
     # macOS needs explicit shift modifier (M-S-h) instead of uppercase (M-H)
     tmux.extraConfig = lib.mkAfter ''
