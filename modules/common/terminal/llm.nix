@@ -22,4 +22,6 @@
       echo "$output" | glow -w 100 -
     }
   '';
+
+  programs.zsh.history.ignorePatterns = [ "ask *" ];
 }
