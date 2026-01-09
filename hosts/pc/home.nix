@@ -1,26 +1,32 @@
-{ pkgs, lib, ... }:
-let
-  flakePath = "~/projects/dots";
-  flakeConfig = "eeno@pc";
-in
+{
+  pkgs,
+  user,
+  ...
+}:
 {
   imports = [
     ../../modules/common/terminal
     ../../modules/common/programs/kitty.nix
+    ../../modules/common/terminal/claude-code.nix
+    ../../modules/common/terminal/llm.nix
+
   ];
 
   fonts.fontconfig.enable = true;
 
   home = {
-    username = "eeno";
-    homeDirectory = "/home/eeno";
+    username = user;
+    homeDirectory = "/home/${user}";
     stateVersion = "25.05";
 
     packages = with pkgs; [
       nerd-fonts.caskaydia-cove
       talosctl
       traceroute
-      xsel
+      rpi-imager
+      zstd
+      nmap
+      discord
     ];
   };
 
@@ -38,9 +44,6 @@ in
     home-manager.enable = true;
 
     zsh.shellAliases = {
-      hm = "home-manager switch --flake ${flakePath}#${flakeConfig}";
-      hmd = "home-manager switch --flake ${flakePath}#${flakeConfig} --dry-run";
-
       pbcopy = "xsel --clipboard --input";
       pbpaste = "xsel --clipboard --output";
     };

@@ -1,19 +1,25 @@
-{ pkgs, ... }:
-let
-  flakePath = "~/projects/dots";
-  flakeConfig = "eeno@pc";
-in
+{
+  pkgs,
+  user,
+  ...
+}:
 {
   imports = [
     ../../modules/common/terminal
+    ../../modules/common/terminal/claude-code.nix
+    ../../modules/common/terminal/llm.nix
   ];
 
   home = {
-    username = "eeno";
-    homeDirectory = "/home/eeno";
+    username = user;
+    homeDirectory = "/home/${user}";
     stateVersion = "25.11";
 
-    packages = with pkgs; [ ];
+    packages = with pkgs; [
+      openssh
+      traceroute
+      xsel
+    ];
   };
 
   programs = {
@@ -21,11 +27,10 @@ in
     home-manager.enable = true;
 
     zsh.shellAliases = {
-      hm = "home-manager switch --flake ${flakePath}#${flakeConfig}";
-      hmd = "home-manager switch --flake ${flakePath}#${flakeConfig} --dry-run";
-
       pbcopy = "xsel --clipboard --input";
       pbpaste = "xsel --clipboard --output";
     };
   };
+
+  services.ssh-agent.enable = true;
 }
