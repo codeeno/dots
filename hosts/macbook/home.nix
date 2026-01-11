@@ -1,30 +1,34 @@
-{ pkgs, lib, ... }:
-let
-  flakePath = "~/projects/personal/dots";
-  flakeConfig = "d434547@macbook";
-in
+{
+  pkgs,
+  lib,
+  user,
+  host,
+  ...
+}:
 {
   imports = [
     ../../modules/common/terminal
     ../../modules/common/programs/kitty.nix
     ../../modules/common/terminal/claude-code.nix
+    ../../modules/common/terminal/ghostty.nix
+    ../../modules/common/terminal/llm.nix
   ];
 
   fonts.fontconfig.enable = true;
 
   home = {
-    username = "d434547";
-    homeDirectory = "/Users/d434547";
+    username = user;
+    homeDirectory = "/Users/${user}";
     stateVersion = "25.05";
 
     sessionPath = [
-      "/opt/homebrew/bin"
-      "/opt/homebrew/sbin"
       "$HOME/scripts"
     ];
 
     packages = with pkgs; [
       crossplane-cli
+      clickhouse
+      github-copilot-cli
       granted
       nerd-fonts.caskaydia-cove
       opencode
@@ -32,6 +36,9 @@ in
       stu
     ];
 
+    shellAliases = {
+      oc = "opencode";
+    };
   };
 
   programs = {
@@ -46,13 +53,6 @@ in
 
     # Override default email for work machine
     git.settings.user.email = "sebastian.kleboth@valiton.com";
-
-    zsh.shellAliases = {
-      dr = "sudo darwin-rebuild switch --flake ${flakePath}#${flakeConfig}";
-      drd = "sudo darwin-rebuild switch --flake ${flakePath}#${flakeConfig} --dry-run";
-      hm = "home-manager switch --flake ${flakePath}#${flakeConfig}";
-      hmd = "home-manager switch --flake ${flakePath}#${flakeConfig} --dry-run";
-    };
 
     # macOS needs explicit shift modifier (M-S-h) instead of uppercase (M-H)
     tmux.extraConfig = lib.mkAfter ''

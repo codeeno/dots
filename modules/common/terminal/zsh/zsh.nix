@@ -20,13 +20,6 @@
       append = true;
     };
 
-    sessionVariables = {
-      LC_ALL = "en_US.UTF-8";
-      LANG = "en_US.UTF-8";
-      PGHOST = "localhost"; # I dont really know why I need to set this for postgres to work in docker...
-      EZA_CONFIG_DIR = "${config.xdg.configHome}/eza";
-    };
-
     plugins = [
       {
         name = "vi-mode";
@@ -49,9 +42,6 @@
         zvm_bindkey vicmd '^R' fzf-history-widget
       }
 
-      # Source local overrides if present
-      [[ -f "$ZDOTDIR/.zshrc_local" ]] && source "$ZDOTDIR/.zshrc_local"
-
       # AWS CLI autocomplete
       autoload bashcompinit && bashcompinit
       complete -C 'aws_completer' aws
@@ -63,7 +53,7 @@
     '';
 
     shellAliases = {
-      sz = "source $ZDOTDIR/.zshrc && echo 'Sourced!'";
+      zs = "source $ZDOTDIR/.zshrc && echo 'Sourced!'";
     };
   };
 

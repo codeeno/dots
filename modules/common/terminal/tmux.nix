@@ -14,6 +14,15 @@
 
     extraConfig = ''
       ######################################
+      # Extended Keys Support
+      ######################################
+
+      # Enable extended keys for better modifier support on macOS
+      # This ensures Meta+Shift combinations work reliably, especially in popup sessions
+      set-option -g extended-keys on
+      set-option -as terminal-features 'xterm*:extkeys'
+
+      ######################################
       # Basics
       ######################################
 
