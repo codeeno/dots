@@ -16,7 +16,6 @@
       gh
       glab
       go
-      helmfile
       htop
       jq
       just
@@ -43,6 +42,7 @@
       (wrapHelm kubernetes-helm {
         plugins = with pkgs.kubernetes-helmPlugins; [
           helm-diff
+          helm-git
         ];
       })
     ];
