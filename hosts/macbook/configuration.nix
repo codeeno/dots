@@ -20,6 +20,7 @@
     brews = [
       "duckdb"
       "chdig"
+      "openssl"
     ];
 
     casks = [
