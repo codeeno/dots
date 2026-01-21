@@ -20,6 +20,7 @@
         helm.enable = true;
         json.enable = true;
         lua.enable = true;
+        markdown.enable = true;
         nix.enable = true;
         python.enable = true;
         scala.enable = true;
