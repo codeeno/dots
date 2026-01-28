@@ -108,7 +108,7 @@
       bind-key -n C-M-S-h swap-window -t -1 \; previous-window
 
       # Open a menu for opening some utilities in a popup
-      bind-key -n M-u display-menu -T "#[align=centre fg=green]Launch Utility" -x C -y C \
+      bind-key -n M-i display-menu -T "#[align=centre fg=green]Launch Utility" -x C -y C \
           "btop"         1 "display-popup -E -w 80% -h 80% 'btop'" \
           "lazygit"      2 "display-popup -E -w 80% -h 80% 'lazygit'" \
           "lazydocker"   3 "display-popup -E -w 80% -h 80% 'lazydocker'" \

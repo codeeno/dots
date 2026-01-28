@@ -10,9 +10,9 @@
   programs.lazyvim = {
     enable = true;
     configFiles = ./lua;
+    pluginSource = "nixpkgs";
 
     extras = {
-
       lang = {
         docker.enable = true;
         git.enable = true;
