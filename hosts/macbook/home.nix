@@ -26,11 +26,13 @@
     ];
 
     packages = with pkgs; [
-      crossplane-cli
       clickhouse
+      crossplane-cli
       github-copilot-cli
       granted
+      mkcert
       nerd-fonts.caskaydia-cove
+      nss
       opencode
       s5cmd
       stu
