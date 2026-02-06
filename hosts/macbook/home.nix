@@ -30,6 +30,7 @@
       crossplane-cli
       github-copilot-cli
       granted
+      lazysql
       mkcert
       nerd-fonts.caskaydia-cove
       nss
