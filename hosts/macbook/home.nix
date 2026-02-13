@@ -12,6 +12,7 @@
     ../../modules/common/terminal/claude-code.nix
     ../../modules/common/terminal/ghostty.nix
     ../../modules/common/terminal/llm.nix
+    ../../modules/common/services/colima.nix
   ];
 
   fonts.fontconfig.enable = true;
