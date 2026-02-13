@@ -16,9 +16,12 @@
   programs.zsh.initContent = ''
     ask() {
       export CLICOLOR_FORCE=1
+      export LLM_MODEL=github_copilot/claude-haiku-4.5
       local system_prompt="Respond in well-formatted markdown. Use ## headers, fenced code blocks with language tags, bullet lists for multiple items, and bold for emphasis. Be concise, no yapping."
       local output=$(llm -s "$system_prompt" "$*")
       echo "$output" | glow -w 100 -
     }
   '';
+
+  programs.zsh.history.ignorePatterns = [ "ask *" ];
 }
