@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   ...
 }:
@@ -40,6 +39,10 @@ in
   };
 
   programs.zsh.sessionVariables = {
+    /*
+      Colima likes to overwrite the config file when activating a profile using 'colima start <profile>'.
+      This interferes with the symlinked files from Nix, therefore we disable the overwrite using this environment variable.
+    */
     COLIMA_SAVE_CONFIG = 0;
   };
 
