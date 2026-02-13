@@ -41,7 +41,6 @@ in
 
   programs.zsh.sessionVariables = {
     COLIMA_SAVE_CONFIG = 0;
-    COLIMA_HOME = "${config.xdg.configHome}/colima";
   };
 
   home.packages = with pkgs; [
