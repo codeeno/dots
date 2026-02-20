@@ -27,6 +27,7 @@
     ];
 
     packages = with pkgs; [
+      aws-nuke
       clickhouse
       crossplane-cli
       github-copilot-cli
