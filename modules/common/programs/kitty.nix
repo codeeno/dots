@@ -74,6 +74,10 @@
       "kitty_mod+o" = "no_op";
       "kitty_mod+p" = "no_op";
       "kitty_mod+u" = "no_op";
+      "kitty_mod+n" = "no_op";
+
+      "kitty_mod+[" = "no_op";
+      "kitty_mod+]" = "no_op";
     };
   };
 }
