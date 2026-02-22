@@ -23,6 +23,7 @@
 
       shell = "${pkgs.zsh}/bin/zsh --login";
       kitty_mod = lib.mkDefault "alt";
+      macos_option_as_alt = pkgs.stdenv.isDarwin;
 
       symbol_map = "U+E000-U+F8FF,U+F0000-U+FFFFF,U+100000-U+10ffff CaskaydiaCove Nerd Font";
       copy_on_select = "yes";

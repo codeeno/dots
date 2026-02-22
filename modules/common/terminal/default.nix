@@ -98,7 +98,7 @@
     ./git.nix
     ./k9s/k9s.nix
     ./lazygit.nix
-    ./lazyvim/lazyvim.nix
+    ./lazyvim
     ./mise.nix
     ./ssh.nix
     ./starship.nix

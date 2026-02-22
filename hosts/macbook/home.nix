@@ -52,7 +52,6 @@
 
     kitty.settings = {
       kitty_mod = "cmd";
-      macos_option_as_alt = "yes";
       font_size = 14;
     };
 
