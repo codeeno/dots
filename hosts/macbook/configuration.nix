@@ -26,7 +26,6 @@
     casks = [
       "notunes"
       "drawio"
-      "zed"
     ];
   };
 
