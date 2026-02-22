@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   programs.tmux = {
@@ -85,13 +90,12 @@
       # Session management
       bind-key -n C-p choose-tree -s
 
-      # Smart pane navigation - uses tmux's internal pane_current_command (no process spawning!)
-      # This is much faster than the traditional ps|grep approach used by vim-tmux-navigator
-      is_vim="#{m/ri:^(n?vim|nvim)$,#{pane_current_command}}"
-      bind-key -n 'C-h' if-shell -F "$is_vim" "send-keys C-h" "select-pane -L"
-      bind-key -n 'C-j' if-shell -F "$is_vim" "send-keys C-j" "select-pane -D"
-      bind-key -n 'C-k' if-shell -F "$is_vim" "send-keys C-k" "select-pane -U"
-      bind-key -n 'C-l' if-shell -F "$is_vim" "send-keys C-l" "select-pane -R"
+      # Smart pane navigation - smart-splits.nvim sets @pane-is-vim automatically
+      bind-key -n 'C-h' if -F '#{@pane-is-vim}' 'send-keys C-h' 'select-pane -L'
+      bind-key -n 'C-j' if -F '#{@pane-is-vim}' 'send-keys C-j' 'select-pane -D'
+      bind-key -n 'C-k' if -F '#{@pane-is-vim}' 'send-keys C-k' 'select-pane -U'
+      bind-key -n 'C-l' if -F '#{@pane-is-vim}' 'send-keys C-l' 'select-pane -R'
+
       bind-key -T copy-mode-vi 'C-h' select-pane -L
       bind-key -T copy-mode-vi 'C-j' select-pane -D
       bind-key -T copy-mode-vi 'C-k' select-pane -U
