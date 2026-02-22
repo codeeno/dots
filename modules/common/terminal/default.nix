@@ -90,10 +90,10 @@
   imports = [
     ./btop.nix
     ./delta.nix
-    ./eza/eza.nix
+    ./eza
     ./fzf.nix
     ./git.nix
-    ./k9s/k9s.nix
+    ./k9s
     ./lazygit.nix
     ./lazyvim
     ./mise.nix
@@ -101,7 +101,7 @@
     ./starship.nix
     ./tmux.nix
     ./yazi.nix
-    ./zsh/zsh.nix
+    ./zsh
   ];
 
   # Disable manual generation to avoid builtins.toFile warning
