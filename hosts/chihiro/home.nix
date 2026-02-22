@@ -11,7 +11,6 @@
     ../../modules/common/terminal/claude-code.nix
     ../../modules/common/terminal/llm.nix
     ../../modules/common/terminal/zellij.nix
-    ../../modules/common/terminal/nixvim
   ];
 
   fonts.fontconfig.enable = true;
