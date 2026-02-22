@@ -10,7 +10,7 @@
     ../../modules/common/terminal
     ../../modules/common/terminal/claude-code.nix
     ../../modules/common/terminal/llm.nix
-    ../../modules/common/terminal/zellij.nix
+    ../../modules/common/terminal/zellij
   ];
 
   fonts.fontconfig.enable = true;
