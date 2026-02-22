@@ -57,7 +57,7 @@
           ];
         };
 
-        "eeno@pc" = home-manager.lib.homeManagerConfiguration {
+        "eeno@chihiro" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
             inherit inputs;
@@ -68,7 +68,7 @@
               nixpkgs.config.allowUnfree = true;
               nixpkgs.config.nvidia.acceptLicense = true;
             }
-            ./hosts/pc/home.nix
+            ./hosts/chihiro/home.nix
           ];
         };
         "eeno@arch-wsl" = home-manager.lib.homeManagerConfiguration {
