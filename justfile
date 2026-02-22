@@ -7,7 +7,7 @@ switch-darwin-dry-run:
     sudo darwin-rebuild switch --flake .#{{user}}@{{hostname}} --dry-run
 
 switch-hm:
-    home-manager switch --flake .#{{user}}@{{hostname}}
+    home-manager switch --flake .#{{user}}@{{hostname}} --print-build-logs
 switch-hm-dry-run:
     home-manager switch --flake .#{{user}}@{{hostname}} --dry-run
 
