@@ -117,7 +117,6 @@
           "lazygit"      2 "display-popup -E -w 80% -h 80% 'lazygit'" \
           "lazydocker"   3 "display-popup -E -w 80% -h 80% 'lazydocker'" \
           "k9s"          4 "display-popup -E -w 80% -h 80% 'k9s'" \
-          "home-manager" 5 "display-popup -E -w 80% -h 80% 'home-manager switch --flake ~/projects/dots#eeno@linux; read -n 1'"
 
       ######################################
       # Toggleable panes
