@@ -5,7 +5,18 @@
   };
 
   xdg.configFile."zellij/config.kdl".text = ''
+
+    //####################################################
+    //# General
+    //####################################################
+
     theme "tokyo-night-storm"
+    copy_on_select true
+    default_shell "zsh"
+
+    //####################################################
+    //# Keybinds
+    //####################################################
 
     keybinds {
       // Set up some additional keybinds for normal mode to replicate previous tmux setup
@@ -21,11 +32,11 @@
         bind "Ctrl Alt Shift h" { MoveTab "Left"; }
         bind "Ctrl Alt Shift l" { MoveTab "Right"; }
 
-        // Navigate panes
-        bind "Ctrl h" "Left" { MoveFocus "Left"; }
-        bind "Ctrl l" "Right" { MoveFocus "Right"; }
-        bind "Ctrl j" "Down" { MoveFocus "Down"; }
-        bind "Ctrl k" "Up" { MoveFocus "Up"; }
+        // Navigate panes (arrow keys only, Ctrl hjkl handled by vim-zellij-navigator)
+        bind "Left" { MoveFocus "Left"; }
+        bind "Right" { MoveFocus "Right"; }
+        bind "Down" { MoveFocus "Down"; }
+        bind "Up" { MoveFocus "Up"; }
 
         // Navigate tabs
         bind "Alt Shift h" { GoToPreviousTab; }
@@ -36,19 +47,44 @@
         bind "Alt Down" { Resize "Increase Down"; }
         bind "Alt Up" { Resize "Increase Up"; }
         bind "Alt Right" { Resize "Increase Right"; }
-        bind "Alt Shift Left" { Resize "Decrease Left"; }
-        bind "Alt Shift Down" { Resize "Decrease Down"; }
-        bind "Alt Shift Up" { Resize "Decrease Up"; }
-        bind "Alt Shift Right" { Resize "Decrease Right"; }
       }
 
       // New keybind for move mode since we've replaced the default "Ctrl h" keybind
       shared_except "move" "locked" {
           bind "Ctrl m" { SwitchToMode "Move"; }
       }
-    }
 
-    copy_on_select true
-    default_shell "zsh"
+      // vim-zellij-navigator: forwards Ctrl hjkl to vim when focused, otherwise moves zellij panes
+      shared_except "locked" {
+        bind "Ctrl h" {
+          MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.3.0/vim-zellij-navigator.wasm" {
+            name "move_focus";
+            payload "left";
+            move_mod "ctrl";
+          };
+        }
+        bind "Ctrl j" {
+          MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.3.0/vim-zellij-navigator.wasm" {
+            name "move_focus";
+            payload "down";
+            move_mod "ctrl";
+          };
+        }
+        bind "Ctrl k" {
+          MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.3.0/vim-zellij-navigator.wasm" {
+            name "move_focus";
+            payload "up";
+            move_mod "ctrl";
+          };
+        }
+        bind "Ctrl l" {
+          MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.3.0/vim-zellij-navigator.wasm" {
+            name "move_focus";
+            payload "right";
+            move_mod "ctrl";
+          };
+        }
+      }
+    }
   '';
 }
