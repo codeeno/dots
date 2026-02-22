@@ -1,6 +1,7 @@
 {
-  pkgs,
   inputs,
+  lib,
+  pkgs,
   ...
 }:
 
@@ -8,7 +9,7 @@
   imports = [ inputs.lazyvim.homeManagerModules.default ];
 
   programs.lazyvim = {
-    enable = true;
+    enable = lib.mkDefault true;
     configFiles = ./lua;
     pluginSource = "nixpkgs";
 

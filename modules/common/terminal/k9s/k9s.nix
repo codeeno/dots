@@ -1,6 +1,7 @@
+{ lib, ... }:
 {
   programs.k9s = {
-    enable = true;
+    enable = lib.mkDefault true;
 
     settings = {
       k9s = {

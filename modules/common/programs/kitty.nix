@@ -2,7 +2,7 @@
 
 {
   programs.kitty = {
-    enable = true;
+    enable = lib.mkDefault true;
     themeFile = "tokyo_night_moon";
 
     settings = {

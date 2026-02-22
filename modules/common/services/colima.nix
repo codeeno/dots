@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   ...
 }:
 let
@@ -18,7 +19,7 @@ let
 in
 {
   services.colima = {
-    enable = true;
+    enable = lib.mkDefault true;
     profiles = {
       docker = {
         isActive = true;

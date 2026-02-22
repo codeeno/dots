@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   programs.zsh = {
-    enable = true;
+    enable = lib.mkDefault true;
     dotDir = "${config.xdg.configHome}/zsh";
 
     enableCompletion = true;

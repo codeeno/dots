@@ -5,7 +5,7 @@
 
 {
   programs.starship = {
-    enable = true;
+    enable = lib.mkDefault true;
     settings = {
       format = lib.concatStrings [
         "[╭](fg:current_line)"

@@ -1,6 +1,7 @@
+{ lib, ... }:
 {
   programs.eza = {
-    enable = true;
+    enable = lib.mkDefault true;
   };
 
   xdg.configFile."eza/theme.yaml".source = ./theme.yaml;

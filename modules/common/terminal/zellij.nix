@@ -1,6 +1,7 @@
+{ lib, ... }:
 {
   programs.zellij = {
-    enable = true;
+    enable = lib.mkDefault true;
   };
 
   xdg.configFile."zellij/config.kdl".text = ''

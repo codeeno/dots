@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   programs.delta = {
-    enable = true;
+    enable = lib.mkDefault true;
     enableGitIntegration = true;
     options = {
       features = "decorations line-numbers";

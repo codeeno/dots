@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   programs.tmux = {
-    enable = true;
+    enable = lib.mkDefault true;
     sensibleOnTop = false;
     shell = "${pkgs.zsh}/bin/zsh";
     shortcut = "b";

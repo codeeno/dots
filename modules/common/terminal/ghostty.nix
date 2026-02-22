@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   programs.ghostty = {
-    enable = true;
+    enable = lib.mkDefault true;
     package = pkgs.ghostty-bin;
 
     settings = {

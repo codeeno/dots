@@ -1,6 +1,7 @@
+{ lib, ... }:
 {
   programs.fzf = {
-    enable = true;
+    enable = lib.mkDefault true;
     tmux = {
       enableShellIntegration = false;
     };

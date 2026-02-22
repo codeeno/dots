@@ -1,7 +1,7 @@
 { lib, ... }:
 {
   programs.git = {
-    enable = true;
+    enable = lib.mkDefault true;
 
     settings = {
       # Use mkDefault so hosts can override without mkForce

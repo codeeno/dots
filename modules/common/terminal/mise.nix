@@ -1,6 +1,7 @@
+{ lib, ... }:
 {
   programs.mise = {
-    enable = true;
+    enable = lib.mkDefault true;
     globalConfig = {
       tools = {
         node = "lts";

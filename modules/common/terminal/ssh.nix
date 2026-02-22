@@ -1,6 +1,7 @@
+{ lib, ... }:
 {
   programs.ssh = {
-    enable = true;
+    enable = lib.mkDefault true;
     enableDefaultConfig = false;
 
     # Default Config
