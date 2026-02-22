@@ -10,6 +10,7 @@
     ../../modules/common/terminal
     ../../modules/common/terminal/claude-code.nix
     ../../modules/common/terminal/llm.nix
+    ../../modules/common/terminal/nvf
     ../../modules/common/terminal/zellij.nix
   ];
 
@@ -44,6 +45,7 @@
   programs = {
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
+    lazyvim.enable = false;
 
     zsh.shellAliases = {
       pbcopy = "xsel --clipboard --input";
