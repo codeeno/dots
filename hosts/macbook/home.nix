@@ -20,7 +20,7 @@
   home = {
     username = user;
     homeDirectory = "/Users/${user}";
-    stateVersion = "25.05";
+    stateVersion = "26.05";
 
     sessionPath = [
       "$HOME/scripts"
