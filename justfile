@@ -13,3 +13,11 @@ switch-hm-dry-run:
 
 update:
     nix flake update
+
+# Remove unreachable paths, keep generations
+gc:
+    nix store gc --verbose
+
+# Hard-link duplicate files to save space
+optimise:
+    nix store optimise --verbose
