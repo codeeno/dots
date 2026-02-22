@@ -1,25 +1,15 @@
-# Nix rebuild recipes for all hosts
+hostname := shell('hostname')
+user := shell('whoami')
 
-# macOS - System-level configuration (requires sudo)
-dr config="d434547@macbook":
-    sudo darwin-rebuild switch --flake .#{{config}}
+switch-darwin:
+    sudo darwin-rebuild switch --flake .#{{user}}@{{hostname}}
+switch-darwin-dry-run:
+    sudo darwin-rebuild switch --flake .#{{user}}@{{hostname}} --dry-run
 
-# macOS - System-level dry-run (requires sudo)
-drd config="d434547@macbook":
-    sudo darwin-rebuild switch --flake .#{{config}} --dry-run
+switch-hm:
+    home-manager switch --flake .#{{user}}@{{hostname}}
+switch-hm-dry-run:
+    home-manager switch --flake .#{{user}}@{{hostname}} --dry-run
 
-# User-level home-manager configuration
-hm config="d434547@macbook":
-    home-manager switch --flake .#{{config}}
-
-# User-level home-manager dry-run
-hmd config="d434547@macbook":
-    home-manager switch --flake .#{{config}} --dry-run
-
-# NixOS system rebuild (requires sudo)
-nixos config="proxmox":
-    sudo nixos-rebuild switch --flake .#{{config}}
-
-# Update flake inputs
 update:
     nix flake update
