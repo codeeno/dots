@@ -28,6 +28,7 @@
       zstd
       nmap
       discord
+      xsel
     ];
   };
 
