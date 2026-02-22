@@ -9,6 +9,7 @@
     ../../modules/common/programs/kitty.nix
     ../../modules/common/terminal/claude-code.nix
     ../../modules/common/terminal/llm.nix
+    ../../modules/common/services/colima.nix
 
   ];
 
