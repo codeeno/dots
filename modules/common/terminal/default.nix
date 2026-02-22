@@ -38,6 +38,8 @@
       tldr
       uv
       wget
+      yamllint
+      yamale
       yq
       yt-dlp
       (wrapHelm kubernetes-helm {
