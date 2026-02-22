@@ -79,9 +79,6 @@
       tf = "tofu";
       tg = "terragrunt";
 
-      # Replacements
-      diff = "delta --side-by-side";
-
       # Misc
       ci = "NO_PROMPT=1 glab ci status | grep '^https' | xargs open";
       weather = "curl wttr.in";

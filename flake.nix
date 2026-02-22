@@ -17,6 +17,9 @@
       url = "github:pfassina/lazyvim-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zjstatus = {
+      url = "github:dj95/zjstatus";
+    };
   };
 
   outputs =
@@ -53,6 +56,7 @@
           modules = [
             {
               nixpkgs.config.allowUnfree = true;
+              nixpkgs.overlays = import ./overlays { inherit inputs; };
             }
             ./hosts/macbook/home.nix
           ];
@@ -68,6 +72,7 @@
             {
               nixpkgs.config.allowUnfree = true;
               nixpkgs.config.nvidia.acceptLicense = true;
+              nixpkgs.overlays = import ./overlays { inherit inputs; };
             }
             ./hosts/chihiro/home.nix
           ];
@@ -82,6 +87,7 @@
             {
               nixpkgs.config.allowUnfree = true;
               nixpkgs.config.nvidia.acceptLicense = true;
+              nixpkgs.overlays = import ./overlays { inherit inputs; };
             }
             ./hosts/arch-wsl/home.nix
           ];

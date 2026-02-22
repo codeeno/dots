@@ -1,4 +1,7 @@
-{ config, pkgs, lib, ... }:
+{
+  lib,
+  ...
+}:
 
 {
   programs.delta = {
@@ -7,5 +10,9 @@
     options = {
       features = "decorations line-numbers";
     };
+  };
+
+  home.shellAliases = {
+    diff = "delta --side-by-side";
   };
 }
