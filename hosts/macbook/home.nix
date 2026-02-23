@@ -13,6 +13,7 @@
     ../../modules/terminal/claude-code.nix
     ../../modules/terminal/ghostty.nix
     ../../modules/terminal/llm.nix
+    ../../modules/terminal/zellij
   ];
 
   fonts.fontconfig.enable = true;
