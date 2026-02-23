@@ -5,9 +5,9 @@
 }:
 {
   imports = [
-    ../../modules/common/terminal
-    ../../modules/common/terminal/claude-code.nix
-    ../../modules/common/terminal/llm.nix
+    ../../modules/terminal
+    ../../modules/terminal/claude-code.nix
+    ../../modules/terminal/llm.nix
   ];
 
   home = {

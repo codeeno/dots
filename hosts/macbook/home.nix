@@ -6,13 +6,13 @@
 }:
 {
   imports = [
-    ../../modules/common/programs/kitty.nix
-    ../../modules/common/programs/zed.nix
-    ../../modules/common/services/colima.nix
-    ../../modules/common/terminal
-    ../../modules/common/terminal/claude-code.nix
-    ../../modules/common/terminal/ghostty.nix
-    ../../modules/common/terminal/llm.nix
+    ../../modules/programs/kitty.nix
+    ../../modules/programs/zed.nix
+    ../../modules/services/colima.nix
+    ../../modules/terminal
+    ../../modules/terminal/claude-code.nix
+    ../../modules/terminal/ghostty.nix
+    ../../modules/terminal/llm.nix
   ];
 
   fonts.fontconfig.enable = true;

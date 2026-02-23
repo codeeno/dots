@@ -5,12 +5,12 @@
 }:
 {
   imports = [
-    ../../modules/common/programs/kitty.nix
-    ../../modules/common/services/colima.nix
-    ../../modules/common/terminal
-    ../../modules/common/terminal/claude-code.nix
-    ../../modules/common/terminal/llm.nix
-    ../../modules/common/terminal/zellij
+    ../../modules/programs/kitty.nix
+    ../../modules/services/colima.nix
+    ../../modules/terminal
+    ../../modules/terminal/claude-code.nix
+    ../../modules/terminal/llm.nix
+    ../../modules/terminal/zellij
   ];
 
   fonts.fontconfig.enable = true;
