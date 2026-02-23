@@ -4,11 +4,14 @@
   ...
 }:
 {
-  imports = [
-    ../../modules/common/terminal
-    ../../modules/common/terminal/claude-code.nix
-    ../../modules/common/terminal/llm.nix
-  ];
+  modules = {
+    roles = {
+      base.enable = true;
+      development.enable = true;
+      cloud.enable = true;
+      work.enable = true;
+    };
+  };
 
   home = {
     username = user;

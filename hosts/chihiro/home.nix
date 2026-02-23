@@ -4,14 +4,17 @@
   ...
 }:
 {
-  imports = [
-    ../../modules/common/programs/kitty.nix
-    ../../modules/common/services/colima.nix
-    ../../modules/common/terminal
-    ../../modules/common/terminal/claude-code.nix
-    ../../modules/common/terminal/llm.nix
-    ../../modules/common/terminal/zellij
-  ];
+  modules = {
+    roles = {
+      base.enable = true;
+      development.enable = true;
+      cloud.enable = true;
+      work.enable = true;
+    };
+    programs.terminals.kitty.enable = true;
+    cli.multiplexers.zellij.enable = true;
+    services.colima.enable = true;
+  };
 
   fonts.fontconfig.enable = true;
 

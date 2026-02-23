@@ -29,6 +29,10 @@
       darwin,
       ...
     }@inputs:
+    let
+      importModules = import ./lib/importModules.nix;
+      homeModules = importModules ./modules/home ++ importModules ./modules/roles;
+    in
     {
       darwinConfigurations = {
         "d434547@macbook" = darwin.lib.darwinSystem {
@@ -58,6 +62,9 @@
               nixpkgs.config.allowUnfree = true;
               nixpkgs.overlays = import ./overlays { inherit inputs; };
             }
+          ]
+          ++ homeModules
+          ++ [
             ./hosts/macbook/home.nix
           ];
         };
@@ -74,9 +81,13 @@
               nixpkgs.config.nvidia.acceptLicense = true;
               nixpkgs.overlays = import ./overlays { inherit inputs; };
             }
+          ]
+          ++ homeModules
+          ++ [
             ./hosts/chihiro/home.nix
           ];
         };
+
         "eeno@arch-wsl" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
@@ -89,6 +100,9 @@
               nixpkgs.config.nvidia.acceptLicense = true;
               nixpkgs.overlays = import ./overlays { inherit inputs; };
             }
+          ]
+          ++ homeModules
+          ++ [
             ./hosts/arch-wsl/home.nix
           ];
         };

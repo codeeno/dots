@@ -5,15 +5,23 @@
   ...
 }:
 {
-  imports = [
-    ../../modules/common/programs/kitty.nix
-    ../../modules/common/programs/zed.nix
-    ../../modules/common/services/colima.nix
-    ../../modules/common/terminal
-    ../../modules/common/terminal/claude-code.nix
-    ../../modules/common/terminal/ghostty.nix
-    ../../modules/common/terminal/llm.nix
-  ];
+  modules = {
+
+    roles = {
+      base.enable = true;
+      development.enable = true;
+      cloud.enable = true;
+      work.enable = true;
+    };
+    programs = {
+      terminals = {
+        kitty.enable = true;
+        ghostty.enable = true;
+      };
+      editors.zed.enable = true;
+    };
+    services.colima.enable = true;
+  };
 
   fonts.fontconfig.enable = true;
 
@@ -27,11 +35,9 @@
     ];
 
     packages = with pkgs; [
-      aws-nuke
       clickhouse
       crossplane-cli
       github-copilot-cli
-      granted
       lazysql
       mkcert
       nerd-fonts.caskaydia-cove
