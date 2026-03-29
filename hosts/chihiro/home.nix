@@ -22,6 +22,7 @@
     stateVersion = "26.05";
 
     packages = with pkgs; [
+      argocd
       discord
       nerd-fonts.caskaydia-cove
       nmap
