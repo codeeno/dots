@@ -1,11 +1,14 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 
 {
   programs.ghostty = {
     enable = lib.mkDefault true;
+    package = pkgs.ghostty-bin;
+
     settings = {
-      font-family = "CaskaydiaCove Nerd Font Mono";
       copy-on-select = "clipboard";
+      font-family = "CaskaydiaCove Nerd Font Mono";
+      theme = "TokyoNight Moon";
     };
   };
 }
