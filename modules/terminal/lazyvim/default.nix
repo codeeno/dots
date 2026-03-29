@@ -24,6 +24,7 @@
         markdown.enable = true;
         nix.enable = true;
         python.enable = true;
+        rust.enable = true;
         scala.enable = true;
         tailwind.enable = true;
         terraform.enable = true;
