@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 {
   home = {
     packages = with pkgs; [
@@ -10,7 +6,6 @@
       awscli
       bat
       broot
-      claude-code
       dnsutils
       dust
       fd
@@ -25,7 +20,6 @@
       kubectl
       kubectx
       lazydocker
-      lazygit
       ncdu
       net-tools
       nix-index
@@ -53,10 +47,8 @@
     sessionVariables = {
       AWS_PAGER = "";
       AWS_REGION = "eu-central-1";
-      EZA_CONFIG_DIR = "${config.xdg.configHome}/eza";
       LANG = "en_US.UTF-8";
       LC_ALL = "en_US.UTF-8";
-      PGHOST = "localhost"; # I dont really know why I need to set this for postgres to work in docker...
       TG_TF_PATH = "${pkgs.opentofu}/bin/tofu";
     };
 
@@ -105,6 +97,6 @@
 
   # Disable manual generation to avoid builtins.toFile warning
   # See: https://github.com/nix-community/home-manager/issues/7935
-  # TODO: Remove this once issue is reslved
+  # TODO: Remove this once issue is resolved
   manual.manpages.enable = false;
 }
