@@ -52,6 +52,7 @@
       };
 
       ai = {
+        copilot.enable = true;
         sidekick.enable = true;
       };
 
@@ -63,23 +64,6 @@
         dot.enable = true;
       };
     };
-
-    # sidekick.nvim is not yet in lazyvim-nix's plugin mappings, so lazy.nvim
-    # can't find it in the dev path. Provide the nix store path directly.
-    plugins.sidekick = ''
-      return {
-        "folke/sidekick.nvim",
-        dir = "${pkgs.vimPlugins.sidekick-nvim}",
-        event = "VeryLazy",
-        opts = {
-          cli = {
-            mux = {
-              enabled = true,
-            },
-          },
-        },
-      }
-    '';
 
     extraPackages = with pkgs; [
       # Treesitter
@@ -100,7 +84,6 @@
 
       # Language servers
       bash-language-server
-      copilot-language-server
       docker-compose-language-service
       dockerfile-language-server
       gopls # Go
