@@ -3,6 +3,9 @@ return {
   opts = {
     format = { timeout_ms = 2000 },
     servers = {
+      lua_ls = {
+        root_markers = { ".git" },
+      },
       tailwindcss = {},
       terraformls = { enabled = false },
       tofu_ls = { enabled = true },
