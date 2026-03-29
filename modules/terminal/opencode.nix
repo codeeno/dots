@@ -5,6 +5,11 @@
 
     settings = {
       model = "github-copilot/claude-opus-4-6";
+      plugin = [
+        "oh-my-openagent"
+        "opencode-claude-auth"
+        "superpowers@git+https://github.com/obra/superpowers.git"
+      ];
     };
   };
 
