@@ -52,6 +52,10 @@
       "kitty_mod+c" = "copy_to_clipboard";
       "kitty_mod+v" = "paste_from_clipboard";
 
+      # Send CSI u escape sequence for Shift+Enter so tmux (and apps inside it) can distinguish it from plain Enter.
+      # Needed because tmux negotiates modifyOtherKeys with kitty, which does not encode modified Enter/Tab/Backspace.
+      "shift+enter" = "send_text all \\x1b[13;2u";
+
       # Unbind kitty default binding to free it up for use in other programs
       "kitty_mod+d" = "no_op";
       "kitty_mod+shift+d" = "no_op";
