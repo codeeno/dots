@@ -21,4 +21,8 @@
   # The migration gate checks for opencode.db but the stable channel uses opencode-stable.db,
   # so the "one time database migration" message appears on every startup.
   home.file.".local/share/opencode/opencode.db".text = "";
+
+  programs.zsh.shellAliases = {
+    oc = "opencode";
+  };
 }
