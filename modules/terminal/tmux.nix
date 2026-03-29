@@ -23,7 +23,7 @@
 
       # Enable extended keys for better modifier support on macOS
       # This ensures Meta+Shift combinations work reliably, especially in popup sessions
-      set-option -g extended-keys on
+      set-option -g extended-keys always
       set-option -as terminal-features 'xterm*:extkeys'
 
       # Allow terminal escape sequences (e.g. Shift+Enter, notifications) to pass through to the outer terminal
