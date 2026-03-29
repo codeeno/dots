@@ -9,6 +9,7 @@
     ../../modules/services/colima.nix
     ../../modules/terminal
     ../../modules/terminal/claude-code.nix
+    ../../modules/terminal/opencode.nix
     ../../modules/terminal/llm.nix
     ../../modules/terminal/zellij
   ];
