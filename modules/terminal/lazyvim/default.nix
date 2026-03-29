@@ -52,10 +52,7 @@
       };
 
       ai = {
-        # TODO: Switch to copilot_native once nvim 0.12 is released
-        copilot.enable = true;
-        copilot_chat.enable = false;
-        claudecode.enable = false;
+        sidekick.enable = true;
       };
 
       test = {
@@ -66,6 +63,23 @@
         dot.enable = true;
       };
     };
+
+    # sidekick.nvim is not yet in lazyvim-nix's plugin mappings, so lazy.nvim
+    # can't find it in the dev path. Provide the nix store path directly.
+    plugins.sidekick = ''
+      return {
+        "folke/sidekick.nvim",
+        dir = "${pkgs.vimPlugins.sidekick-nvim}",
+        event = "VeryLazy",
+        opts = {
+          cli = {
+            mux = {
+              enabled = true,
+            },
+          },
+        },
+      }
+    '';
 
     extraPackages = with pkgs; [
       # Treesitter
@@ -86,6 +100,7 @@
 
       # Language servers
       bash-language-server
+      copilot-language-server
       docker-compose-language-service
       dockerfile-language-server
       gopls # Go
@@ -107,7 +122,7 @@
       # Build tools / misc
       fish # includes fish_indent formatter
       gotools # includes goimports
-      lsof # Required by opencode.nvim
+      lsof # Required by sidekick.nvim
       luarocks # Lua package manager
       packer # HashiCorp Packer (packer_fmt)
     ];
