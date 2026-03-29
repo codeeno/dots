@@ -4,6 +4,9 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
+    explorer = {
+      replace_netrw = true,
+    },
     dashboard = {
       preset = {
         header = [[
@@ -21,4 +24,14 @@ return {
       },
     },
   },
+  init = function()
+    vim.api.nvim_create_autocmd("VimEnter", {
+      group = vim.api.nvim_create_augroup("open_explorer", {}),
+      callback = function()
+        if vim.fn.argc() == 0 then
+          Snacks.explorer({ cwd = LazyVim.root(), enter = false })
+        end
+      end,
+    })
+  end,
 }
