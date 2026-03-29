@@ -82,8 +82,7 @@
       # Misc
       ci = "NO_PROMPT=1 glab ci status | grep '^https' | xargs open";
       weather = "curl wttr.in";
-      assume = ". assume";
-      sso = ". assume";
+
     };
   };
 

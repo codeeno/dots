@@ -13,6 +13,7 @@
     ../../modules/terminal/claude-code.nix
     ../../modules/terminal/opencode.nix
     ../../modules/programs/ghostty.nix
+    ../../modules/terminal/granted.nix
     ../../modules/terminal/llm.nix
     ../../modules/terminal/zellij
   ];
@@ -33,7 +34,7 @@
       clickhouse
       crossplane-cli
       github-copilot-cli
-      granted
+
       lazysql
       mkcert
       nerd-fonts.caskaydia-cove
@@ -46,6 +47,7 @@
     shellAliases = {
       oc = "opencode";
     };
+
   };
 
   programs = {
