@@ -31,13 +31,13 @@ return {
 
       vim.o.autoread = true
 
-      vim.keymap.set({ "n", "x" }, "<C-a>", function()
+      vim.keymap.set({ "n", "x" }, "<leader>aa", function()
         require("opencode").ask("@this: ", { submit = true })
       end, { desc = "Ask opencode…" })
-      vim.keymap.set({ "n", "x" }, "<C-x>", function()
+      vim.keymap.set({ "n", "x" }, "<leader>ax", function()
         require("opencode").select()
       end, { desc = "Execute opencode action…" })
-      vim.keymap.set({ "n", "t" }, "<leader>ao", function()
+      vim.keymap.set("n", "<leader>ao", function()
         require("opencode").toggle()
       end, { desc = "Toggle opencode" })
 
@@ -54,9 +54,6 @@ return {
       vim.keymap.set("n", "<S-C-d>", function()
         require("opencode").command("session.half.page.down")
       end, { desc = "Scroll opencode down" })
-
-      vim.keymap.set("n", "+", "<C-a>", { desc = "Increment under cursor", noremap = true })
-      vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement under cursor", noremap = true })
     end,
   },
 }
