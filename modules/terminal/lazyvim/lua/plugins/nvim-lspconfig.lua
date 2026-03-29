@@ -5,6 +5,13 @@ return {
     servers = {
       lua_ls = {
         root_markers = { ".git" },
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" },
+            },
+          },
+        },
       },
       tailwindcss = {},
       terraformls = { enabled = false },
