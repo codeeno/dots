@@ -4,6 +4,8 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
+    -- TODO: re-enable once https://github.com/folke/snacks.nvim/issues/2766 is fixed
+    image = { enabled = false },
     explorer = {
       replace_netrw = true,
     },
