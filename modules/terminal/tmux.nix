@@ -26,6 +26,9 @@
       set-option -g extended-keys on
       set-option -as terminal-features 'xterm*:extkeys'
 
+      # Allow terminal escape sequences (e.g. Shift+Enter, notifications) to pass through to the outer terminal
+      set-option -g allow-passthrough on
+
       ######################################
       # Basics
       ######################################

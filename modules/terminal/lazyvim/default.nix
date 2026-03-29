@@ -54,7 +54,8 @@
       ai = {
         # TODO: Switch to copilot_native once nvim 0.12 is released
         copilot.enable = true;
-        copilot_chat.enable = true;
+        copilot_chat.enable = false;
+        claudecode.enable = false;
       };
 
       test = {
@@ -106,6 +107,7 @@
       # Build tools / misc
       fish # includes fish_indent formatter
       gotools # includes goimports
+      lsof # Required by opencode.nvim
       luarocks # Lua package manager
       packer # HashiCorp Packer (packer_fmt)
     ];
