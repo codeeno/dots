@@ -21,14 +21,15 @@
     stateVersion = "26.05";
 
     packages = with pkgs; [
+      discord
       nerd-fonts.caskaydia-cove
+      nmap
+      opencode
+      rpi-imager
       talosctl
       traceroute
-      rpi-imager
-      zstd
-      nmap
-      discord
       xsel
+      zstd
     ];
   };
 
