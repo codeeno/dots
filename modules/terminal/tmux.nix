@@ -90,7 +90,8 @@
       bind-key -n M-Right resize-pane -R 5
 
       # Session management
-      bind-key -n C-p choose-tree -s
+      # TODO: Find a better way to handle sessions
+      # bind-key -n C-p choose-tree -s
 
       # Smart pane navigation - smart-splits.nvim sets @pane-is-vim automatically
       bind-key -n 'C-h' if -F '#{@pane-is-vim}' 'send-keys C-h' 'select-pane -L'
