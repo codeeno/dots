@@ -37,7 +37,6 @@
       mkcert
       nerd-fonts.caskaydia-cove
       nss
-      opencode
       rancher
       s5cmd
       stu

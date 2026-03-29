@@ -24,7 +24,6 @@
       discord
       nerd-fonts.caskaydia-cove
       nmap
-      opencode
       rpi-imager
       talosctl
       traceroute
