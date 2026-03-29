@@ -169,3 +169,7 @@ via Nix store paths in `zsh/default.nix`. Functions use lowercase names, `local`
 | `gp` | `git pull` | git module |
 | `groot` | `cd $(git rev-parse --show-toplevel)` | git module |
 | `ldo` | `lazydocker` | terminal/default.nix |
+
+## MCP Servers
+
+When you need to search library or API documentation, use `context7` tools.
