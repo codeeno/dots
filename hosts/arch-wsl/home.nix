@@ -6,6 +6,7 @@
 {
   imports = [
     ../../modules/terminal
+    ../../modules/terminal/opencode.nix
     ../../modules/terminal/claude-code.nix
     ../../modules/terminal/llm.nix
   ];
@@ -16,9 +17,11 @@
     stateVersion = "26.05";
 
     packages = with pkgs; [
+      argocd
       openssh
       traceroute
       xsel
+      gnumake
     ];
   };
 
