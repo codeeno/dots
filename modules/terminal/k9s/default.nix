@@ -47,6 +47,11 @@
         description = "View nodes";
         command = "nodes";
       };
+      "shift-4" = {
+        shortCut = "Shift-4";
+        description = "View PVCs";
+        command = "pvc";
+      };
     };
   };
 }
