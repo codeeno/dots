@@ -4,7 +4,7 @@
     enable = lib.mkDefault true;
 
     settings = {
-      model = "anthropic/claude-opus-4-6";
+      model = "anthropic/claude-opus-4-7";
       mcp = {
         context7 = {
           type = "remote";
