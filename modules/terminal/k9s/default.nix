@@ -47,6 +47,16 @@
         description = "View nodes";
         command = "nodes";
       };
+      "shift-4" = {
+        shortCut = "Shift-4";
+        description = "View secrets";
+        command = "secret";
+      };
+      "shift-5" = {
+        shortCut = "Shift-5";
+        description = "View PVCs";
+        command = "pvc";
+      };
     };
   };
 }
