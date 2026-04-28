@@ -16,6 +16,7 @@
     ../../modules/terminal/granted.nix
     ../../modules/terminal/llm.nix
     ../../modules/terminal/zellij
+    ./scripts
   ];
 
   fonts.fontconfig.enable = true;
