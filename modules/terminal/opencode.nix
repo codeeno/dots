@@ -1,7 +1,25 @@
-{ lib, ... }:
+{
+  lib,
+  pkgs,
+  ...
+}:
+let
+  # Pinned snapshot of github/awesome-copilot — skills from this repo are used via
+  # programs.opencode.skills. Bump rev + hash to update.
+  awesome-copilot = pkgs.fetchFromGitHub {
+    owner = "github";
+    repo = "awesome-copilot";
+    rev = "63d08d51f792d53feec8c1c06897cee870e83c18";
+    hash = "sha256-ZCyhl2F6oBj6FYNfPKfS1jpf7RI/OVHJQi1C7kpxDjo=";
+  };
+in
 {
   programs.opencode = {
     enable = lib.mkDefault true;
+
+    skills = {
+      excalidraw-diagram-generator = "${awesome-copilot}/skills/excalidraw-diagram-generator";
+    };
 
     settings = {
       model = "anthropic/claude-opus-4-7";
