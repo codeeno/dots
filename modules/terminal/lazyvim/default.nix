@@ -20,7 +20,6 @@
         go.enable = true;
         helm.enable = true;
         json.enable = true;
-        lua.enable = true;
         markdown.enable = true;
         nix.enable = true;
         python.enable = true;
@@ -47,8 +46,8 @@
       };
 
       editor = {
-        inc_rename.enable = true;
-        mini_diff.enable = true;
+        inc-rename.enable = true;
+        mini-diff.enable = true;
       };
 
       ai = {
