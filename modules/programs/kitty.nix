@@ -82,6 +82,18 @@
 
       "kitty_mod+[" = "no_op";
       "kitty_mod+]" = "no_op";
+
+      # Free up Alt+1..Alt+0 so they pass through to tmux for window selection
+      "kitty_mod+1" = "no_op";
+      "kitty_mod+2" = "no_op";
+      "kitty_mod+3" = "no_op";
+      "kitty_mod+4" = "no_op";
+      "kitty_mod+5" = "no_op";
+      "kitty_mod+6" = "no_op";
+      "kitty_mod+7" = "no_op";
+      "kitty_mod+8" = "no_op";
+      "kitty_mod+9" = "no_op";
+      "kitty_mod+0" = "no_op";
     };
   };
 }

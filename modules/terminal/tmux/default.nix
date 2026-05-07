@@ -22,9 +22,11 @@
       ######################################
 
       # Enable extended keys for better modifier support on macOS
-      # This ensures Meta+Shift combinations work reliably, especially in popup sessions
+      # This ensures Meta+Shift combinations work reliably, especially in popup sessions.
+      # tmux-256color is included so nested tmux clients (inside popups) also decode extended keys.
       set-option -g extended-keys always
       set-option -as terminal-features 'xterm*:extkeys'
+      set-option -as terminal-features 'tmux*:extkeys'
 
       # Allow terminal escape sequences (e.g. Shift+Enter, notifications) to pass through to the outer terminal
       set-option -g allow-passthrough on
@@ -52,6 +54,9 @@
 
       # Use vi keys in copy mode
       setw -g mode-keys vi
+
+      # When a window is closed, renumber all other windows accordingly
+      set-option -g renumber-windows on
 
       ######################################
       # Keybinds
@@ -89,9 +94,11 @@
       bind-key -n M-Left  resize-pane -L 5
       bind-key -n M-Right resize-pane -R 5
 
+      # Reload tmux configuration
+      bind-key r source-file ~/.config/tmux/tmux.conf \; display-message "tmux config reloaded"
+
       # Session management
-      # TODO: Find a better way to handle sessions
-      # bind-key -n C-p choose-tree -s
+      bind-key -n M-p choose-tree -s
 
       # Smart pane navigation - smart-splits.nvim sets @pane-is-vim automatically
       bind-key -n 'C-h' if -F '#{@pane-is-vim}' 'send-keys C-h' 'select-pane -L'
@@ -119,7 +126,6 @@
           "btop"         1 "display-popup -E -w 80% -h 80% 'btop'" \
           "lazygit"      2 "display-popup -E -w 80% -h 80% 'lazygit'" \
           "lazydocker"   3 "display-popup -E -w 80% -h 80% 'lazydocker'" \
-          "k9s"          4 "display-popup -E -w 80% -h 80% 'k9s'" \
 
       ######################################
       # Toggleable panes
@@ -141,6 +147,10 @@
       } {
           display-popup -E -w 90% -h 90% 'tmux attach -t popup || tmux new -s popup'
       }
+
+      # Toggleable persistent k9s popup with two pinned context windows.
+      # The script handles toggle/create logic and merges KUBECONFIG from ~/.kube/config + ~/.kube/configs/*.
+      bind-key -n M-n display-popup -E -w 90% -h 90% '${pkgs.bash}/bin/bash ${./scripts/k9s-popup.sh}'
     '';
 
     plugins = with pkgs.tmuxPlugins; [

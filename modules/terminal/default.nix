@@ -90,7 +90,7 @@
     ./mise.nix
     ./ssh.nix
     ./starship.nix
-    ./tmux.nix
+    ./tmux
     ./yazi.nix
     ./zsh
   ];
