@@ -6,6 +6,10 @@
   security.pam.services.sudo_local.reattach = true;
   security.pam.services.sudo_local.touchIdAuth = true;
 
+  environment.etc."resolver/home".text = ''
+    nameserver 10.0.1.50
+  '';
+
   homebrew = {
     enable = true;
 
