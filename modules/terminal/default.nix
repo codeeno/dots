@@ -18,6 +18,7 @@
       just
       kubecolor
       kubectl
+      kubectl-explore
       kubectx
       lazydocker
       ncdu
