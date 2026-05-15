@@ -80,6 +80,7 @@
   };
 
   imports = [
+    ./argonaut.nix
     ./btop.nix
     ./delta.nix
     ./eza
