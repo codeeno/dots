@@ -35,7 +35,6 @@
       clickhouse
       crossplane-cli
       github-copilot-cli
-
       lazysql
       mkcert
       nerd-fonts.caskaydia-cove
@@ -43,6 +42,7 @@
       rancher
       s5cmd
       stu
+      trino-cli
     ];
 
     shellAliases = {
