@@ -18,6 +18,7 @@
       just
       kubecolor
       kubectl
+      kubectl-explore
       kubectx
       lazydocker
       ncdu
@@ -79,6 +80,7 @@
   };
 
   imports = [
+    ./argonaut.nix
     ./btop.nix
     ./delta.nix
     ./eza
