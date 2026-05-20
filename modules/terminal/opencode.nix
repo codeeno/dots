@@ -31,7 +31,8 @@ in
       };
       plugin = [
         "opencode-claude-auth"
-        "superpowers@git+https://github.com/obra/superpowers.git"
+        # Disable superpowers for now
+        # "superpowers@git+https://github.com/obra/superpowers.git"
       ];
       # Anthropic is trying to disallow third-party apps like opencode. For now, changing the system prompt to not mention
       # that it is opencode seems to fix it. See: https://github.com/griffinmartin/opencode-claude-auth/issues/145
