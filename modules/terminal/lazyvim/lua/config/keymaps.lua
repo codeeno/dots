@@ -28,3 +28,10 @@ vim.keymap.set("n", "<C-q>", ":bp|bd #<CR>", opts)
 
 -- When pasting to replace something, retain what's in the current register
 vim.keymap.set("v", "p", '"_dP', opts)
+
+-- Yank absolute path of current buffer to system clipboard
+vim.keymap.set("n", "<leader>fy", function()
+  local path = vim.fn.expand("%:p")
+  vim.fn.setreg("+", path)
+  vim.notify(path, vim.log.levels.INFO, { title = "Copied path" })
+end, { desc = "Yank absolute file path" })
