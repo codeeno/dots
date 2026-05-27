@@ -60,8 +60,12 @@
       font_size = 14;
     };
 
-    # Override default email for work machine
     git.settings.user.email = "sebastian.kleboth@valiton.com";
+
+    lazygit.settings.services = {
+      "gitlab.valiton.com" = "gitlab:gitlab.valiton.com";
+      "gitlab.bfops.io" = "gitlab:gitlab.bfops.io";
+    };
 
     # macOS needs explicit shift modifier (M-S-h) instead of uppercase (M-H)
     tmux.extraConfig = lib.mkAfter ''
