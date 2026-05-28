@@ -22,14 +22,15 @@
     taps = [ ];
 
     brews = [
-      "duckdb"
       "chdig"
+      "duckdb"
       "openssl"
     ];
 
     casks = [
-      "notunes"
       "drawio"
+      "notunes"
+      "raycast"
     ];
   };
 
