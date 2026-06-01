@@ -15,8 +15,12 @@ set -euo pipefail
 SESSION="k9s"
 PROD_CTX="arn:aws:eks:eu-central-1:400032194227:cluster/production-v3"
 SBX_CTX="arn:aws:eks:eu-central-1:304863635032:cluster/sandbox-v3"
+KKP_DEV_CTX="aws-kkp-ed2-datainfrastructure-development"
+KKP_PROD_CTX="aws-kkp-ed2-datainfrastructure-production"
 PROD_WIN="Tracking Production"
 SBX_WIN="Tracking Sandbox"
+KKP_DEV_WIN="Tracking KKP Dev"
+KKP_PROD_WIN="Tracking KKP Prod"
 
 # If we're already inside the k9s session, the toggle means "close the popup".
 if [ "${TMUX:-}" ] && [ "$(tmux display-message -p '#S')" = "$SESSION" ]; then
@@ -40,11 +44,21 @@ if ! tmux has-session -t="$SESSION" 2>/dev/null; then
     -e "KUBECONFIG=$KUBECONFIG_MERGED" \
     "k9s --context '$SBX_CTX'"
 
+  # Window 3: KKP production
+  tmux new-window -t "$SESSION:" -n "$KKP_PROD_WIN" \
+    -e "KUBECONFIG=$KUBECONFIG_MERGED" \
+    "k9s --context '$KKP_PROD_CTX'"
+
+  # Window 4: KKP development
+  tmux new-window -t "$SESSION:" -n "$KKP_DEV_WIN" \
+    -e "KUBECONFIG=$KUBECONFIG_MERGED" \
+    "k9s --context '$KKP_DEV_CTX'"
+
   # Lock window names so k9s can't rename them.
-  tmux set-window-option -t "$SESSION:1" automatic-rename off
-  tmux set-window-option -t "$SESSION:2" automatic-rename off
-  tmux set-window-option -t "$SESSION:1" allow-rename off
-  tmux set-window-option -t "$SESSION:2" allow-rename off
+  for win in 1 2 3 4; do
+    tmux set-window-option -t "$SESSION:$win" automatic-rename off
+    tmux set-window-option -t "$SESSION:$win" allow-rename off
+  done
 fi
 
 # On first creation, land on the production window. Otherwise, keep whichever
