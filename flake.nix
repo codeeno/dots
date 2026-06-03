@@ -13,6 +13,9 @@
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-homebrew = {
+      url = "github:zhaofengli/nix-homebrew";
+    };
     lazyvim = {
       url = "github:pfassina/lazyvim-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,6 +41,7 @@
           };
           modules = [
             ./hosts/macbook/configuration.nix
+            inputs.nix-homebrew.darwinModules.nix-homebrew
             {
               nixpkgs.config.allowUnfree = true;
               nix.enable = false; # Let determinate handle Nix instead of nix-darwin

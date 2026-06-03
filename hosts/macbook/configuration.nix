@@ -2,6 +2,13 @@
 {
   system.primaryUser = user;
 
+  nix-homebrew = {
+    enable = true;
+    enableRosetta = false;
+    user = user;
+    autoMigrate = true;
+  };
+
   # Enable touch ID for sudo
   security.pam.services.sudo_local.reattach = true;
   security.pam.services.sudo_local.touchIdAuth = true;
