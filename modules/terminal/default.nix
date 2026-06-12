@@ -25,6 +25,7 @@
       net-tools
       nix-index
       opentofu
+      popeye
       postgresql
       redis
       ripgrep
@@ -33,8 +34,8 @@
       tldr
       uv
       wget
-      yamllint
       yamale
+      yamllint
       yq
       yt-dlp
       (wrapHelm kubernetes-helm {

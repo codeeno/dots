@@ -38,6 +38,7 @@
       "drawio"
       "notunes"
       "raycast"
+      "headlamp"
     ];
   };
 
