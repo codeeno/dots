@@ -13,6 +13,7 @@
       glab
       glow
       go
+      gonzo
       htop
       jq
       just
@@ -29,6 +30,7 @@
       postgresql
       redis
       ripgrep
+      stern
       terraform-docs
       tflint
       tldr
