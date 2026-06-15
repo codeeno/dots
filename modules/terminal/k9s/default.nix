@@ -38,21 +38,26 @@
       };
       "shift-2" = {
         shortCut = "Shift-2";
-        description = "View services";
-        command = "services";
+        description = "View deployments";
+        command = "deployments";
       };
       "shift-3" = {
         shortCut = "Shift-3";
-        description = "View nodes";
-        command = "nodes";
+        description = "View services";
+        command = "services";
       };
       "shift-4" = {
         shortCut = "Shift-4";
-        description = "View secrets";
-        command = "secret";
+        description = "View nodes";
+        command = "nodes";
       };
       "shift-5" = {
         shortCut = "Shift-5";
+        description = "View secrets";
+        command = "secret";
+      };
+      "shift-6" = {
+        shortCut = "Shift-6";
         description = "View PVCs";
         command = "pvc";
       };
