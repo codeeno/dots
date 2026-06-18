@@ -3,7 +3,7 @@
   home = {
     packages = with pkgs; [
       ansible
-      awscli
+      awscli2
       bat
       broot
       dnsutils
