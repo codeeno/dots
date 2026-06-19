@@ -19,8 +19,8 @@ KKP_DEV_CTX="aws-kkp-ed2-datainfrastructure-development"
 KKP_PROD_CTX="aws-kkp-ed2-datainfrastructure-production"
 PROD_WIN="Tracking Production"
 SBX_WIN="Tracking Sandbox"
-KKP_DEV_WIN="Tracking KKP Dev"
-KKP_PROD_WIN="Tracking KKP Prod"
+KKP_DEV_WIN="Datainfrastructure Dev"
+KKP_PROD_WIN="Datainfrastructure Prod"
 
 # If we're already inside the k9s session, the toggle means "close the popup".
 if [ "${TMUX:-}" ] && [ "$(tmux display-message -p '#S')" = "$SESSION" ]; then
