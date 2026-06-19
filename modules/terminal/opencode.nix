@@ -28,6 +28,11 @@ in
           type = "remote";
           url = "https://mcp.context7.com/mcp";
         };
+        nixos = {
+          type = "local";
+          command = [ "${pkgs.mcp-nixos}/bin/mcp-nixos" ];
+          enabled = true;
+        };
       };
       plugin = [
         "opencode-claude-auth"
