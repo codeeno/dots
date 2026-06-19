@@ -26,7 +26,9 @@
       cleanup = "uninstall"; # Uninstall packages not listed below
     };
 
-    taps = [ ];
+    taps = [
+      "aws/tap"
+    ];
 
     brews = [
       "chdig"
@@ -35,6 +37,7 @@
     ];
 
     casks = [
+      "aws/tap/ec2-spot-interrupter"
       "drawio"
       "notunes"
       "raycast"
