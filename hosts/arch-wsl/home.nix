@@ -39,6 +39,28 @@
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
 
+    # TODO: retry plain pkgs.opencode once nixpkgs glibc >= 2.43 — this may be fixed.
+    # opencode's nix-store glibc loader segfaults under WSL2; the Arch system loader
+    # (/lib64) runs the same binary fine, so launch through it. Wrap the cached binary
+    # rather than patchelf'ing it — overrideAttrs forces a rebuild whose smoke test
+    # hits the same segfault. Hand-written launcher (makeWrapper rejects the runtime-
+    # only loader path). See https://github.com/oven-sh/bun/issues/24742
+    opencode.package =
+      let
+        launcher = pkgs.writeShellScript "opencode" ''
+          export PATH=${pkgs.ripgrep}/bin:$PATH
+          exec /lib64/ld-linux-x86-64.so.2 ${pkgs.opencode}/bin/.opencode-wrapped "$@"
+        '';
+      in
+      pkgs.symlinkJoin {
+        name = "opencode-syslinker";
+        paths = [ pkgs.opencode ];
+        postBuild = ''
+          rm -f "$out/bin/opencode"
+          ln -s ${launcher} "$out/bin/opencode"
+        '';
+      };
+
     zsh.shellAliases = {
       pbcopy = "wl-copy";
       pbpaste = "wl-paste";
