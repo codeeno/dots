@@ -77,17 +77,15 @@
 
     '';
 
-    ssh.matchBlocks = {
+    ssh.settings = {
       "*" = {
-        extraOptions = {
-          UseKeychain = "yes";
-        };
+        UseKeychain = "yes";
       };
       "gitlab.valiton.com" = {
-        port = 22022;
+        Port = 22022;
       };
       "10.0.*.*" = {
-        identityFile = [ "~/.ssh/id_rsa_home" ];
+        IdentityFile = [ "~/.ssh/id_rsa_home" ];
       };
     };
 

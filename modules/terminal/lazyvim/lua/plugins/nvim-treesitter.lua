@@ -23,7 +23,6 @@ return {
         "rust",
         "terraform",
         "toml",
-        "tofu",
         "tsx",
         "typescript",
         "vim",
