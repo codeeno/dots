@@ -12,6 +12,14 @@ let
     rev = "63d08d51f792d53feec8c1c06897cee870e83c18";
     hash = "sha256-ZCyhl2F6oBj6FYNfPKfS1jpf7RI/OVHJQi1C7kpxDjo=";
   };
+
+  # https://github.com/JuliusBrussee/caveman
+  caveman = pkgs.fetchFromGitHub {
+    owner = "JuliusBrussee";
+    repo = "caveman";
+    rev = "v1.9.0";
+    hash = "sha256-ocWViFf5KO0Lt0yM/vu4barAOCZBlvvj0iu17XCW1GE=";
+  };
 in
 {
   programs.opencode = {
@@ -19,6 +27,7 @@ in
 
     skills = {
       excalidraw-diagram-generator = "${awesome-copilot}/skills/excalidraw-diagram-generator";
+      caveman = "${caveman}/plugins/caveman/skills/caveman";
     };
 
     settings = {
