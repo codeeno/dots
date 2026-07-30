@@ -20,6 +20,14 @@ let
     rev = "v1.9.0";
     hash = "sha256-ocWViFf5KO0Lt0yM/vu4barAOCZBlvvj0iu17XCW1GE=";
   };
+
+  # https://github.com/ClickHouse/agent-skills
+  clickhouse-agent-skills = pkgs.fetchFromGitHub {
+    owner = "ClickHouse";
+    repo = "agent-skills";
+    rev = "544384f4fab1d6ed59f16a354d1c68296dfa6007";
+    hash = "sha256-sfoqJnCEWRcD4S27mYkulC7oB++v36CVPx0urwnt93Q=";
+  };
 in
 {
   programs.opencode = {
@@ -28,6 +36,10 @@ in
     skills = {
       excalidraw-diagram-generator = "${awesome-copilot}/skills/excalidraw-diagram-generator";
       caveman = "${caveman}/plugins/caveman/skills/caveman";
+      chdb-datastore = "${clickhouse-agent-skills}/skills/chdb-datastore";
+      chdb-sql = "${clickhouse-agent-skills}/skills/chdb-sql";
+      clickhouse-architecture-advisor = "${clickhouse-agent-skills}/skills/clickhouse-architecture-advisor";
+      clickhouse-best-practices = "${clickhouse-agent-skills}/skills/clickhouse-best-practices";
     };
 
     settings = {
