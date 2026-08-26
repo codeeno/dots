@@ -93,6 +93,7 @@
     ./lazygit.nix
     ./lazyvim
     ./mise.nix
+    ./opencode
     ./ssh.nix
     ./starship.nix
     ./tmux

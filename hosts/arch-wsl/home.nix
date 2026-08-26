@@ -6,7 +6,6 @@
 {
   imports = [
     ../../modules/terminal
-    ../../modules/terminal/opencode.nix
     ../../modules/terminal/claude-code.nix
     ../../modules/terminal/llm.nix
   ];

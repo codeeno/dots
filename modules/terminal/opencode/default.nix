@@ -43,7 +43,7 @@ in
     };
 
     settings = {
-      model = "anthropic/claude-opus-4-7";
+      model = "anthropic/claude-opus-5";
       mcp = {
         context7 = {
           type = "remote";
@@ -57,27 +57,9 @@ in
       };
       plugin = [
         "opencode-claude-auth"
-        # https://github.com/Nomadcxx/opencode-cursor — bridges Cursor Pro
-        # models into opencode. Requires the `cursor-agent` command
-        # (see modules/terminal/cursor-agent.nix) and `cursor-agent login`.
-        "@rama_nigg/open-cursor@latest"
         # Disable superpowers for now
         # "superpowers@git+https://github.com/obra/superpowers.git"
       ];
-      provider = {
-        cursor-acp = {
-          name = "Cursor ACP";
-          npm = "@ai-sdk/openai-compatible";
-          options = {
-            baseURL = "http://127.0.0.1:32124/v1";
-          };
-          models = {
-            "cursor-acp/auto" = {
-              name = "Auto";
-            };
-          };
-        };
-      };
       # Anthropic is trying to disallow third-party apps like opencode. For now, changing the system prompt to not mention
       # that it is opencode seems to fix it. See: https://github.com/griffinmartin/opencode-claude-auth/issues/145
       mode = {
