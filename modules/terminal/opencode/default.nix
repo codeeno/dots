@@ -44,6 +44,30 @@ in
 
     settings = {
       model = "anthropic/claude-opus-5";
+      provider = {
+        lmstudio = {
+          npm = "@ai-sdk/openai-compatible";
+          name = "LM Studio (10.0.1.12)";
+          options = {
+            baseURL = "http://10.0.1.12:1234/v1";
+          };
+          models = {
+            "qwen3.8-27b" = {
+              name = "Qwen3.8 27B (Q6_K)";
+              tool_call = true;
+              reasoning = true;
+            };
+            "qwen3.8-27b-nvfp4-mtp" = {
+              name = "Qwen3.8 27B NVFP4 MTP (VLM)";
+              tool_call = true;
+              attachment = true;
+            };
+            "text-embedding-nomic-embed-text-v1.5" = {
+              name = "Nomic Embed Text v1.5";
+            };
+          };
+        };
+      };
       mcp = {
         context7 = {
           type = "remote";
