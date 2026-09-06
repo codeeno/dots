@@ -57,6 +57,13 @@ in
               tool_call = true;
               reasoning = true;
               attachment = true;
+              modalities = {
+                input = [
+                  "text"
+                  "image"
+                ];
+                output = [ "text" ];
+              };
               limit = {
                 context = 262144;
                 output = 32768;
