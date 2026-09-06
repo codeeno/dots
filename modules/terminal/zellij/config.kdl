@@ -5,6 +5,9 @@
 theme "tokyo-night-storm"
 copy_on_select true
 default_shell "zsh"
+// The tips popup is a floating pane, and its presence blocks the
+// swap_floating_layout in layouts/default.kdl from applying in the first tab.
+show_startup_tips false
 
 //####################################################
 //# Keybinds
@@ -20,15 +23,13 @@ keybinds {
     bind "Alt w" { CloseFocus; }
     bind "Alt Shift d" { NewPane "Down"; }
 
+    // Floating panes and fullscreen
+    bind "Alt o" { ToggleFloatingPanes; }
+    bind "Alt f" { ToggleFocusFullscreen; }
+
     // Move tabs
     bind "Ctrl Alt Shift h" { MoveTab "Left"; }
     bind "Ctrl Alt Shift l" { MoveTab "Right"; }
-
-    // Navigate panes (arrow keys only, Ctrl hjkl handled by vim-zellij-navigator)
-    bind "Left" { MoveFocus "Left"; }
-    bind "Right" { MoveFocus "Right"; }
-    bind "Down" { MoveFocus "Down"; }
-    bind "Up" { MoveFocus "Up"; }
 
     // Navigate tabs
     bind "Alt Shift h" { GoToPreviousTab; }
