@@ -8,6 +8,7 @@
     ../../modules/terminal
     ../../modules/terminal/claude-code.nix
     ../../modules/terminal/llm.nix
+    ../../modules/terminal/zellij
   ];
 
   home = {
@@ -22,6 +23,7 @@
       traceroute
       wl-clipboard
       xsel
+      ethtool
     ];
 
     # WSLg exposes its Wayland socket at /mnt/wslg/runtime-dir/wayland-0,
