@@ -13,6 +13,10 @@
     configFiles = ./lua;
     pluginSource = "nixpkgs";
 
+    treesitterParsers = with pkgs.vimPlugins.nvim-treesitter-parsers; [
+      kdl
+    ];
+
     extras = {
       lang = {
         docker.enable = true;
@@ -70,6 +74,7 @@
 
       # Formatters
       gofumpt # Go
+      kdlfmt # KDL
       nixfmt # Nix
       prettier
       prettierd # JS/TS/CSS/HTML/JSON/Markdown

@@ -4,6 +4,7 @@ return {
   opts = {
     formatters_by_ft = {
       hcl = { "packer_fmt" },
+      kdl = { "kdlfmt" },
       terraform = { "tofu_fmt" },
       tf = { "tofu_fmt" },
       tofu = { "tofu_fmt" },
