@@ -45,6 +45,25 @@ in
     settings = {
       model = "anthropic/claude-opus-5";
       provider = {
+        llamacpp = {
+          npm = "@ai-sdk/openai-compatible";
+          name = "llama.cpp (10.0.1.12)";
+          options = {
+            baseURL = "http://10.0.1.12:8080/v1";
+          };
+          models = {
+            "qwen3.8-27b-nvfp4-mtp" = {
+              name = "Qwen3.8 27B NVFP4 MTP (llama.cpp)";
+              tool_call = true;
+              reasoning = true;
+              attachment = true;
+              limit = {
+                context = 262144;
+                output = 32768;
+              };
+            };
+          };
+        };
         lmstudio = {
           npm = "@ai-sdk/openai-compatible";
           name = "LM Studio (10.0.1.12)";
