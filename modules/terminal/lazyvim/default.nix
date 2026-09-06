@@ -55,7 +55,7 @@
       };
 
       ai = {
-        copilot.enable = true;
+        copilot.enable = false;
         sidekick.enable = true;
       };
 
