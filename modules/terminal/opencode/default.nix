@@ -54,9 +54,14 @@ in
         # See https://github.com/anomalyco/opencode/issues/15668
         bifrost = {
           npm = "@ai-sdk/openai-compatible";
-          name = "Bifrost (bifrost.home)";
+          name = "Bifrost (bifrost.kleboth.de)";
           options = {
-            baseURL = "http://bifrost.home/v1";
+            # https, not the bifrost.home ingress rule: *.kleboth.de is shadowed
+            # to Traefik by pihole on the LAN and covered by the wildcard Let's
+            # Encrypt cert, so this is TLS rather than plaintext. ".home" can
+            # never hold a trusted cert. Still LAN-only either way — the zone is
+            # NXDOMAIN publicly.
+            baseURL = "https://bifrost.kleboth.de/v1";
           };
           models = {
             "qwen3.8" = {
