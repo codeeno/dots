@@ -45,6 +45,39 @@ in
     settings = {
       model = "anthropic/claude-opus-5";
       provider = {
+        # Bifrost AI gateway (nas-infrastructure: kubernetes/apps/ai/bifrost).
+        # Unified endpoint — Bifrost resolves the upstream provider from the
+        # model name. Model IDs must NOT contain a slash: opencode splits
+        # "provider/model" on the first slash, so Bifrost's native
+        # "llamacpp-local/<model>" form is unusable here. The gateway's
+        # config.json defines a slash-free alias instead.
+        # See https://github.com/anomalyco/opencode/issues/15668
+        bifrost = {
+          npm = "@ai-sdk/openai-compatible";
+          name = "Bifrost (bifrost.home)";
+          options = {
+            baseURL = "http://bifrost.home/v1";
+          };
+          models = {
+            "qwen3.8" = {
+              name = "Qwen3.8 27B NVFP4 MTP (via Bifrost)";
+              tool_call = true;
+              reasoning = true;
+              attachment = true;
+              modalities = {
+                input = [
+                  "text"
+                  "image"
+                ];
+                output = [ "text" ];
+              };
+              limit = {
+                context = 262144;
+                output = 32768;
+              };
+            };
+          };
+        };
         llamacpp = {
           npm = "@ai-sdk/openai-compatible";
           name = "llama.cpp (10.0.1.12)";
@@ -68,28 +101,6 @@ in
                 context = 262144;
                 output = 32768;
               };
-            };
-          };
-        };
-        lmstudio = {
-          npm = "@ai-sdk/openai-compatible";
-          name = "LM Studio (10.0.1.12)";
-          options = {
-            baseURL = "http://10.0.1.12:1234/v1";
-          };
-          models = {
-            "qwen3.8-27b" = {
-              name = "Qwen3.8 27B (Q6_K)";
-              tool_call = true;
-              reasoning = true;
-            };
-            "qwen3.8-27b-nvfp4-mtp" = {
-              name = "Qwen3.8 27B NVFP4 MTP (VLM)";
-              tool_call = true;
-              attachment = true;
-            };
-            "text-embedding-nomic-embed-text-v1.5" = {
-              name = "Nomic Embed Text v1.5";
             };
           };
         };
