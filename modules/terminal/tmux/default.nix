@@ -142,10 +142,13 @@
         }
       }
 
+      # Toggleable popup session with one window per directory:
+      # opening it from a new directory adds a window there, reopening from a
+      # known directory jumps back to that window.
       bind-key -n M-o if-shell -F '#{==:#{session_name},popup}' {
           detach-client
       } {
-          display-popup -E -w 90% -h 90% 'tmux attach -t popup || tmux new -s popup'
+          display-popup -E -w 90% -h 90% -d '#{pane_current_path}' '${pkgs.bash}/bin/bash ${./scripts/popup.sh}'
       }
 
       # Toggleable persistent k9s popup with two pinned context windows.
