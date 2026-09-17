@@ -42,6 +42,7 @@
       "notunes"
       "raycast"
       "headlamp"
+      "cursor"
     ];
   };
 
