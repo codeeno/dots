@@ -54,27 +54,41 @@ in
     settings = {
       model = "anthropic/claude-opus-5";
       provider = {
-        # Bifrost AI gateway (nas-infrastructure: kubernetes/apps/ai/bifrost).
-        # Unified endpoint — Bifrost resolves the upstream provider from the
-        # model name. Model IDs must NOT contain a slash: opencode splits
-        # "provider/model" on the first slash, so Bifrost's native
-        # "llamacpp-local/<model>" form is unusable here. The gateway's
-        # config.json defines a slash-free alias instead.
-        # See https://github.com/anomalyco/opencode/issues/15668
         bifrost = {
           npm = "@ai-sdk/openai-compatible";
           name = "Bifrost (bifrost.kleboth.de)";
           options = {
-            # https, not the bifrost.home ingress rule: *.kleboth.de is shadowed
-            # to Traefik by pihole on the LAN and covered by the wildcard Let's
-            # Encrypt cert, so this is TLS rather than plaintext. ".home" can
-            # never hold a trusted cert. Still LAN-only either way — the zone is
-            # NXDOMAIN publicly.
             baseURL = "https://bifrost.kleboth.de/v1";
           };
           models = {
             "qwen3.8" = {
               name = "Qwen3.8 27B NVFP4 MTP (via Bifrost)";
+              tool_call = true;
+              reasoning = true;
+              attachment = true;
+              modalities = {
+                input = [
+                  "text"
+                  "image"
+                ];
+                output = [ "text" ];
+              };
+              limit = {
+                context = 262144;
+                output = 32768;
+              };
+            };
+          };
+        };
+        litellm = {
+          npm = "@ai-sdk/openai-compatible";
+          name = "LiteLLM (litellm.kleboth.de)";
+          options = {
+            baseURL = "https://litellm.kleboth.de/v1";
+          };
+          models = {
+            "qwen3.8" = {
+              name = "Qwen3.8 27B NVFP4 MTP (via LiteLLM)";
               tool_call = true;
               reasoning = true;
               attachment = true;
