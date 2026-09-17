@@ -3,6 +3,7 @@
   home = {
     packages = with pkgs; [
       ansible
+      argocd
       awscli2
       bat
       broot

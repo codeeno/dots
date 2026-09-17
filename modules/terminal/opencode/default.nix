@@ -21,6 +21,14 @@ let
     hash = "sha256-ocWViFf5KO0Lt0yM/vu4barAOCZBlvvj0iu17XCW1GE=";
   };
 
+  # https://github.com/ayghri/i-have-adhd
+  i-have-adhd = pkgs.fetchFromGitHub {
+    owner = "ayghri";
+    repo = "i-have-adhd";
+    rev = "24d22f783e57cb73c957848b588c6f651b6f9cd8";
+    hash = "sha256-xTVs8SFhJEil8yjx3ODB7Gn3h1rg4QSq4zHPncWvV3c=";
+  };
+
   # https://github.com/ClickHouse/agent-skills
   clickhouse-agent-skills = pkgs.fetchFromGitHub {
     owner = "ClickHouse";
@@ -40,6 +48,7 @@ in
       chdb-sql = "${clickhouse-agent-skills}/skills/chdb-sql";
       clickhouse-architecture-advisor = "${clickhouse-agent-skills}/skills/clickhouse-architecture-advisor";
       clickhouse-best-practices = "${clickhouse-agent-skills}/skills/clickhouse-best-practices";
+      i-have-adhd = "${i-have-adhd}/skills/i-have-adhd";
     };
 
     settings = {
