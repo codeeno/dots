@@ -1,4 +1,4 @@
-hostname := shell('h=$(hostname); if [ "$h" = "VAL-028902" ]; then echo macbook; else echo "$h"; fi')
+hostname := shell('h=$(hostname); if [ "$h" = "M-KHYYY0K712" ]; then echo macbook; else echo "$h"; fi')
 user := shell('whoami')
 
 switch-darwin:
