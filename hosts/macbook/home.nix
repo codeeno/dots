@@ -11,8 +11,6 @@
     ../../modules/services/colima.nix
     ../../modules/terminal
     ../../modules/terminal/claude-code.nix
-    ../../modules/terminal/cursor-agent.nix
-    ../../modules/terminal/opencode/cursor.nix
     ../../modules/programs/ghostty.nix
     ../../modules/terminal/granted.nix
     ../../modules/terminal/llm.nix

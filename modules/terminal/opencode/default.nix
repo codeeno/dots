@@ -53,6 +53,9 @@ in
 
     settings = {
       model = "anthropic/claude-opus-5";
+      # Plugins resolve to @latest when unpinned, which re-runs the npm install
+      # path on every startup. See anomalyco/opencode#23143 and #8729.
+      autoupdate = false;
       provider = {
         bifrost = {
           npm = "@ai-sdk/openai-compatible";
@@ -145,7 +148,9 @@ in
         };
       };
       plugin = [
-        "opencode-claude-auth"
+        # Pin exactly: a bare name resolves to @latest and re-installs on every
+        # startup. Bump deliberately when a new version is needed.
+        "opencode-claude-auth@2.2.1"
         # Disable superpowers for now
         # "superpowers@git+https://github.com/obra/superpowers.git"
       ];
@@ -178,6 +183,9 @@ in
 
   home.sessionVariables = {
     OPENCODE_ENABLE_EXA = "1";
+    # Skips the blocking initial loading screen. Measured 3.5-6.3s -> 1.8s to an
+    # interactive TUI. Undocumented upstream (anomalyco/opencode#14965).
+    OPENCODE_FAST_BOOT = "1";
   };
 
   programs.zsh.shellAliases = {
