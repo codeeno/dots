@@ -111,6 +111,15 @@
       bind-key -T copy-mode-vi 'C-k' select-pane -U
       bind-key -T copy-mode-vi 'C-l' select-pane -R
 
+      # Paste the system clipboard via tmux instead of the terminal.
+      # Terminal paste is broken inside popups: popups handle keys in popup_key_cb, which has no
+      # bracketed-paste support, so every newline is treated as Ctrl+J and encoded as
+      # \e[27;5;106~ by extended-keys. See https://github.com/tmux/tmux/issues/4431.
+      # paste-buffer writes into the pane directly and never touches that path.
+      bind-key -n M-v run-shell '${pkgs.tmux}/bin/tmux set-buffer -- "$(${
+        if pkgs.stdenv.hostPlatform.isDarwin then "pbpaste" else "${pkgs.xsel}/bin/xsel -ob"
+      })" \; paste-buffer -p -t "$TMUX_PANE"'
+
       # Enter copy mode easier and make selection more like vim
       bind-key -n C-f copy-mode
       unbind-key -T copy-mode-vi v # Default rectangle selection key. Unbind to avoid conflict
