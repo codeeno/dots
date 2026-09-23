@@ -13,6 +13,14 @@
   security.pam.services.sudo_local.reattach = true;
   security.pam.services.sudo_local.touchIdAuth = true;
 
+  # home-manager's zshrc runs compinit/bashcompinit; running them here too
+  # (with a different fpath) invalidates .zcompdump on every shell start
+  programs.zsh = {
+    enableGlobalCompInit = false;
+    enableBashCompletion = false;
+    promptInit = ""; # `prompt suse` is overridden by starship anyway
+  };
+
   environment.etc."resolver/home".text = ''
     nameserver 10.0.1.50
   '';
