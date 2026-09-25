@@ -144,8 +144,8 @@ via Nix store paths in `zsh/default.nix`. Functions use lowercase names, `local`
 
 | Host | System | Imports | Notes |
 |------|--------|---------|-------|
-| `chihiro` | x86_64-linux | terminal, kitty, zellij, claude-code, opencode, llm, colima | NVIDIA GPU, nerd-fonts, xsel |
-| `macbook` | aarch64-darwin | terminal, kitty, ghostty, zed, zellij, claude-code, opencode, llm, colima | nix-darwin, work git email |
+| `chihiro` | x86_64-linux | terminal, kitty, zellij, claude-code, opencode, opencode-desktop, llm, colima | NVIDIA GPU, nerd-fonts, xsel |
+| `macbook` | aarch64-darwin | terminal, kitty, ghostty, zed, zellij, claude-code, opencode, opencode-desktop, llm, colima | nix-darwin, work git email |
 | `arch-wsl` | x86_64-linux | terminal, claude-code, llm | Minimal, ssh-agent |
 
 ## Git Conventions

@@ -6,6 +6,7 @@
 {
   imports = [
     ../../modules/programs/kitty.nix
+    ../../modules/programs/opencode-desktop.nix
     ../../modules/services/colima.nix
     ../../modules/terminal
     ../../modules/terminal/claude-code.nix
