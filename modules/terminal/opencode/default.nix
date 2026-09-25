@@ -52,7 +52,7 @@ in
     };
 
     settings = {
-      model = "anthropic/claude-opus-5";
+      model = "anthropic/claude-opus-5-5";
       # Plugins resolve to @latest when unpinned, which re-runs the npm install
       # path on every startup. See anomalyco/opencode#23143 and #8729.
       autoupdate = false;
