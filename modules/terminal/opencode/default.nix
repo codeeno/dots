@@ -304,11 +304,6 @@ in
     text = builtins.toJSON oh-my-opencode-slim;
   };
 
-  # TODO: remove this workaround once https://github.com/anomalyco/opencode/issues/16885 is fixed.
-  # The migration gate checks for opencode.db but the stable channel uses opencode-stable.db,
-  # so the "one time database migration" message appears on every startup.
-  home.file.".local/share/opencode/opencode.db".text = "";
-
   home.sessionVariables = {
     OPENCODE_ENABLE_EXA = "1";
     # Required by oh-my-opencode-slim: the orchestrator dispatches specialists as
