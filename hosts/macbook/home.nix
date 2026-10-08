@@ -41,6 +41,7 @@
       nss
       rancher
       s5cmd
+      steampipe
       stu
       trino-cli
     ];
