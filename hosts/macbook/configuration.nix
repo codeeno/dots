@@ -51,6 +51,7 @@
       "raycast"
       "headlamp"
       "cursor"
+      "claude"
     ];
   };
 
