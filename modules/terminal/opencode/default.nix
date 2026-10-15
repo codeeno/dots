@@ -45,11 +45,12 @@ let
     "$schema" = "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json";
     preset = "anthropic";
     presets = {
-      # Variants are omitted on purpose: opencode defines no reasoning variants for
-      # anthropic models, so the plugin would pass an unknown effort level through.
+      # opencode derives reasoning variants (low/medium/high/xhigh/max) for modern
+      # anthropic models, so `variant` may be set for those; older models have none.
       anthropic = {
         orchestrator = {
-          model = "anthropic/claude-opus-5";
+          model = "anthropic/claude-opus-5-5";
+          variant = "medium";
           skills = [ "*" ];
           mcps = [
             "*"
@@ -57,12 +58,12 @@ let
           ];
         };
         oracle = {
-          model = "anthropic/claude-opus-5";
+          model = "anthropic/claude-opus-5-5";
           skills = [ "simplify" ];
           mcps = [ ];
         };
         council = {
-          model = "anthropic/claude-opus-5";
+          model = "anthropic/claude-opus-5-5";
           skills = [ ];
           mcps = [ ];
         };
@@ -96,7 +97,7 @@ let
       presets = {
         default = {
           alpha = {
-            model = "anthropic/claude-opus-5";
+            model = "anthropic/claude-opus-5-5";
           };
           beta = {
             model = "anthropic/claude-sonnet-5";
@@ -129,7 +130,7 @@ in
     };
 
     settings = {
-      model = "anthropic/claude-opus-5";
+      model = "anthropic/claude-opus-5-5#medium";
       provider = {
         bifrost = {
           npm = "@ai-sdk/openai-compatible";
@@ -264,7 +265,8 @@ in
         };
       };
       plugin = [
-        "opencode-claude-auth"
+        # Pinned: opencode resolves an unversioned spec once and never refreshes it.
+        "opencode-claude-auth@2.2.1"
         "oh-my-opencode-slim"
         # Disable superpowers for now
         # "superpowers@git+https://github.com/obra/superpowers.git"
