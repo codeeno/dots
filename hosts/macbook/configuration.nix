@@ -41,6 +41,7 @@
     brews = [
       "chdig"
       "duckdb"
+      "llmfit"
       "openssl"
     ];
 
