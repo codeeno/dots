@@ -84,6 +84,7 @@
   };
 
   imports = [
+    ./agent-skills.nix
     ./argonaut.nix
     ./btop.nix
     ./delta.nix

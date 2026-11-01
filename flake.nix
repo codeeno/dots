@@ -23,6 +23,11 @@
     zjstatus = {
       url = "github:dj95/zjstatus";
     };
+    # Skill sources are pinned in registry/sources.lock.json (npins) instead of
+    # flake inputs; see registry/sources/*.nix and `just lock-skills`.
+    agent-skills = {
+      url = "github:Kyure-A/agent-skills-nix";
+    };
   };
 
   outputs =

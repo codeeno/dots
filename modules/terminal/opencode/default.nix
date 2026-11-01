@@ -3,53 +3,12 @@
   pkgs,
   ...
 }:
-let
-  # Pinned snapshot of github/awesome-copilot — skills from this repo are used via
-  # programs.opencode.skills. Bump rev + hash to update.
-  awesome-copilot = pkgs.fetchFromGitHub {
-    owner = "github";
-    repo = "awesome-copilot";
-    rev = "63d08d51f792d53feec8c1c06897cee870e83c18";
-    hash = "sha256-ZCyhl2F6oBj6FYNfPKfS1jpf7RI/OVHJQi1C7kpxDjo=";
-  };
-
-  # https://github.com/JuliusBrussee/caveman
-  caveman = pkgs.fetchFromGitHub {
-    owner = "JuliusBrussee";
-    repo = "caveman";
-    rev = "v1.9.0";
-    hash = "sha256-ocWViFf5KO0Lt0yM/vu4barAOCZBlvvj0iu17XCW1GE=";
-  };
-
-  # https://github.com/ayghri/i-have-adhd
-  i-have-adhd = pkgs.fetchFromGitHub {
-    owner = "ayghri";
-    repo = "i-have-adhd";
-    rev = "24d22f783e57cb73c957848b588c6f651b6f9cd8";
-    hash = "sha256-xTVs8SFhJEil8yjx3ODB7Gn3h1rg4QSq4zHPncWvV3c=";
-  };
-
-  # https://github.com/ClickHouse/agent-skills
-  clickhouse-agent-skills = pkgs.fetchFromGitHub {
-    owner = "ClickHouse";
-    repo = "agent-skills";
-    rev = "544384f4fab1d6ed59f16a354d1c68296dfa6007";
-    hash = "sha256-sfoqJnCEWRcD4S27mYkulC7oB++v36CVPx0urwnt93Q=";
-  };
-in
 {
   programs.opencode = {
     enable = lib.mkDefault true;
 
-    skills = {
-      excalidraw-diagram-generator = "${awesome-copilot}/skills/excalidraw-diagram-generator";
-      caveman = "${caveman}/plugins/caveman/skills/caveman";
-      chdb-datastore = "${clickhouse-agent-skills}/skills/chdb-datastore";
-      chdb-sql = "${clickhouse-agent-skills}/skills/chdb-sql";
-      clickhouse-architecture-advisor = "${clickhouse-agent-skills}/skills/clickhouse-architecture-advisor";
-      clickhouse-best-practices = "${clickhouse-agent-skills}/skills/clickhouse-best-practices";
-      i-have-adhd = "${i-have-adhd}/skills/i-have-adhd";
-    };
+    # Skills are managed by modules/terminal/agent-skills.nix (programs.agent-skills),
+    # which syncs the selected skill set into ~/.config/opencode/skills.
 
     settings = {
       model = "anthropic/claude-opus-5-5#medium";

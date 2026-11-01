@@ -1,0 +1,138 @@
+{
+  "manifests": {
+    "awesome-copilot": {
+      "filter": {
+        "maxDepth": null,
+        "nameRegex": null
+      },
+      "idPrefix": null,
+      "pin": {
+        "at": null,
+        "branch": "main",
+        "owner": "github",
+        "preReleases": false,
+        "releasePrefix": null,
+        "repo": "awesome-copilot",
+        "submodules": false,
+        "type": "github",
+        "versionUpperBound": null
+      },
+      "subdir": "skills"
+    },
+    "caveman": {
+      "filter": {
+        "maxDepth": null,
+        "nameRegex": null
+      },
+      "idPrefix": null,
+      "pin": {
+        "at": null,
+        "branch": "main",
+        "owner": "JuliusBrussee",
+        "preReleases": false,
+        "releasePrefix": null,
+        "repo": "caveman",
+        "submodules": false,
+        "type": "github",
+        "versionUpperBound": null
+      },
+      "subdir": "plugins/caveman/skills"
+    },
+    "clickhouse": {
+      "filter": {
+        "maxDepth": null,
+        "nameRegex": null
+      },
+      "idPrefix": null,
+      "pin": {
+        "at": null,
+        "branch": "main",
+        "owner": "ClickHouse",
+        "preReleases": false,
+        "releasePrefix": null,
+        "repo": "agent-skills",
+        "submodules": false,
+        "type": "github",
+        "versionUpperBound": null
+      },
+      "subdir": "skills"
+    },
+    "i-have-adhd": {
+      "filter": {
+        "maxDepth": null,
+        "nameRegex": null
+      },
+      "idPrefix": null,
+      "pin": {
+        "at": null,
+        "branch": "main",
+        "owner": "ayghri",
+        "preReleases": false,
+        "releasePrefix": null,
+        "repo": "i-have-adhd",
+        "submodules": false,
+        "type": "github",
+        "versionUpperBound": null
+      },
+      "subdir": "skills"
+    }
+  },
+  "npins": {
+    "pins": {
+      "awesome-copilot": {
+        "branch": "main",
+        "hash": "sha256-Pni4IMcuZJc0Ny8DbyciFXnYfN32n2MY3L4kvtAcILo=",
+        "repository": {
+          "owner": "github",
+          "repo": "awesome-copilot",
+          "type": "GitHub"
+        },
+        "revision": "5269f7ea2d6c3a9bfda5ed878b6726cf509121fd",
+        "submodules": false,
+        "type": "Git",
+        "url": "https://github.com/github/awesome-copilot/archive/5269f7ea2d6c3a9bfda5ed878b6726cf509121fd.tar.gz"
+      },
+      "caveman": {
+        "branch": "main",
+        "hash": "sha256-fuSsPP7GMuAZ5Ab2paS41RAo5k/objd503ElcMeMgsk=",
+        "repository": {
+          "owner": "JuliusBrussee",
+          "repo": "caveman",
+          "type": "GitHub"
+        },
+        "revision": "9b68f7ed12b05e7efaff18e65c5a3fc2849fd0a4",
+        "submodules": false,
+        "type": "Git",
+        "url": "https://github.com/JuliusBrussee/caveman/archive/9b68f7ed12b05e7efaff18e65c5a3fc2849fd0a4.tar.gz"
+      },
+      "clickhouse": {
+        "branch": "main",
+        "hash": "sha256-sNZwQgjbQa8Z0pz/qd7J6k6ubFxhngMJO0R0g3P9i2U=",
+        "repository": {
+          "owner": "ClickHouse",
+          "repo": "agent-skills",
+          "type": "GitHub"
+        },
+        "revision": "69a8354b05b5942e5cea77b6c87be7788303fc18",
+        "submodules": false,
+        "type": "Git",
+        "url": "https://github.com/ClickHouse/agent-skills/archive/69a8354b05b5942e5cea77b6c87be7788303fc18.tar.gz"
+      },
+      "i-have-adhd": {
+        "branch": "main",
+        "hash": "sha256-GTqrnZxQvzo/ogAuUrffkOaMK1BYm/4rAZsnfmDt7DU=",
+        "repository": {
+          "owner": "ayghri",
+          "repo": "i-have-adhd",
+          "type": "GitHub"
+        },
+        "revision": "1ecea1993b7fce257ffbd686c070948b5e07eda6",
+        "submodules": false,
+        "type": "Git",
+        "url": "https://github.com/ayghri/i-have-adhd/archive/1ecea1993b7fce257ffbd686c070948b5e07eda6.tar.gz"
+      }
+    },
+    "version": 8
+  },
+  "schemaVersion": 1
+}

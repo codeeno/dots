@@ -1,5 +1,23 @@
 {
   "nodes": {
+    "agent-skills": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1792594212,
+        "narHash": "sha256-XWx3R/AIeYdyZ3guuZVNqirEUPPpehICrIRV3VabR+U=",
+        "owner": "Kyure-A",
+        "repo": "agent-skills-nix",
+        "rev": "f48aa227f3d157ae3abda12cd9c4ab867f400419",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Kyure-A",
+        "repo": "agent-skills-nix",
+        "type": "github"
+      }
+    },
     "brew-src": {
       "flake": false,
       "locked": {
@@ -149,6 +167,22 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1791594108,
+        "narHash": "sha256-XK4KceonkwD8LuMAt/vNrz982mXJM5jeHAxMwsUXXAQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "6510408d147d8c5e6d76043e899e9251756f6a75",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1791048980,
         "narHash": "sha256-KgItSKML8Xvte0B7/uGnBDsYzSnnKHcOaiUbgWBXLXw=",
         "owner": "nixos",
@@ -163,7 +197,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1789073787,
         "narHash": "sha256-xfX/toC2QV707s06GbP4II/TxYF0fNQj7s5/LClNDKc=",
@@ -181,11 +215,12 @@
     },
     "root": {
       "inputs": {
+        "agent-skills": "agent-skills",
         "darwin": "darwin",
         "home-manager": "home-manager",
         "lazyvim": "lazyvim",
         "nix-homebrew": "nix-homebrew",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "zjstatus": "zjstatus"
       }
     },
@@ -244,7 +279,7 @@
       "inputs": {
         "crane": "crane",
         "flake-utils": "flake-utils_2",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "rust-overlay": "rust-overlay"
       },
       "locked": {

@@ -14,6 +14,10 @@ switch-hm-dry-run:
 update:
     nix flake update
 
+# Regenerate registry/sources.lock.json after editing registry/sources/*.nix (run from the repo root)
+lock-skills:
+    nix run github:Kyure-A/agent-skills-nix#skills-sources-lock
+
 # Remove unreachable paths, keep generations
 gc:
     nix store gc --verbose
