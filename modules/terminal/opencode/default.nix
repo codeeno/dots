@@ -243,11 +243,16 @@ in
       ];
     };
 
-    # TUI config (cli.json). TUI plugins live here, not in settings.
     cli = {
       theme.name = "tokyonight";
       keybinds = {
         "prompt.editor" = "ctrl+g";
+        # Submit from vim insert mode, where Enter inserts a newline
+        "prompt.submit" = "alt+return";
+        # Default includes alt+return, which takes precedence over prompt.submit
+        "input.newline" = "shift+return,ctrl+return,ctrl+j";
+        "session.tab.previous" = "alt+h";
+        "session.tab.next" = "alt+l";
       };
       diffs.wrap = "word";
       session = {
@@ -257,11 +262,12 @@ in
       };
       animations = true;
       plugins = [
-        # https://github.com/leohenon/opencode-vim-plugin
         {
           package = "@leohenon/opencode-vim-plugin@beta";
           options = {
             enabled = true;
+            vim_system_clipboard_register = true;
+            vim_escape_sequence = "jk";
           };
         }
       ];

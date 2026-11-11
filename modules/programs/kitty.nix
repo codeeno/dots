@@ -55,12 +55,14 @@
       # Send CSI u escape sequence for Shift+Enter so tmux (and apps inside it) can distinguish it from plain Enter.
       # Needed because tmux negotiates modifyOtherKeys with kitty, which does not encode modified Enter/Tab/Backspace.
       "shift+enter" = "send_text all \\x1b[13;2u";
+      # Send Alt+Enter (modifier 3 = alt) for kitty_mod+Enter, so the same physical key works on Linux (alt) and macOS (cmd).
+      # Also overrides kitty's default kitty_mod+enter (new_window).
+      "kitty_mod+enter" = "send_text all \\x1b[13;3u";
 
       # Unbind kitty default binding to free it up for use in other programs
       "kitty_mod+d" = "no_op";
       "kitty_mod+shift+d" = "no_op";
       "kitty_mod+w" = "no_op";
-      "kitty_mod+enter" = "no_op";
 
       "kitty_mod+up" = "no_op";
       "kitty_mod+left" = "no_op";
