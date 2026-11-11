@@ -52,165 +52,219 @@ in
     };
 
     settings = {
-      model = "anthropic/claude-opus-5-5#medium";
-      provider = {
+      model = "anthropic/claude-opus-5-5";
+      # Anthropic is trying to disallow third-party apps like opencode. For now, changing the system prompt to not mention
+      # that it is opencode seems to fix it. See: https://github.com/griffinmartin/opencode-claude-auth/issues/145
+      agents = {
+        build = {
+          model = "anthropic/claude-opus-5-5#medium";
+          system = "You are Claude Code, Anthropic's official CLI for Claude.";
+        };
+        plan = {
+          model = "anthropic/claude-opus-5-5#medium";
+          system = "You are Claude Code, Anthropic's official CLI for Claude.";
+        };
+      };
+      providers = {
         bifrost = {
-          npm = "@ai-sdk/openai-compatible";
+          package = "aisdk:@ai-sdk/openai-compatible";
           name = "Bifrost (bifrost.kleboth.de)";
-          options = {
+          settings = {
             baseURL = "https://bifrost.kleboth.de/v1";
           };
           models = {
             "qwen3.8" = {
               name = "Qwen3.8 27B NVFP4 MTP (via Bifrost)";
-              tool_call = true;
-              reasoning = true;
-              attachment = true;
-              modalities = {
+              capabilities = {
+                tools = true;
                 input = [
                   "text"
                   "image"
                 ];
                 output = [ "text" ];
+                reasoning = {
+                  supported = true;
+                };
               };
               limit = {
                 context = 262144;
                 output = 32768;
               };
-              variants = {
-                none = {
-                  reasoningEffort = "none";
-                };
-                low = {
-                  reasoningEffort = "low";
-                };
-                medium = {
-                  reasoningEffort = "medium";
-                };
-                xhigh = {
-                  reasoningEffort = "xhigh";
-                };
-              };
+              variants = [
+                {
+                  id = "none";
+                  settings = {
+                    reasoningEffort = "none";
+                  };
+                }
+                {
+                  id = "low";
+                  settings = {
+                    reasoningEffort = "low";
+                  };
+                }
+                {
+                  id = "medium";
+                  settings = {
+                    reasoningEffort = "medium";
+                  };
+                }
+                {
+                  id = "xhigh";
+                  settings = {
+                    reasoningEffort = "xhigh";
+                  };
+                }
+              ];
             };
           };
         };
         litellm = {
-          npm = "@ai-sdk/openai-compatible";
+          package = "aisdk:@ai-sdk/openai-compatible";
           name = "LiteLLM (litellm.kleboth.de)";
-          options = {
+          settings = {
             baseURL = "https://litellm.kleboth.de/v1";
           };
           models = {
             "qwen3.8" = {
               name = "Qwen3.8 27B NVFP4 MTP (via LiteLLM)";
-              tool_call = true;
-              reasoning = true;
-              attachment = true;
-              modalities = {
+              capabilities = {
+                tools = true;
                 input = [
                   "text"
                   "image"
                 ];
                 output = [ "text" ];
+                reasoning = {
+                  supported = true;
+                };
               };
               limit = {
                 context = 262144;
                 output = 32768;
               };
-              variants = {
-                none = {
-                  reasoningEffort = "none";
-                };
-                low = {
-                  reasoningEffort = "low";
-                };
-                medium = {
-                  reasoningEffort = "medium";
-                };
-                xhigh = {
-                  reasoningEffort = "xhigh";
-                };
-              };
+              variants = [
+                {
+                  id = "none";
+                  settings = {
+                    reasoningEffort = "none";
+                  };
+                }
+                {
+                  id = "low";
+                  settings = {
+                    reasoningEffort = "low";
+                  };
+                }
+                {
+                  id = "medium";
+                  settings = {
+                    reasoningEffort = "medium";
+                  };
+                }
+                {
+                  id = "xhigh";
+                  settings = {
+                    reasoningEffort = "xhigh";
+                  };
+                }
+              ];
             };
           };
         };
         llamacpp = {
-          npm = "@ai-sdk/openai-compatible";
+          package = "aisdk:@ai-sdk/openai-compatible";
           name = "llama.cpp (10.0.1.12)";
-          options = {
+          settings = {
             baseURL = "http://10.0.1.12:8080/v1";
           };
           models = {
             "qwen3.8-27b-nvfp4-mtp" = {
               name = "Qwen3.8 27B NVFP4 MTP (llama.cpp)";
-              tool_call = true;
-              reasoning = true;
-              attachment = true;
-              modalities = {
+              capabilities = {
+                tools = true;
                 input = [
                   "text"
                   "image"
                 ];
                 output = [ "text" ];
+                reasoning = {
+                  supported = true;
+                };
               };
               limit = {
                 context = 262144;
                 output = 32768;
               };
-              variants = {
-                none = {
-                  reasoningEffort = "none";
-                };
-                low = {
-                  reasoningEffort = "low";
-                };
-                medium = {
-                  reasoningEffort = "medium";
-                };
-                xhigh = {
-                  reasoningEffort = "xhigh";
-                };
-              };
+              variants = [
+                {
+                  id = "none";
+                  settings = {
+                    reasoningEffort = "none";
+                  };
+                }
+                {
+                  id = "low";
+                  settings = {
+                    reasoningEffort = "low";
+                  };
+                }
+                {
+                  id = "medium";
+                  settings = {
+                    reasoningEffort = "medium";
+                  };
+                }
+                {
+                  id = "xhigh";
+                  settings = {
+                    reasoningEffort = "xhigh";
+                  };
+                }
+              ];
             };
           };
         };
       };
       mcp = {
-        context7 = {
-          type = "remote";
-          url = "https://mcp.context7.com/mcp";
-        };
-        nixos = {
-          type = "local";
-          command = [ "${pkgs.mcp-nixos}/bin/mcp-nixos" ];
-          enabled = true;
+        servers = {
+          context7 = {
+            type = "remote";
+            url = "https://mcp.context7.com/mcp";
+          };
+          nixos = {
+            type = "local";
+            command = [ "${pkgs.mcp-nixos}/bin/mcp-nixos" ];
+          };
         };
       };
-      plugin = [
-        # Pinned: opencode resolves an unversioned spec once and never refreshes it.
-        "opencode-claude-auth@2.2.1"
-        # Disable superpowers for now
-        # "superpowers@git+https://github.com/obra/superpowers.git"
+      plugins = [
+        "opencode-claude-auth@3.0.0"
       ];
-      # Anthropic is trying to disallow third-party apps like opencode. For now, changing the system prompt to not mention
-      # that it is opencode seems to fix it. See: https://github.com/griffinmartin/opencode-claude-auth/issues/145
-      mode = {
-        plan = {
-          prompt = "You are Claude Code, Anthropic's official CLI for Claude.";
-        };
-        build = {
-          prompt = "You are Claude Code, Anthropic's official CLI for Claude.";
-        };
-      };
     };
-  };
 
-  xdg.configFile."opencode/tui.json" = {
-    text = builtins.toJSON {
-      theme = "tokyonight";
+    # TUI config (cli.json). TUI plugins live here, not in settings.
+    cli = {
+      theme.name = "tokyonight";
       keybinds = {
-        editor_open = "ctrl+g";
+        "prompt.editor" = "ctrl+g";
       };
+      diffs.wrap = "word";
+      session = {
+        sidebar = "hide";
+        scrollbar = true;
+        thinking = "show";
+      };
+      animations = true;
+      plugins = [
+        # https://github.com/leohenon/opencode-vim-plugin
+        {
+          package = "@leohenon/opencode-vim-plugin@beta";
+          options = {
+            enabled = true;
+          };
+        }
+      ];
     };
   };
 

@@ -60,6 +60,7 @@
       "kitty_mod+d" = "no_op";
       "kitty_mod+shift+d" = "no_op";
       "kitty_mod+w" = "no_op";
+      "kitty_mod+enter" = "no_op";
 
       "kitty_mod+up" = "no_op";
       "kitty_mod+left" = "no_op";
