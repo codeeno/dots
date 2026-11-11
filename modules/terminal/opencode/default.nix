@@ -228,6 +228,10 @@ in
       };
       mcp = {
         servers = {
+          atlassian = {
+            type = "remote";
+            url = "https://mcp.atlassian.com/v1/mcp";
+          };
           context7 = {
             type = "remote";
             url = "https://mcp.context7.com/mcp";
