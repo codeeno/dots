@@ -31,6 +31,7 @@
     ];
 
     packages = with pkgs; [
+      acli
       aws-nuke
       clickhouse
       crossplane-cli

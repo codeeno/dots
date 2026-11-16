@@ -251,12 +251,8 @@ in
       theme.name = "tokyonight";
       keybinds = {
         "prompt.editor" = "ctrl+g";
-        # Submit from vim insert mode, where Enter inserts a newline
-        "prompt.submit" = "alt+return";
-        # Default includes alt+return, which takes precedence over prompt.submit
-        "input.newline" = "shift+return,ctrl+return,ctrl+j";
-        "session.tab.previous" = "alt+h";
-        "session.tab.next" = "alt+l";
+        "prompt.submit" = "alt+return,shift+return";
+        "input.newline" = "ctrl+return,ctrl+j";
       };
       diffs.wrap = "word";
       session = {
@@ -272,6 +268,10 @@ in
             enabled = true;
             vim_system_clipboard_register = true;
             vim_escape_sequence = "jk";
+            normal_keybinds = {
+              "shift+h" = "session.tab.previous";
+              "shift+l" = "session.tab.next";
+            };
           };
         }
       ];
