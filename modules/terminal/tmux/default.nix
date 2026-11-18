@@ -49,6 +49,9 @@
       set-window-option -g automatic-rename on
       set-option -g set-titles on
 
+      # tmux 3.8 defaults popup-style to a grey theme background; keep the terminal background
+      set -g popup-style default
+
       # Where the status bar is to be positioned
       set-option -g status-position bottom
 
@@ -151,13 +154,13 @@
         }
       }
 
-      # Toggleable popup session with one window per directory:
-      # opening it from a new directory adds a window there, reopening from a
-      # known directory jumps back to that window.
+      # The script works around Escape being delayed/merged into M-<key> in the nested client.
       bind-key -n M-o if-shell -F '#{==:#{session_name},popup}' {
           detach-client
       } {
-          display-popup -E -w 90% -h 90% -d '#{pane_current_path}' '${pkgs.bash}/bin/bash ${./scripts/popup.sh}'
+          display-popup -E -w 90% -h 90% '${pkgs.bash}/bin/bash ${
+            pkgs.replaceVars ./scripts/popup.sh { python3 = "${pkgs.python3}/bin/python3"; }
+          }'
       }
 
       # Toggleable persistent k9s popup with two pinned context windows.
