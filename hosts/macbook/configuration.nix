@@ -61,9 +61,16 @@
 
     defaults = {
       NSGlobalDomain = {
+        AppleInterfaceStyle = "Dark";
         AppleShowAllExtensions = true;
         InitialKeyRepeat = 10;
         KeyRepeat = 1;
+        "com.apple.swipescrolldirection" = false;
+      };
+
+      trackpad = {
+        Clicking = true;
+        TrackpadRightClick = true;
       };
     };
   };

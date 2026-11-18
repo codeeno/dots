@@ -6,6 +6,7 @@
 }:
 {
   imports = [
+    ../../modules/programs/firefox.nix
     ../../modules/programs/kitty.nix
     ../../modules/programs/opencode-desktop.nix
     ../../modules/programs/zed.nix
