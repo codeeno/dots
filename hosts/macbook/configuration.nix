@@ -48,6 +48,8 @@
     casks = [
       "aws/tap/ec2-spot-interrupter"
       "drawio"
+      "firefox"
+      "firefox@developer-edition"
       "notunes"
       "raycast"
       "headlamp"
