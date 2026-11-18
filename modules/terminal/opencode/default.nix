@@ -271,7 +271,33 @@ in
             normal_keybinds = {
               "shift+h" = "session.tab.previous";
               "shift+l" = "session.tab.next";
-            };
+              "spacea" = "agent.list";
+              "spaceb" = "session.sidebar.toggle";
+              "spacec" = "session.compact";
+              "spaceg" = "session.timeline";
+              "spacei" = "prompt.images.view";
+              "spacel" = "session.list";
+              "spacem" = "model.list";
+              "spacen" = "session.new";
+              "spaceqq" = "app.exit";
+              "spacer" = "session.redo";
+              "spaces" = "opencode.status";
+              "spacet" = "terminal.toggle";
+              "spaceu" = "session.undo";
+              "spacew" = "session.tab.close";
+              "spacex" = "session.export";
+              "spacey" = "messages.copy";
+              "spacereturn" = "prompt.queue";
+              "spaceleft" = "pane.focus.left";
+              "spaceright" = "pane.focus.right";
+              "spaceup" = "terminal.close";
+              "spacedown" = "terminal.select";
+            }
+            // lib.listToAttrs (
+              map (n: lib.nameValuePair "space${toString (lib.mod n 10)}" "session.tab.select.${toString n}") (
+                lib.range 1 10
+              )
+            );
           };
         }
       ];
